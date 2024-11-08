@@ -77,7 +77,7 @@ const HeroSection = styled.section`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  font-family: 'Poppins', sans-serif; /* Custom font */
+  font-family: 'Poppins', sans-serif;
 `;
 
 const ImageSlider = styled.div`
@@ -103,7 +103,7 @@ const Slide = styled.img`
   height: 100vh;
   object-fit: cover;
   filter: brightness(60%);
-  transition: opacity 1s ease-in-out; /* Add fade transition */
+  transition: opacity 1s ease-in-out;
   opacity: ${({ currentImageIndex }) => (currentImageIndex ? 0 : 1)};
 `;
 
@@ -122,6 +122,14 @@ const Content = styled.div`
   color: white;
   padding: 0 2rem;
   transition: all 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem; // Reduce padding on smaller screens
+  }
+
+  @media (min-width: 768px) {
+    padding: 0 4rem; // Increase padding on larger screens for better spacing
+  }
 `;
 
 const Title = styled.div`
@@ -149,12 +157,42 @@ const GradientBackground = styled.div`
     font-weight: 500;
     line-height: 1.5;
   }
+
+  @media (max-width: 768px) {
+    padding: 2rem; // Reduce padding on mobile
+    h1 {
+      font-size: 2rem; // Adjust header size on mobile
+    }
+    p {
+      font-size: 1.2rem; // Adjust paragraph size on mobile
+      padding: 0 10vw; // Reduce padding for better readability
+    }
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 4rem; // Keep large font size for desktop
+    }
+    p {
+      font-size: 1.4rem; // Adjust paragraph size for desktop
+      padding: 0 15vw; // Increase padding on desktop for better readability
+    }
+  }
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
   gap: 1.5rem;
   margin-top: 3rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem; // Stack buttons vertically on smaller screens
+  }
+
+  @media (min-width: 768px) {
+    gap: 2rem; // Increase gap on larger screens
+  }
 `;
 
 const buttonBase = `
@@ -194,7 +232,7 @@ const FormWrapper = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ;
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
