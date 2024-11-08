@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const ToggleIcon = styled.div`
   display: none;
 
-  @media screen and (min-width: 280px) and (max-width: 1080px) {
+  @media screen and (max-width: 1080px) {
     display: block;
   }
 `;
@@ -41,31 +41,32 @@ export default function Navbar() {
             {navbarState ? <VscChromeClose /> : <GiHamburgerMenu />}
           </ToggleIcon>
         </Brand>
+
+        {/* Desktop NavLinks */}
         <NavLinks>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/About">About</Link></li>
           <li><Link to="/properties">Properties</Link></li>
         </NavLinks>
       </StyledNav>
-      {/* <SidebarToggle onClick={() => setSidebarState((prev) => !prev)} aria-label="Open Sidebar">
-        Dashboard
-      </SidebarToggle>
-      <Sidebar state={sidebarState}>
-        <SidebarLinks>
-          <li><Link to="/projects">Destinations</Link></li>
-          <li><Link to="/users">Users</Link></li>
-          <li><Link to="/sitevisit">Site Visit</Link></li>
-          <li><Link to="/reviews">Reviews</Link></li>
-        </SidebarLinks>
-      </Sidebar>
-      {sidebarState && <Overlay state={sidebarState} onClick={() => setSidebarState(false)} />} */}
+
+      {/* Mobile NavLinks */}
+      {navbarState && (
+        <MobileNavLinks>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/About">About</Link></li>
+          <li><Link to="/properties">Properties</Link></li>
+        </MobileNavLinks>
+      )}
+
+      {navbarState && <Overlay state={navbarState} onClick={() => setNavbarState(false)} />}
     </>
   );
 }
 
 const StyledNav = styled.nav`
   display: flex;
-  justify-content: center;  // Center the entire nav content
+  justify-content: space-between;  // Space between the brand and links
   align-items: center;
   padding: 1rem 2rem;
   background-color: #4CAF50;
@@ -75,7 +76,7 @@ const StyledNav = styled.nav`
 const Brand = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;  // Adds space between the logo and text
+  gap: 1rem;
 `;
 
 const LogoContainer = styled.div`
@@ -86,12 +87,12 @@ const LogoContainer = styled.div`
   font-size: 1.2rem;
   font-weight: 900;
   text-transform: uppercase;
-  color: #ffffff; // Make company name white
+  color: #ffffff;
 
   img {
     max-height: 3rem;
     width: 3rem;
-    border-radius: 50%;  // Make logo circular
+    border-radius: 50%;
   }
 `;
 
@@ -104,12 +105,12 @@ const NavLinks = styled.ul`
   li {
     a {
       text-decoration: none;
-      color: #ffffff;  // Make nav link text white
+      color: #ffffff;
       font-size: 1.2rem;
       transition: 0.1s ease-in-out;
 
       &:hover {
-        color: #dddddd;  // Light gray color on hover
+        color: #dddddd;
       }
     }
 
@@ -118,8 +119,41 @@ const NavLinks = styled.ul`
     }
   }
 
-  @media screen and (min-width: 280px) and (max-width: 1080px) {
+  @media screen and (max-width: 1080px) {
     display: none;
+  }
+`;
+
+const MobileNavLinks = styled.ul`
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: #4CAF50;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+
+  li {
+    padding: 1rem 0;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      transition: 0.1s ease-in-out;
+      text-align: center;
+    }
+
+    &:first-of-type a {
+      font-weight: 900;
+    }
+
+    &:hover {
+      background-color: #3e8e41; // Slightly darker background on hover
+    }
   }
 `;
 
