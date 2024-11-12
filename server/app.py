@@ -1,36 +1,55 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
+from flask_bcrypt import Bcrypt
 from flask_restful import Api
-from resources import PropertyResource, ServiceResource, TestimonialResource, ContactMessageResource
+import os
+from flask_cors import CORS
+from models import db
+from resources import PropertyResource, ServiceResource, TestimonialResource, DiasporaResource, ContactMessageResource, LoginResource, SignupResource
 
-# Initialize Flask app
-app = Flask(__name__)
+# Initialize extensions
+db = SQLAlchemy()
+migrate = Migrate()
+bcrypt = Bcrypt()
+jwt = JWTManager()
+api = Api()
 
-# Configuration for database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'  # Example SQLite database URI
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+def create_app():
+    # Initialize the app
+    app = Flask(__name__)
 
-# Initialize the database
-db = SQLAlchemy(app)  # Initialize db with app
-migrate = Migrate(app, db)  # Initialize migration with app
+    CORS(app, resources={r"/*": {"origins": "*"}})
+    # Load environment variables (if using .env file)
+    from dotenv import load_dotenv
+    load_dotenv()
 
-# Initialize the API
-api = Api(app)
+    # Configure app
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI', 'sqlite:///db.sqlite')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'your_secret_key')
 
-# Set up API endpoints
-api.add_resource(PropertyResource, '/properties', '/properties/<int:property_id>')
-api.add_resource(ServiceResource, '/services', '/services/<int:service_id>')
-api.add_resource(TestimonialResource, '/testimonials', '/testimonials/<int:testimonial_id>')
-api.add_resource(ContactMessageResource, '/contact_messages', '/contact_messages/<int:message_id>')
+    # Initialize extensions
+    db.init_app(app)
+    migrate.init_app(app, db)
+    bcrypt.init_app(app)
+    jwt.init_app(app)
+    api.init_app(app)
 
-# Import models here to avoid circular imports
-from models import Property, Service, Testimonial, ContactMessage
+    # Register API resources (routes)
 
-# Create all tables
-with app.app_context():
-    db.create_all()
+    api.add_resource(PropertyResource, '/properties', '/properties/<int:property_id>')
+    api.add_resource(ServiceResource, '/services', '/services/<int:service_id>')
+    api.add_resource(TestimonialResource, '/testimonials', '/testimonials/<int:testimonial_id>')
+    api.add_resource(DiasporaResource, '/diaspora')
+    api.add_resource(ContactMessageResource, '/contact/messages')
+    api.add_resource(SignupResource, '/signup')  # Add Signup route
+    api.add_resource(LoginResource, '/login')
 
-# Run the Flask app
+    return app
+
+# Add this block to ensure app is run when executing this file
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app = create_app()  # Create the app instance
+    app.run(debug=True)  # Run the app with debugging enabled

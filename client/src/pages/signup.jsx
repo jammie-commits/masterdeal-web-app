@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 export default function SignupForm({ closeForm }) {
     const [name, setName] = useState('');
@@ -10,7 +11,7 @@ export default function SignupForm({ closeForm }) {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://127.0.0.1:5555/signup', {
+            const response = await fetch('http://127.0.0.1:5000/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -110,19 +111,17 @@ const SubmitButton = styled.button`
     margin-bottom: 1rem;
 
     &:hover {
-        background-color: #023e8a;
+        background-color: #0096c7;
     }
 `;
 
 const CloseButton = styled.button`
     padding: 0.5rem;
-    background-color: #ccc;
-    color: white;
+    background-color: #f3f4f6;
+    color: black;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
-
-    &:hover {
-        background-color: #999;
-    }
+    margin-top: 0.5rem;
 `;
+

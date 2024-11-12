@@ -1,10 +1,9 @@
-from flask_restful import Resource, reqparse
-from models import db, Property, Service, Testimonial, ContactMessage
+from flask_restful import Resource, reqparse, request
+from models import db, Property, Service, Testimonial, ContactMessage, Diaspora, User
 import re
+from flask_jwt_extended import create_access_token
 
-# Initialize request parsers for creating or updating resources
-
-# Email format validation function
+# Utility function for email format validation
 def is_valid_email(email):
     email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
     return re.match(email_regex, email) is not None
@@ -33,6 +32,55 @@ contact_parser = reqparse.RequestParser()
 contact_parser.add_argument('name', type=str, required=True)
 contact_parser.add_argument('email', type=str, required=True, help="Email is required.", action="store")
 contact_parser.add_argument('message', type=str, required=True)
+
+signup_parser = reqparse.RequestParser()
+signup_parser.add_argument('username', type=str, required=True, help="Username is required")
+signup_parser.add_argument('email', type=str, required=True, help="Email is required")
+signup_parser.add_argument('password', type=str, required=True, help="Password is required")
+
+login_parser = reqparse.RequestParser()
+login_parser.add_argument('email', type=str, required=True, help="Email is required")
+login_parser.add_argument('password', type=str, required=True, help="Password is required")
+
+
+class SignupResource(Resource):
+    def post(self):
+        args = signup_parser.parse_args()
+        username = args['username']
+        email = args['email']
+        password = args['password']
+
+        # Check if email or username already exists
+        if User.query.filter_by(email=email).first():
+            return {"message": "Email already exists."}, 400
+        if User.query.filter_by(username=username).first():
+            return {"message": "Username already exists."}, 400
+
+        # Create new user and hash the password
+        new_user = User(username=username, email=email)
+        new_user.set_password(password)
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        return {"message": "User created successfully!"}, 201
+
+
+class LoginResource(Resource):
+    def post(self):
+        args = login_parser.parse_args()
+        email = args['email']
+        password = args['password']
+
+        # Find the user by email
+        user = User.query.filter_by(email=email).first()
+        if not user or not user.check_password(password):
+            return {"message": "Invalid credentials"}, 401
+
+        # Generate a JWT token
+        access_token = create_access_token(identity=user.id)
+        
+        return {"access_token": access_token}, 200
 
 # Property Resource
 class PropertyResource(Resource):
@@ -78,7 +126,6 @@ class PropertyResource(Resource):
         db.session.commit()
         return {"message": "Property deleted successfully"}, 204
 
-
 # Service Resource
 class ServiceResource(Resource):
     def get(self, service_id=None):
@@ -97,7 +144,6 @@ class ServiceResource(Resource):
         db.session.add(new_service)
         db.session.commit()
         return new_service.to_dict(), 201
-
 
 # Testimonial Resource
 class TestimonialResource(Resource):
@@ -122,7 +168,6 @@ class TestimonialResource(Resource):
         db.session.add(new_testimonial)
         db.session.commit()
         return new_testimonial.to_dict(), 201
-
 
 # ContactMessage Resource
 class ContactMessageResource(Resource):
@@ -152,3 +197,30 @@ class ContactMessageResource(Resource):
         db.session.add(new_message)
         db.session.commit()
         return new_message.to_dict(), 201
+
+# Diaspora Resource
+class DiasporaResource(Resource):
+    def get(self):
+        # Fetch the diaspora guide from the database
+        diaspora_guide = Diaspora.query.first()  # Assuming only one guide
+        if not diaspora_guide:
+            return {"message": "Diaspora guide not found"}, 404
+        return diaspora_guide.to_dict()
+
+    def put(self):
+        # Update the diaspora guide with new data (for an admin or update process)
+        args = request.get_json()
+
+        diaspora_guide = Diaspora.query.first()
+        if not diaspora_guide:
+            return {"message": "Diaspora guide not found"}, 404
+
+        diaspora_guide.title = args.get('title', diaspora_guide.title)
+        diaspora_guide.content = args.get('content', diaspora_guide.content)
+        diaspora_guide.contact_email = args.get('contact_email', diaspora_guide.contact_email)
+        diaspora_guide.contact_phone = args.get('contact_phone', diaspora_guide.contact_phone)
+        diaspora_guide.contact_whatsapp = args.get('contact_whatsapp', diaspora_guide.contact_whatsapp)
+
+        db.session.commit()
+
+        return diaspora_guide.to_dict()
