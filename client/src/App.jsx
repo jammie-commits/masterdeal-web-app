@@ -10,10 +10,12 @@ import About from "./pages/about";
 import Users from "./pages/users";
 import SignupForm from "./pages/signup";
 import Properties from "./pages/properties";
-import Reviews from "./pages/reviews";
+import Testimonials from "./pages/testimonials";
 import LoginForm from "./pages/Login";
 import PlannedTrips from "./pages/trips";
 import ViewTrips from "./pages/viewtrips";
+import Contact from "./pages/contact";
+import Diaspora from "./pages/diaspora";
 
 
 export default function App() {
@@ -31,7 +33,10 @@ export default function App() {
           path="/properties"
           element={<Properties />}
         />
-        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        
+        <Route path="/Diaspora" element={<Diaspora />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/sign-up"
           element={<SignupForm />}

@@ -1,13 +1,14 @@
+// Testimonials.js
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import avatarImage2 from "../assets/PHOTO14.jpeg";
 
-export default function Reviews() {
-    const [reviews, setReviews] = useState([]);
+export default function Testimonials() {
+    const [testimonials, setTestimonials] = useState([]);
 
     useEffect(() => {
-        // Fetch reviews from the backend
-        fetch('http://127.0.0.1:5555/reviews')
+        // Fetch testimonials from the backend
+        fetch('http://127.0.0.1:5555/testimonials')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -15,33 +16,33 @@ export default function Reviews() {
                 return response.json();
             })
             .then(data => {
-                setReviews(data);
+                setTestimonials(data);
             })
             .catch(error => {
-                console.error("There was an error fetching the reviews!", error);
+                console.error("There was an error fetching the testimonials!", error);
             });
     }, []);
 
     return (
-        <StyledSection id="reviews">
+        <StyledSection id="testimonials">
             <Title>
-                <h2>Happy Customers</h2>
+                <h2>What Our Clients Say</h2>
             </Title>
-            <ReviewContainer>
-                {reviews.map((review) => (
-                    <Review key={review.id}>
-                        <Rating>Rating: {review.rating}</Rating>
-                        <p>{review.comments}</p>
+            <TestimonialContainer>
+                {testimonials.map((testimonial) => (
+                    <Testimonial key={testimonial.id}>
+                        <Rating>Rating: {testimonial.rating} ★</Rating>
+                        <p>{testimonial.comments}</p>
                         <Info>
-                            <img src={avatarImage2} alt={review.user_name} />
+                            <img src={avatarImage2} alt={testimonial.user_name} />
                             <Details>
-                                <h4>{review.user_name}</h4>  {/* Display user name */}
-                                <span>{review.destination_title}</span>  {/* Display destination title */}
+                                <h4>{testimonial.user_name}</h4>  {/* Display user name */}
+                                <span>{testimonial.destination_title}</span>  {/* Display destination title */}
                             </Details>
                         </Info>
-                    </Review>
+                    </Testimonial>
                 ))}
-            </ReviewContainer>
+            </TestimonialContainer>
         </StyledSection>
     );
 }
@@ -53,9 +54,14 @@ const StyledSection = styled.section`
 const Title = styled.div`
   text-align: center;
   margin-bottom: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    color: #4CAF50;
+  }
 `;
 
-const ReviewContainer = styled.div`
+const TestimonialContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,8 +69,8 @@ const ReviewContainer = styled.div`
   margin: 0 2rem;
 `;
 
-const Review = styled.div`
-  background-color: aliceblue;
+const Testimonial = styled.div`
+  background-color: #f9f9f9;
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -81,6 +87,7 @@ const Review = styled.div`
 const Rating = styled.div`
   font-weight: bold;
   margin-bottom: 1rem;
+  color: #ff9900;  /* Star color */
 `;
 
 const Info = styled.div`
@@ -90,13 +97,20 @@ const Info = styled.div`
   margin-top: 1rem;
 
   img {
-    border-radius: 3rem;
+    border-radius: 50%;
     height: 3rem;
   }
 `;
 
 const Details = styled.div`
+  h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
   span {
     font-size: 0.9rem;
+    color: #777;
   }
 `;
