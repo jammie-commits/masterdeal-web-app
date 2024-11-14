@@ -80,8 +80,8 @@ export default function Contact() {
       <ContactInfo>
         <h2>Our Contact Information</h2>
         <p>Email: <a href="mailto:info@masterdealproperties.com">info@masterdealproperties.com</a></p>
-        <p>Phone: +254 700 123 456</p>
-        <p>WhatsApp: +254 700 123 456</p>
+        <p>Phone: +254 743 979 766</p>
+        <p>WhatsApp: +254 743 979 766</p>
       </ContactInfo>
     </ContactContainer>
   );

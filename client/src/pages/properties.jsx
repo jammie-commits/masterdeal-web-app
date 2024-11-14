@@ -38,7 +38,7 @@ const properties = [
     price: 'KES 270,000',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-  },
+  }
 ];
 
 const Properties = () => (
