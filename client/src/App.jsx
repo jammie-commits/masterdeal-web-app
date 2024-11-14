@@ -9,6 +9,7 @@ import Testimonials from "./pages/testimonials";
 import PropertyDetails from "./pages/PropertyDetails";
 import Contact from "./pages/contact";
 import Diaspora from "./pages/diaspora";
+import Blog from "./pages/Blog";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/property/:id" element={<PropertyDetails />} />
         <Route path="/diaspora" element={<Diaspora />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
     </Router>
   );

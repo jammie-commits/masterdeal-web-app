@@ -1,24 +1,33 @@
-// Diaspora.js
 import React from "react";
 import styled from "styled-components";
+import { FaMapMarkerAlt, FaFileAlt, FaSearch, FaHandshake, FaMoneyBillWave, FaRulerCombined, FaFileSignature, FaCheckCircle } from "react-icons/fa";
 
 export default function Diaspora() {
+  const steps = [
+    { icon: <FaMapMarkerAlt />, text: "Identify and confirm the land of interest with a trusted agent." },
+    { icon: <FaFileAlt />, text: "Request and review the title deed to confirm ownership." },
+    { icon: <FaSearch />, text: "Conduct a search with the Ministry of Lands to verify authenticity." },
+    { icon: <FaHandshake />, text: "Negotiate the terms and price, and draft the sale agreement." },
+    { icon: <FaMoneyBillWave />, text: "Pay a deposit to secure the land (usually 10%)." },
+    { icon: <FaRulerCombined />, text: "Complete the land survey and other due diligence steps." },
+    { icon: <FaFileSignature />, text: "Finalize the transaction with full payment and receive the transfer documents." },
+    { icon: <FaCheckCircle />, text: "Register the land under your name at the Ministry of Lands." },
+  ];
+
   return (
     <DiasporaContainer>
       <h1>Buying Land in Kenya - Diaspora Guide</h1>
       <p>If you’re interested in buying land in Kenya from abroad, here’s a simple guide to get you started.</p>
-      
+
       <h2>Process for Buying Land in Kenya:</h2>
-      <ul>
-        <li>Identify and confirm the land of interest with a trusted agent.</li>
-        <li>Request and review the title deed to confirm ownership.</li>
-        <li>Conduct a search with the Ministry of Lands to verify authenticity.</li>
-        <li>Negotiate the terms and price, and draft the sale agreement.</li>
-        <li>Pay a deposit to secure the land (usually 10%).</li>
-        <li>Complete the land survey and other due diligence steps.</li>
-        <li>Finalize the transaction with full payment and receive the transfer documents.</li>
-        <li>Register the land under your name at the Ministry of Lands.</li>
-      </ul>
+      <SlideContainer>
+        {steps.map((step, index) => (
+          <Slide key={index}>
+            <IconContainer>{step.icon}</IconContainer>
+            <SlideText>{step.text}</SlideText>
+          </Slide>
+        ))}
+      </SlideContainer>
 
       <ContactSection>
         <h2>Contact Us</h2>
@@ -35,39 +44,77 @@ export default function Diaspora() {
 
 const DiasporaContainer = styled.div`
   padding: 2rem;
-  text-align: left;
+  text-align: center;
 
   h1 {
-    color: #4CAF50;
+    color: #000;
     font-size: 2.5rem;
-    text-align: center;
+    margin-bottom: 1rem;
   }
 
   h2 {
-    color: #4CAF50;
+    color: #000;
     margin-top: 2rem;
     font-size: 1.8rem;
   }
 
-  ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
+  p {
     color: #555;
+    max-width: 600px;
+    margin: 0 auto 2rem;
     font-size: 1.1rem;
-  }
-
-  li {
-    margin: 0.5rem 0;
   }
 `;
 
-const ContactSection = styled.div`
+const SlideContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
   margin-top: 2rem;
-  text-align: left;
+`;
+
+const Slide = styled.div`
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 280px;
+  height: 220px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+    background: rgba(255, 165, 0, 0.1);
+  }
+`;
+
+const IconContainer = styled.div`
+  font-size: 2.5rem;
+  color: #FFA500; /* Orange color for the icons */
+  margin-bottom: 1rem;
+`;
+
+const SlideText = styled.p`
+  font-size: 1rem;
+  color: #555;
+`;
+
+const ContactSection = styled.div`
+  margin-top: 3rem;
+  text-align: center;
+  padding: 2rem;
 `;
 
 const ContactInfo = styled.div`
   margin-top: 1rem;
+
   p {
     font-size: 1rem;
     color: #333;

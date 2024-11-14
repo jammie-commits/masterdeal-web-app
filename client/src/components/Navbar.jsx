@@ -25,6 +25,7 @@ export default function Navbar() {
           <li><Link to="/About">About</Link></li>
           <li><Link to="/properties">Properties</Link></li>
           <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/blog">Blog</Link></li>
           <li><Link to="/testimonials">Testimonials</Link></li>
           <li><Link to="/diaspora">Diaspora</Link></li>
         </NavLinks>
@@ -36,6 +37,7 @@ export default function Navbar() {
         <li><Link to="/About" onClick={() => setNavbarState(false)}>About</Link></li>
         <li><Link to="/properties" onClick={() => setNavbarState(false)}>Properties</Link></li>
         <li><Link to="/contact" onClick={() => setNavbarState(false)}>Contact</Link></li>
+        <li><Link to="/blog" onClick={() => setNavbarState(false)}>Blog</Link></li>
         <li><Link to="/testimonials" onClick={() => setNavbarState(false)}>Testimonials</Link></li>
         <li><Link to="/diaspora" onClick={() => setNavbarState(false)}>Diaspora</Link></li>
       </MobileNavLinks>
