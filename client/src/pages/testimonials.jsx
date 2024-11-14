@@ -9,11 +9,11 @@ export default function Testimonials() {
       {/* Replace these divs with dynamic testimonial content */}
       <Testimonial>
         <p>"Masterdeal Properties made buying land so easy! Highly recommended!"</p>
-        <span>- John Doe</span>
+        <span>- Mercy Wacuka</span>
       </Testimonial>
       <Testimonial>
         <p>"A seamless experience from start to finish. Exceptional service."</p>
-        <span>- Jane Smith</span>
+        <span>- Jacob Nzilani</span>
       </Testimonial>
     </TestimonialsContainer>
   );
