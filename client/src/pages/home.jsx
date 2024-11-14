@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styled, { keyframes } from "styled-components";
-import LoginForm from "../pages/Login";
-import SignupForm from "../pages/signup";
+
+
 
 // Import images from assets folder
 import image1 from "../assets/image1.jpeg";
@@ -23,13 +23,9 @@ const images = [image1, image2, image3, image4, image5, image6, image7, image8, 
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [showLoginForm, setShowLoginForm] = useState(false);
-  const [showSignupForm, setShowSignupForm] = useState(false);
+  
 
-  const closeForms = useCallback(() => {
-    setShowLoginForm(false);
-    setShowSignupForm(false);
-  }, []);
+  
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -55,13 +51,9 @@ export default function Home() {
             <p>Beyond the Sale</p>
           </GradientBackground>
         </Title>
-        <ButtonGroup>
-          <LoginButton onClick={() => setShowLoginForm(true)}>Login</LoginButton>
-          <SignupButton onClick={() => setShowSignupForm(true)}>Signup</SignupButton>
-        </ButtonGroup>
+        
       </Content>
-      {showLoginForm && <LoginFormWrapper closeForm={closeForms} />}
-      {showSignupForm && <SignupFormWrapper closeForm={closeForms} />}
+      
     </HeroSection>
   );
 }
@@ -207,24 +199,7 @@ const buttonBase = `
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 `;
 
-const LoginButton = styled.button`
-  ${buttonBase}
-  background-color: #28a745;
-  color: white;
 
-  &:hover {
-    background-color: #218838;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  }
-`;
-
-const SignupButton = styled(LoginButton)`
-  background-color: #ff7f50;
-  
-  &:hover {
-    background-color: #ff4500;
-  }
-`;
 
 const FormWrapper = styled.div`
   position: fixed;
@@ -240,18 +215,4 @@ const FormWrapper = styled.div`
   z-index: 5;
 `;
 
-function LoginFormWrapper({ closeForm }) {
-  return (
-    <FormWrapper>
-      <LoginForm closeForm={closeForm} />
-    </FormWrapper>
-  );
-}
 
-function SignupFormWrapper({ closeForm }) {
-  return (
-    <FormWrapper>
-      <SignupForm closeForm={closeForm} />
-    </FormWrapper>
-  );
-}

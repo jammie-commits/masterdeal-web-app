@@ -1,59 +1,79 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import property1 from '../assets/image10.jpeg';
+import property2 from '../assets/image5.jpeg';
+import property3 from '../assets/image14.jpeg';
+import property4 from '../assets/image12.jpeg';
 
+const properties = [
+  {
+    id: 1, // Add an id for each property
+    image: property1,
+    title: 'Victory Garden Phase-1',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+  },
+  {
+    id: 2,
+    image: property2,
+    title: 'Victory Garden Phase-2',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+  },
+  {
+    id: 3,
+    image: property3,
+    title: 'Victory Garden Phase-3',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+  },
+  {
+    id: 4,
+    image: property4,
+    title: 'Victory Garden Phase-4',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+  },
+];
 
-export default function Properties() {
-    const [properties, setProperties] = useState([]);
+const Properties = () => (
+  <Section id="properties">
+    <Header>
+      <h2>Our Featured Properties</h2>
+      <p>Explore our exclusive properties, handpicked just for you.</p>
+    </Header>
+    <PropertyGrid>
+      {properties.map(({ id, image, title, price, description, features }, index) => (
+        <PropertyItem key={index}>
+          <ImageContainer>
+            <img src={image} alt={title} />
+          </ImageContainer>
+          <PropertyDetails>
+            <h3>{title}</h3>
+            <Price>{price}</Price>
+            <Description>{description}</Description>
+            <Features>
+              {features.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </Features>
+            {/* Use Link to navigate to the PropertyDetails page */}
+            <Link to={`/property/${id}`}>
+              <Button>View Details</Button>
+            </Link>
+          </PropertyDetails>
+        </PropertyItem>
+      ))}
+    </PropertyGrid>
+  </Section>
+);
 
-    useEffect(() => {
-        // Fetch the properties data from the Flask backend
-        const fetchProperties = async () => {
-            try {
-                const response = await fetch('http://127.0.0.1:5000/properties');  // Assuming the Flask backend is running locally
-                const data = await response.json();
-                setProperties(data);  // Update the state with the fetched properties data
-            } catch (error) {
-                console.error('Error fetching properties:', error);
-            }
-        };
-
-        fetchProperties();
-    }, []);
-
-    return (
-        <Section id="properties">
-            <Header>
-                <h2>Our Featured Properties</h2>
-                <p>Explore our exclusive properties, handpicked just for you.</p>
-            </Header>
-            <PropertyGrid>
-                {properties.length > 0 ? (
-                    properties.map(({ image, title, price, description, features }, index) => (
-                        <PropertyItem key={index}>
-                            <ImageContainer>
-                                <img src={image} alt={title} />
-                            </ImageContainer>
-                            <PropertyDetails>
-                                <h3>{title}</h3>
-                                <Price>{price}</Price>
-                                <Description>{description}</Description>
-                                <Features>
-                                    {features.map((feature, idx) => (
-                                        <li key={idx}>{feature}</li>
-                                    ))}
-                                </Features>
-                                <Button>View Details</Button>
-                            </PropertyDetails>
-                        </PropertyItem>
-                    ))
-                ) : (
-                    <p>Loading properties...</p>
-                )}
-            </PropertyGrid>
-        </Section>
-    );
-}
+export default Properties;
 
 const Section = styled.section`
   padding: 5rem 0;
@@ -110,6 +130,7 @@ const PropertyItem = styled.div`
 const ImageContainer = styled.div`
   height: 250px;
   overflow: hidden;
+  
   img {
     width: 100%;
     height: 100%;
