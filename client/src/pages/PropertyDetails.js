@@ -56,7 +56,7 @@ const PropertyDetails = () => {
   const generateWhatsAppLink = () => {
     const message = `Hi, I want to book a site visit on ${visitDate} for the property: ${property.title}.`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/+254728179416?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/+254743979766?text=${encodedMessage}`;
     return whatsappURL;
   };
 
@@ -108,7 +108,7 @@ const PropertyDetails = () => {
         <ContactSection>
           <h3>Contact Us</h3>
           <p>Have any questions? Reach out to us on WhatsApp for quick assistance.</p>
-          <WhatsAppLink href="https://wa.me/+254728179416" target="_blank" rel="noopener noreferrer">
+          <WhatsAppLink href="https://wa.me/+254743979766" target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon />
             Contact via WhatsApp
           </WhatsAppLink>

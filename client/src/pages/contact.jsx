@@ -1,4 +1,3 @@
-// Contact.js
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -16,8 +15,21 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    alert("Message sent successfully!");
+
+    if (!formState.name || !formState.email || !formState.message) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
+
+    // Generate the WhatsApp message
+    const message = `Hi, I am ${formState.name}. I would like to reach out regarding the following message:\n\nEmail: ${formState.email}\nMessage: ${formState.message}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/+254743979766?text=${encodedMessage}`;
+
+    // Open WhatsApp with the pre-filled message
+    window.open(whatsappURL, "_blank");
+
+    // Clear form after sending the message
     setFormState({ name: "", email: "", message: "" });
   };
 
