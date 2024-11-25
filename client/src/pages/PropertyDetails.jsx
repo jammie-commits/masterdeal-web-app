@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
 
+// Import images
 import property1 from '../assets/image10.jpeg';
 import property2 from '../assets/image5.jpeg';
 import property3 from '../assets/image14.jpeg';
 import property4 from '../assets/image12.jpeg';
+import property5 from '../assets/5-1.jpeg';
+import property6 from '../assets/6-1.jpeg';
+import property7 from '../assets/6-2.jpeg';
 
 const properties = [
   {
@@ -15,6 +24,7 @@ const properties = [
     price: 'KES 270,000',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    amenitiesGallery: [property2, property3, property4], // Add images for gallery
   },
   {
     id: 2,
@@ -23,6 +33,7 @@ const properties = [
     price: 'KES 270,000',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    amenitiesGallery: [property1, property4, property5],
   },
   {
     id: 3,
@@ -31,8 +42,7 @@ const properties = [
     price: 'KES 220,000 (cash) or KES 270,000 (installment)',
     description: 'Opposite Msingini Sports Resort near Msingini primary/secondary school',
     features: ['600 mtrs from Tarmac road', '7km from Matuu town', 'Water supply', 'Schools'],
-    Document: 'all titles ready',
-    Payment: 'lipa polepole available, pay KES 50,000 balance payable upto 6 months', 
+    amenitiesGallery: [property6, property7, property5],
   },
   {
     id: 4,
@@ -41,6 +51,34 @@ const properties = [
     price: 'KES 270,000',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    amenitiesGallery: [property1, property4, property5],
+  },
+  {
+    id: 5,
+    image: property5,
+    title: 'Victory Garden Phase-5',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    amenitiesGallery: [property1, property4, property5],
+  },
+  {
+    id: 6,
+    image: property6,
+    title: 'Victory Garden Phase-6',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    amenitiesGallery: [property1, property4, property5],
+  },
+  {
+    id: 7,
+    image: property7,
+    title: 'Victory Garden Phase-7',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    amenitiesGallery: [property1, property4, property5],
   },
 ];
 
@@ -54,12 +92,10 @@ const PropertyDetails = () => {
     return <div>Property not found</div>;
   }
 
-  // Function to create the WhatsApp message URL
   const generateWhatsAppLink = () => {
     const message = `Hi, I want to book a site visit on ${visitDate} for the property: ${property.title}.`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/+254743979766?text=${encodedMessage}`;
-    return whatsappURL;
+    return `https://wa.me/+254743979766?text=${encodedMessage}`;
   };
 
   return (
@@ -83,6 +119,23 @@ const PropertyDetails = () => {
             ))}
           </ul>
         </Features>
+
+        <GallerySection>
+          <h3>Amenities Gallery:</h3>
+          <Swiper
+            spaceBetween={10}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation
+            modules={[Pagination, Navigation]}
+          >
+            {property.amenitiesGallery.map((image, index) => (
+              <SwiperSlide key={index}>
+                <GalleryImage src={image} alt={`Amenity ${index + 1}`} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </GallerySection>
 
         <BookingSection>
           <h3>Book a Site Visit</h3>
@@ -122,6 +175,7 @@ const PropertyDetails = () => {
 
 export default PropertyDetails;
 
+// Styled Components
 const Section = styled.section`
   padding: 3rem 0;
   background-color: #f9f9f9;
@@ -144,13 +198,6 @@ const Header = styled.header`
     font-size: 2.5rem;
     color: #333;
     font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: #555;
-    line-height: 1.5;
     margin-bottom: 1rem;
   }
 `;
@@ -212,24 +259,30 @@ const Features = styled.div`
   }
 `;
 
+const GallerySection = styled.div`
+  margin-top: 3rem;
+
+  h3 {
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+`;
+
+const GalleryImage = styled.img`
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+`;
+
 const BookingSection = styled.div`
   margin-top: 3rem;
   background-color: #f0f8ff;
   padding: 2rem;
   border-radius: 10px;
-
-  h3 {
-    font-size: 1.8rem;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 1.5rem;
-  }
 `;
 
 const BookingForm = styled.div`
@@ -245,7 +298,6 @@ const DateInput = styled.input`
   border: 2px solid #ccc;
   border-radius: 5px;
   outline: none;
-  width: 50%;
 `;
 
 const Button = styled.button`
@@ -256,11 +308,6 @@ const Button = styled.button`
   color: white;
   font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #ff6347;
-  }
 `;
 
 const ContactSection = styled.div`
@@ -269,19 +316,6 @@ const ContactSection = styled.div`
   background-color: #eef2f3;
   padding: 2rem;
   border-radius: 10px;
-
-  h3 {
-    font-size: 1.8rem;
-    color: #333;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 1.5rem;
-  }
 `;
 
 const WhatsAppLink = styled.a`
@@ -295,11 +329,6 @@ const WhatsAppLink = styled.a`
   font-weight: bold;
   text-decoration: none;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #128c7e;
-  }
 `;
 
 const WhatsAppIcon = styled.div`
@@ -308,4 +337,3 @@ const WhatsAppIcon = styled.div`
   background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1024px-WhatsApp.svg.png') no-repeat center center;
   background-size: contain;
 `;
-

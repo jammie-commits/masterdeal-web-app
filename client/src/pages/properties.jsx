@@ -5,6 +5,9 @@ import property1 from '../assets/image10.jpeg';
 import property2 from '../assets/image5.jpeg';
 import property3 from '../assets/image14.jpeg';
 import property4 from '../assets/image12.jpeg';
+import property5 from '../assets/5-1.jpeg';
+import property6 from '../assets/6-1.jpeg';
+import property7 from '../assets/6-2.jpeg';
 
 const properties = [
   {
@@ -38,7 +41,31 @@ const properties = [
     price: 'KES 270,000',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-  }
+  },
+  {
+    id: 5,
+    image: property5,
+    title: 'Victory Garden Phase-5',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+  },
+  {
+    id: 6,
+    image: property6,
+    title: 'Victory Garden Phase-6',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+  },
+  {
+    id: 7,
+    image: property7,
+    title: 'Victory Garden Phase-7',
+    price: 'KES 270,000',
+    description: 'Serene environment with breathtaking views and modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+  },
 ];
 
 const Properties = () => (
