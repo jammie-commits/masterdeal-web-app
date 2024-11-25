@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules'; // Corrected import path
+import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/autoplay';
+import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars } from 'react-icons/fa';
 
 import property1 from '../assets/image10.jpeg';
 import property2 from '../assets/image5.jpeg';
 import property3 from '../assets/image14.jpeg';
 import property4 from '../assets/image12.jpeg';
 
+// Property Data
 const properties = [
   { id: 1, image: property1, title: 'Victory Garden Phase-1', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
   { id: 2, image: property2, title: 'Victory Garden Phase-2', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
@@ -23,9 +25,37 @@ const properties = [
 
 const HomePage = () => {
   const availableProperties = properties.filter((property) => property.availability === 'Available');
-
+  
   return (
-    <HomeContainer>
+    <Container>
+      {/* Header */}
+      <Header>
+        <HeaderContent>
+          <Logo>Masterdeal Properties</Logo>
+          <ContactInfo>
+            <ContactItem>
+              <FaPhoneAlt size={18} />
+              <span>+254 700 000 000</span>
+            </ContactItem>
+            <ContactItem>
+              <FaEnvelope size={18} />
+              <span>info@masterdeal.com</span>
+            </ContactItem>
+          </ContactInfo>
+          <SocialLinks>
+            <SocialLink href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <FaFacebook size={20} />
+            </SocialLink>
+            <SocialLink href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <FaTwitter size={20} />
+            </SocialLink>
+            <SocialLink href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <FaLinkedin size={20} />
+            </SocialLink>
+          </SocialLinks>
+        </HeaderContent>
+      </Header>
+
       {/* Main Image Slider */}
       <MainSlider>
         <Swiper
@@ -34,7 +64,7 @@ const HomePage = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop={true}
           effect="fade"
-          modules={[Autoplay, EffectFade]} // Pass modules correctly
+          modules={[Autoplay, EffectFade]}
         >
           {availableProperties.map((property) => (
             <SwiperSlide key={property.id}>
@@ -69,17 +99,79 @@ const HomePage = () => {
           ))}
         </PropertyGrid>
       </FeaturedSection>
-    </HomeContainer>
+
+      {/* Footer */}
+      <Footer>
+        <FooterContent>
+          <p>&copy; {new Date().getFullYear()} Masterdeal Properties. All rights reserved.</p>
+          <FooterLinks>
+            <FooterLink href="/">Privacy Policy</FooterLink>
+            <FooterLink href="/">Terms of Service</FooterLink>
+          </FooterLinks>
+        </FooterContent>
+      </Footer>
+    </Container>
   );
 };
 
 export default HomePage;
 
-/* Styled Components */
-const HomeContainer = styled.div`
-  background: #f4f4f4;
+// Styled Components
+const Container = styled.div`
   font-family: 'Arial', sans-serif;
   color: #333;
+`;
+
+const Header = styled.header`
+  background: linear-gradient(to right, #4caf50, #ff5722); /* Green to Orange gradient */
+  padding: 1.5rem 2rem;
+  text-align: center;
+  color: white;
+`;
+
+const HeaderContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+`;
+
+const Logo = styled.h1`
+  font-size: 2rem;
+  margin: 0;
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+`;
+
+const ContactItem = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+
+  span {
+    margin-left: 0.5rem;
+  }
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const SocialLink = styled.a`
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ff5722;
+  }
 `;
 
 const MainSlider = styled.div`
@@ -180,33 +272,48 @@ const StatusBadge = styled.div`
   left: 10px;
   background-color: ${({ isAvailable }) => (isAvailable ? '#4CAF50' : '#FF0000')};
   color: white;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 1rem;
   border-radius: 5px;
 `;
 
 const CardBody = styled.div`
   padding: 1.5rem;
-  text-align: center;
-
-  h3 {
-    font-size: 1.5rem;
-    color: #222;
-    margin: 0.5rem 0;
-  }
 `;
 
-const Price = styled.div`
-  font-size: 1.2rem;
-  color: #e63946;
-  font-weight: bold;
-  margin: 1rem 0;
+const Price = styled.h3`
+  font-size: 1.3rem;
+  color: #4caf50;
 `;
 
 const Description = styled.p`
   font-size: 1rem;
   color: #666;
-  line-height: 1.6;
-  margin: 0;
+`;
+
+const Footer = styled.footer`
+  background: linear-gradient(to right, #4caf50, #ff5722); /* Green to Orange gradient */
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+`;
+
+const FooterContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const FooterLinks = styled.div`
+  margin-top: 1rem;
+`;
+
+const FooterLink = styled.a`
+  margin: 0 1rem;
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+
+  &:hover {
+    color: #ff5722;
+  }
 `;

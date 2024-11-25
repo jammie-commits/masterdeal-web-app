@@ -31,8 +31,10 @@ export default function Testimonials() {
 
   return (
     <TestimonialsContainer>
-      <h1>Customer Testimonials</h1>
-      <p>Read what our customers have to say about their experiences with us.</p>
+      <Header>
+        <h1>What Our Customers Say</h1>
+        <p>Real stories from our satisfied customers</p>
+      </Header>
       <TestimonialsGrid>
         {testimonialsData.map((testimonial, index) => (
           <Testimonial key={index}>
@@ -49,22 +51,25 @@ export default function Testimonials() {
 }
 
 // Styled Components
-const TestimonialsContainer = styled.div`
-  padding: 3rem 1rem;
+const TestimonialsContainer = styled.section`
+  background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+  padding: 4rem 2rem;
+`;
+
+const Header = styled.div`
   text-align: center;
-  background-color: #f9f9f9;
-  border-top: 5px solid #4caf50;
+  margin-bottom: 3rem;
 
   h1 {
+    font-size: 2.8rem;
     color: #4caf50;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
   }
 
   p {
     font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 2rem;
+    color: #666;
   }
 `;
 
@@ -72,45 +77,54 @@ const TestimonialsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  justify-items: center;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const Testimonial = styled.div`
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 1.5rem;
+  border-radius: 12px;
+  padding: 2rem;
   text-align: left;
-  max-width: 400px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const ImageContainer = styled.div`
-  text-align: center;
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
 
   img {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #4caf50;
+    border: 4px solid #4caf50;
   }
 `;
 
 const Text = styled.p`
   font-size: 1rem;
   color: #555;
-  margin-bottom: 1rem;
-  font-style: italic;
   line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 1.5rem;
 `;
 
 const Name = styled.span`
-  display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #4caf50;
   font-weight: bold;
-  margin-top: 1rem;
   text-align: right;
+  display: block;
 `;
+
