@@ -43,26 +43,15 @@ const HomePage = () => {
             <FaBars size={30} />
           </MenuToggle>
           <NavMenu open={menuOpen}>
-            <NavItem>
-              <FaPhoneAlt size={18} />
-              <span>+254 743 979 766</span>
-            </NavItem>
-            <NavItem>
-              <FaEnvelope size={18} />
-              <span>info@masterdeal.com</span>
-            </NavItem>
-            <SocialLinks>
-              <SocialLink href="https://facebook.com" target="_blank" aria-label="Facebook">
-                <FaFacebook size={20} />
-              </SocialLink>
-              <SocialLink href="https://twitter.com" target="_blank" aria-label="Twitter">
-                <FaTwitter size={20} />
-              </SocialLink>
-              <SocialLink href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                <FaLinkedin size={20} />
-              </SocialLink>
-            </SocialLinks>
-          </NavMenu>
+  <NavItem>
+    <FaPhoneAlt size={18} />
+    <span>+254 743 979 766</span>
+  </NavItem>
+  <NavItem>
+    <FaEnvelope size={18} />
+    <span>info@masterdeal.com</span>
+  </NavItem>
+</NavMenu>
         </HeaderContent>
       </Header>
 
@@ -174,14 +163,26 @@ const HomePage = () => {
 
       {/* Footer */}
       <Footer>
-        <FooterContent>
-          <p>&copy; {new Date().getFullYear()} Masterdeal Properties. All rights reserved.</p>
-          <FooterLinks>
-            <FooterLink href="/">Privacy Policy</FooterLink>
-            <FooterLink href="/">Terms of Service</FooterLink>
-          </FooterLinks>
-        </FooterContent>
-      </Footer>
+  <FooterContent>
+    <p>&copy; {new Date().getFullYear()} Masterdeal Properties. All rights reserved.</p>
+    <SocialLinks>
+      <SocialLink href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <FaFacebook size={20} />
+      </SocialLink>
+      <SocialLink href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <FaTwitter size={20} />
+      </SocialLink>
+      <SocialLink href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+        <FaLinkedin size={20} />
+      </SocialLink>
+    </SocialLinks>
+    <FooterLinks>
+      <FooterLink href="/">Privacy Policy</FooterLink>
+      <FooterLink href="/">Terms of Service</FooterLink>
+    </FooterLinks>
+  </FooterContent>
+</Footer>
+
     </Container>
   );
 };
@@ -295,18 +296,18 @@ const NavItem = styled.div`
   }
 `;
 
-const SocialLinks = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0; /* Add spacing around social icons */
-  background-color: #f9f9f9; /* Light background for contrast */
-  border-radius: 0 0 10px 10px; /* Match the menu's rounded corners */
+// const SocialLinks = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   gap: 1rem;
+//   padding: 1rem 0; /* Add spacing around social icons */
+//   background-color: #f9f9f9; /* Light background for contrast */
+//   border-radius: 0 0 10px 10px; /* Match the menu's rounded corners */
 
-  @media (max-width: 768px) {
-    justify-content: space-around; /* Even spacing for smaller screens */
-  }
-`;
+//   @media (max-width: 768px) {
+//     justify-content: space-around; /* Even spacing for smaller screens */
+//   }
+// `;
 
 const SocialLink = styled.a`
   color: #333; /* Default icon color */
@@ -463,6 +464,10 @@ const Footer = styled.footer`
   color: white;
   padding: 1.5rem 2rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const FooterContent = styled.div`
@@ -482,5 +487,23 @@ const FooterLink = styled.a`
 
   &:hover {
     text-decoration: underline;
+  }
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  a {
+    color: white; /* White color for icons in footer */
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      color: #ff5722; /* Highlight color on hover */
+      transform: scale(1.2);
+    }
   }
 `;
