@@ -29,6 +29,7 @@ const properties = [
 
 const HomePage = () => {
   const availableProperties = properties.filter((property) => property.availability === 'Available');
+  const [menuOpen, setMenuOpen] = useState(false);
   
   return (
     <Container>
@@ -36,27 +37,30 @@ const HomePage = () => {
       <Header>
         <HeaderContent>
           <Logo>Masterdeal Properties</Logo>
-          <ContactInfo>
-            <ContactItem>
+          <MenuToggle onClick={() => setMenuOpen(!menuOpen)}>
+            <FaBars size={30} />
+          </MenuToggle>
+          <NavMenu open={menuOpen}>
+            <NavItem>
               <FaPhoneAlt size={18} />
               <span>+254 700 000 000</span>
-            </ContactItem>
-            <ContactItem>
+            </NavItem>
+            <NavItem>
               <FaEnvelope size={18} />
               <span>info@masterdeal.com</span>
-            </ContactItem>
-          </ContactInfo>
-          <SocialLinks>
-            <SocialLink href="https://facebook.com" target="_blank" aria-label="Facebook">
-              <FaFacebook size={20} />
-            </SocialLink>
-            <SocialLink href="https://twitter.com" target="_blank" aria-label="Twitter">
-              <FaTwitter size={20} />
-            </SocialLink>
-            <SocialLink href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-              <FaLinkedin size={20} />
-            </SocialLink>
-          </SocialLinks>
+            </NavItem>
+            <SocialLinks>
+              <SocialLink href="https://facebook.com" target="_blank" aria-label="Facebook">
+                <FaFacebook size={20} />
+              </SocialLink>
+              <SocialLink href="https://twitter.com" target="_blank" aria-label="Twitter">
+                <FaTwitter size={20} />
+              </SocialLink>
+              <SocialLink href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                <FaLinkedin size={20} />
+              </SocialLink>
+            </SocialLinks>
+          </NavMenu>
         </HeaderContent>
       </Header>
 
@@ -129,9 +133,10 @@ const Header = styled.header`
   padding: 1.5rem 2rem;
   text-align: center;
   color: white;
+  position: relative;
 
   @media (max-width: 768px) {
-    padding-bottom: 0; /* Prevents any additional spacing below */
+    padding-bottom: 0;
   }
 `;
 
@@ -142,14 +147,7 @@ const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
 `;
-
 
 const Logo = styled.h1`
   font-size: 2rem;
@@ -159,25 +157,38 @@ const Logo = styled.h1`
   }
 `;
 
-const ContactInfo = styled.div`
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-
+const MenuToggle = styled.div`
+  display: none;
   @media (max-width: 768px) {
-    flex-direction: column;
+    display: block;
+    cursor: pointer;
   }
 `;
 
-const ContactItem = styled.div`
+const NavMenu = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    background-color: #4caf50;
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
+    transition: transform 0.3s ease-in-out;
+  }
+`;
+
+const NavItem = styled.div`
   display: flex;
   align-items: center;
   font-size: 1rem;
-
   span {
     margin-left: 0.5rem;
   }
-
   @media (max-width: 768px) {
     font-size: 0.9rem;
   }
@@ -192,7 +203,6 @@ const SocialLink = styled.a`
   color: white;
   font-size: 1.5rem;
   transition: color 0.3s ease;
-
   &:hover {
     color: #ff5722;
   }
