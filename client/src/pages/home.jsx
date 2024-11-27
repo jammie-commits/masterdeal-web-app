@@ -37,23 +37,20 @@ const HomePage = () => {
     <Container>
       {/* Header */}
       <Header>
-        <HeaderContent>
-          <Logo>Invest Today...</Logo>
-          <MenuToggle onClick={() => setMenuOpen(!menuOpen)}>
-            <FaBars size={30} />
-          </MenuToggle>
-          <NavMenu open={menuOpen}>
-  <NavItem>
-    <FaPhoneAlt size={18} />
-    <span>+254 743 979 766</span>
-  </NavItem>
-  <NavItem>
-    <FaEnvelope size={18} />
-    <span>info@masterdeal.com</span>
-  </NavItem>
-</NavMenu>
-        </HeaderContent>
-      </Header>
+  <HeaderContent>
+    <Logo>Invest Today...</Logo>
+    <NavMenu>
+      <NavItem>
+        <FaPhoneAlt size={16} />
+        <span>+254 743 979 766</span>
+      </NavItem>
+      <NavItem>
+        <FaEnvelope size={16} />
+        <span>info@masterdeal.com</span>
+      </NavItem>
+    </NavMenu>
+  </HeaderContent>
+</Header>
 
       {/* Main Image Slider */}
       <MainSlider>
@@ -245,54 +242,42 @@ const MenuToggle = styled.div`
 
 const NavMenu = styled.nav`
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-  transition: all 0.3s ease-in-out;
+  justify-content: center; /* Center-align items horizontally */
+  text-align: center;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    background-color: #ffffff; /* White background for better contrast */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-    border-radius: 0 0 10px 10px; /* Rounded corners for a polished look */
-    transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-200%)')};
-    opacity: ${({ open }) => (open ? 1 : 0)};
-    visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
-    z-index: 10;
+    flex-direction: row; /* Ensure horizontal layout */
+    background-color: transparent;
+    position: static; /* Remove dropdown menu behavior on mobile */
+    width: 100%; /* Use full width */
+    padding: 0; /* Remove extra padding */
+    box-shadow: none; /* Remove shadow */
   }
 `;
-
 
 const NavItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem; /* Add padding for better touch targets */
+  gap: 0.5rem; /* Spacing between icon and text */
   font-size: 1rem;
-  font-weight: bold; /* Bold text for visibility */
-  color: #333; /* Darker color for text */
-  border-bottom: 1px solid #e0e0e0; /* Divider between menu items */
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-  &:last-child {
-    border-bottom: none; /* Remove border for the last item */
-  }
+  font-weight: bold;
+  color: white; /* Default text color */
+  transition: color 0.3s ease;
 
   &:hover {
-    background-color: #4caf50; /* Highlight on hover */
-    color: white; /* Change text color on hover */
-    cursor: pointer;
+    color: #ff5722; /* Highlight color on hover */
   }
 
   span {
-    margin-left: 0.5rem;
+    font-size: 0.9rem; /* Slightly smaller text for better fit */
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem; /* Slightly smaller font for mobile */
+    font-size: 0.8rem; /* Adjust text size for small screens */
+    gap: 0.25rem; /* Reduce spacing */
   }
 `;
 
