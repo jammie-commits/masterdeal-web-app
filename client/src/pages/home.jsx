@@ -6,7 +6,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/autoplay';
-import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars, FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt } from 'react-icons/fa';
 
 import property1 from '../assets/image10.jpeg';
 import property2 from '../assets/image5.jpeg';
@@ -19,13 +19,13 @@ import banner4 from '../assets/banner4.svg';
 
 // Property Data
 const properties = [
-  { id: 1, image: property1, title: 'Victory Garden Phase-1', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
-  { id: 2, image: property2, title: 'Victory Garden Phase-2', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
-  { id: 3, image: property3, title: 'Victory Garden Phase-3', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
-  { id: 4, image: property4, title: 'Victory Garden Phase-4', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
-  { id: 5, image: property1, title: 'Victory Garden Phase-5', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
-  { id: 6, image: property2, title: 'Victory Garden Phase-6', price: 'KES 250,000', description: 'New phase with better amenities and breathtaking views.', availability: 'Available' },
-  { id: 7, image: property3, title: 'Victory Garden Phase-7', price: 'KES 250,000', description: 'Prime location, new development with great potential.', availability: 'Available' },
+  { id: 1, image: property1, title: 'Victory Garden Phase-1', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 2, image: property2, title: 'Victory Garden Phase-2', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 3, image: property3, title: 'Victory Garden Phase-3', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 4, image: property4, title: 'Victory Garden Phase-4', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 5, image: property1, title: 'Victory Garden Phase-5', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 6, image: property2, title: 'Victory Garden Phase-6', price: 'KES 250,000', description: 'New phase with better amenities and breathtaking views.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 7, image: property3, title: 'Victory Garden Phase-7', price: 'KES 250,000', description: 'Prime location, new development with great potential.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
 ];
 
 const HomePage = () => {
@@ -88,7 +88,10 @@ const HomePage = () => {
 
       {/* Featured Properties */}
       <FeaturedSection>
-        <h2>Our Featured Properties</h2>
+        <h2>
+          <VerticalLine />
+          FEATURED PROJECTS
+        </h2>
         <PropertyGrid>
           {availableProperties.map((property) => (
             <PropertyCard key={property.id} to={`/property/${property.id}`}>
@@ -102,6 +105,24 @@ const HomePage = () => {
                 <h3>{property.title}</h3>
                 <Price>{property.price}</Price>
                 <Description>{property.description}</Description>
+                <PropertyDetails>
+                  <PropertyItem>
+                    <FaBuilding size={20} />
+                    <span>{property.size} Plots</span>
+                  </PropertyItem>
+                  <PropertyItem>
+                    <FaMapMarkerAlt size={20} />
+                    <span>{property.location}</span>
+                  </PropertyItem>
+                  <PropertyItem>
+                    <FaMoneyCheckAlt size={20} />
+                    <span>Deposit: {property.deposit}</span>
+                  </PropertyItem>
+                  <PropertyItem>
+                    <FaMoneyCheckAlt size={20} />
+                    <span>Balance: {property.balancePeriod}</span>
+                  </PropertyItem>
+                </PropertyDetails>
               </CardBody>
             </PropertyCard>
           ))}
@@ -110,7 +131,10 @@ const HomePage = () => {
 
       {/* Sold Out Projects */}
       <SoldOutProjects>
-        <h2>Sold Out Projects</h2>
+        <h2>
+          <VerticalLine />
+          SOLD OUT PROJECTS
+        </h2>
         <PropertyGrid>
           {soldOutProperties.map((property) => (
             <PropertyCard key={property.id} to={`/property/${property.id}`}>
@@ -124,6 +148,24 @@ const HomePage = () => {
                 <h3>{property.title}</h3>
                 <Price>{property.price}</Price>
                 <Description>{property.description}</Description>
+                <PropertyDetails>
+                  <PropertyItem>
+                    <FaBuilding size={20} />
+                    <span>{property.size} Plots</span>
+                  </PropertyItem>
+                  <PropertyItem>
+                    <FaMapMarkerAlt size={20} />
+                    <span>{property.location}</span>
+                  </PropertyItem>
+                  <PropertyItem>
+                    <FaMoneyCheckAlt size={20} />
+                    <span>Deposit: {property.deposit}</span>
+                  </PropertyItem>
+                  <PropertyItem>
+                    <FaMoneyCheckAlt size={20} />
+                    <span>Balance: {property.balancePeriod}</span>
+                  </PropertyItem>
+                </PropertyDetails>
               </CardBody>
             </PropertyCard>
           ))}
@@ -207,6 +249,8 @@ const NavMenu = styled.div`
     left: 0;
     transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
     transition: transform 0.3s ease-in-out;
+    z-index: 10; /* Ensure it appears on top */
+    display: ${({ open }) => (open ? 'block' : 'none')}; /* Show menu when open */
   }
 `;
 
@@ -259,16 +303,25 @@ const SlideImage = styled.img`
 
 const FeaturedSection = styled.section`
   padding: 0rem 2rem;
-  text-align: center;
+  text-align: left;
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
+    display: flex; /* Use flexbox to align the line and title horizontally */
+    align-items: center; /* Vertically center the content */
 
     @media (max-width: 768px) {
       font-size: 2rem;
     }
   }
+`;
+
+const VerticalLine = styled.div`
+  width: 5px;
+  height: 1.5rem;
+  background-color: #4caf50;
+  margin-right: 1rem; /* Adjust margin to properly space the title from the line */
 `;
 
 const PropertyGrid = styled.div`
@@ -291,17 +344,17 @@ const PropertyCard = styled(Link)`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, orange, white);
   }
 `;
 
 const CardImageContainer = styled.div`
   position: relative;
-  height: 200px;
+  height: 250px;
   overflow: hidden;
 `;
 
@@ -309,62 +362,54 @@ const PropertyImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-
-  ${PropertyCard}:hover & {
-    transform: scale(1.1);
-  }
 `;
 
 const StatusBadge = styled.div`
   position: absolute;
   top: 10px;
-  left: 10px;
-  background-color: ${({ isAvailable }) => (isAvailable ? '#4CAF50' : '#FF0000')};
+  right: 10px;
+  background: ${({ isAvailable }) => (isAvailable ? '#4caf50' : '#ff5722')};
   color: white;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
   border-radius: 5px;
-
-  @media (max-width: 768px) {
-    font-size: 0.8rem;
-  }
 `;
 
 const CardBody = styled.div`
-  padding: 1.5rem;
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
+  padding: 1rem;
 `;
 
-const Price = styled.h3`
-  font-size: 1.3rem;
-  color: #4caf50;
-
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
-  }
+const Price = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
 `;
 
 const Description = styled.p`
   font-size: 1rem;
   color: #666;
+`;
 
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-  }
+const PropertyDetails = styled.div`
+  margin-top: 1rem;
+`;
+
+const PropertyItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const SoldOutProjects = styled.section`
-  background: #f4f4f4;
-  padding: 4rem 2rem;
-  text-align: center;
+  padding: 0rem 2rem;
+  text-align: left;
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
+    display: flex; /* Use flexbox to align the line and title horizontally */
+    align-items: center; /* Vertically center the content */
 
     @media (max-width: 768px) {
       font-size: 2rem;
@@ -373,39 +418,28 @@ const SoldOutProjects = styled.section`
 `;
 
 const Footer = styled.footer`
-  background: linear-gradient(to right, #4caf50, #ff5722);
+  background-color: #333;
   color: white;
-  padding: 2rem 0;
+  padding: 1.5rem 2rem;
   text-align: center;
 `;
 
 const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    text-align: center;
-  }
 `;
 
 const FooterLinks = styled.div`
   margin-top: 1rem;
-
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
 `;
 
 const FooterLink = styled.a`
-  margin: 0 1rem;
   color: white;
-  font-size: 1rem;
+  margin: 0 0.5rem;
+  font-size: 0.9rem;
   text-decoration: none;
 
   &:hover {
-    color: #ff5722;
+    text-decoration: underline;
   }
 `;
-
