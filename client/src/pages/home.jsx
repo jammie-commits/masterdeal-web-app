@@ -202,7 +202,7 @@ const MainSlider = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-color: white;
 
   @media (max-width: 768px) {
     height: 50vh;
