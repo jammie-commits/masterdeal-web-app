@@ -216,6 +216,11 @@ const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack items on mobile */
+    align-items: flex-start;
+  }
 `;
 
 const Logo = styled.h1`
