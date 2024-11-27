@@ -242,7 +242,7 @@ const MainSlider = styled.div`
   position: relative;
   width: 100%;
   height: 65vh;
-  background: #ccc;
+  background: #fff;
 `;
 
 const BannerContainer = styled.div`
