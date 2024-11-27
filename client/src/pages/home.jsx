@@ -244,52 +244,82 @@ const MenuToggle = styled.div`
 
 const NavMenu = styled.nav`
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   transition: all 0.3s ease-in-out;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    background-color: #4caf50;
+    background-color: #ffffff; /* White background for better contrast */
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     padding: 1rem;
-    transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    border-radius: 0 0 10px 10px; /* Rounded corners for a polished look */
+    transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-200%)')};
     opacity: ${({ open }) => (open ? 1 : 0)};
     visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
     z-index: 10;
   }
 `;
 
+
 const NavItem = styled.div`
   display: flex;
   align-items: center;
+  padding: 0.5rem 1rem; /* Add padding for better touch targets */
   font-size: 1rem;
+  font-weight: bold; /* Bold text for visibility */
+  color: #333; /* Darker color for text */
+  border-bottom: 1px solid #e0e0e0; /* Divider between menu items */
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:last-child {
+    border-bottom: none; /* Remove border for the last item */
+  }
+
+  &:hover {
+    background-color: #4caf50; /* Highlight on hover */
+    color: white; /* Change text color on hover */
+    cursor: pointer;
+  }
 
   span {
     margin-left: 0.5rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
-    margin: 0.5rem 0;
+    font-size: 0.9rem; /* Slightly smaller font for mobile */
   }
 `;
 
 const SocialLinks = styled.div`
   display: flex;
+  justify-content: center;
   gap: 1rem;
+  padding: 1rem 0; /* Add spacing around social icons */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 0 0 10px 10px; /* Match the menu's rounded corners */
+
+  @media (max-width: 768px) {
+    justify-content: space-around; /* Even spacing for smaller screens */
+  }
 `;
 
 const SocialLink = styled.a`
-  color: white;
+  color: #333; /* Default icon color */
   font-size: 1.5rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    color: #ff5722;
+    color: #ff5722; /* Highlight color on hover */
+    transform: scale(1.2); /* Slightly enlarge icon on hover */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem; /* Adjust icon size for mobile */
   }
 `;
 
