@@ -38,14 +38,14 @@ const HomePage = () => {
       {/* Header */}
       <Header>
         <HeaderContent>
-          <Logo>Masterdeal Properties</Logo>
+          <Logo>Invest in in your preferred location...</Logo>
           <MenuToggle onClick={() => setMenuOpen(!menuOpen)}>
             <FaBars size={30} />
           </MenuToggle>
           <NavMenu open={menuOpen}>
             <NavItem>
               <FaPhoneAlt size={18} />
-              <span>+254 700 000 000</span>
+              <span>+254 743 979 766</span>
             </NavItem>
             <NavItem>
               <FaEnvelope size={18} />
@@ -219,7 +219,8 @@ const HeaderContent = styled.div`
 `;
 
 const Logo = styled.h1`
-  font-size: 2rem;
+  font-size: 1rem;
+  font-style: italic;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -418,7 +419,7 @@ const SoldOutProjects = styled.section`
 `;
 
 const Footer = styled.footer`
-  background-color: #333;
+  background: linear-gradient(to right, #4caf50, #ff5722);
   color: white;
   padding: 1.5rem 2rem;
   text-align: center;

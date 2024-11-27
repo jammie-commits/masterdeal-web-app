@@ -25,7 +25,7 @@ const Blog = () => (
                 <h2>1. Steady Appreciation in Value</h2>
                 <p>
                     Kenya’s land market has shown remarkable growth, with properties appreciating annually.
-                    Urban areas, especially in Nairobi, Mombasa, and Kisumu, have seen high demand for land,
+                    Urban areas, especially Matuu have seen high demand for land,
                     driving prices up consistently. Even rural plots are seeing appreciation due to
                     infrastructure developments and expanding cities.
                 </p>

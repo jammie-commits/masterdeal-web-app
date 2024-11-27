@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import property1 from '../assets/image10.jpeg';
 import property2 from '../assets/image5.jpeg';
 import property3 from '../assets/image14.jpeg';
-import property4 from '../assets/image12.jpeg';
+import property4 from '../assets/image9.jpeg';
 import property5 from '../assets/5-1.jpeg';
-import property6 from '../assets/6-1.jpeg';
-import property7 from '../assets/6-2.jpeg';
+import property6 from '../assets/banner2.svg';
+import property7 from '../assets/banner1.svg';
 
 const properties = [
   {
@@ -54,7 +54,7 @@ const properties = [
     id: 6,
     image: property6,
     title: 'Victory Garden Phase-6',
-    price: 'KES 270,000',
+    price: 'KES 250,000',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
   },
@@ -62,7 +62,7 @@ const properties = [
     id: 7,
     image: property7,
     title: 'Victory Garden Phase-7',
-    price: 'KES 270,000',
+    price: 'KES 250,000',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
   },

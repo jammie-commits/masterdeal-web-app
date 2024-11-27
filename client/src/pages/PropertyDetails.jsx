@@ -15,6 +15,17 @@ import property4 from '../assets/image12.jpeg';
 import property5 from '../assets/5-1.jpeg';
 import property6 from '../assets/6-1.jpeg';
 import property7 from '../assets/6-2.jpeg';
+import property8 from '../assets/6-3.jpeg';
+import property9 from '../assets/6-4.jpeg';
+import property10 from '../assets/6-5.jpeg';
+import property11 from '../assets/6-6.jpeg';
+import property12 from '../assets/image7.jpeg';
+import property13 from '../assets/image4.jpeg';
+import property14 from '../assets/image1.jpeg';
+import banner1 from '../assets/banner1.svg';
+import banner2 from '../assets/banner2.svg';
+import banner3 from '../assets/banner3.svg';
+import banner4 from '../assets/banner4.svg';
 
 const properties = [
   {
@@ -22,6 +33,7 @@ const properties = [
     image: property1,
     title: 'Victory Garden Phase-1',
     price: 'KES 270,000',
+    paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [property2, property3, property4], // Add images for gallery
@@ -31,6 +43,7 @@ const properties = [
     image: property2,
     title: 'Victory Garden Phase-2',
     price: 'KES 270,000',
+    paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [property1, property4, property5],
@@ -40,6 +53,7 @@ const properties = [
     image: property3,
     title: 'Victory Garden Phase-3',
     price: 'KES 220,000 (cash) or KES 270,000 (installment)',
+    paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Opposite Msingini Sports Resort near Msingini primary/secondary school',
     features: ['600 mtrs from Tarmac road', '7km from Matuu town', 'Water supply', 'Schools'],
     amenitiesGallery: [property6, property7, property5],
@@ -49,6 +63,7 @@ const properties = [
     image: property4,
     title: 'Victory Garden Phase-4',
     price: 'KES 270,000',
+    paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [property1, property4, property5],
@@ -58,27 +73,30 @@ const properties = [
     image: property5,
     title: 'Victory Garden Phase-5',
     price: 'KES 270,000',
+    paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [property1, property4, property5],
   },
   {
     id: 6,
-    image: property6,
+    image: banner2,
     title: 'Victory Garden Phase-6',
-    price: 'KES 270,000',
-    description: 'Serene environment with breathtaking views and modern amenities.',
-    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-    amenitiesGallery: [property1, property4, property5],
+    price: 'KES 250,000',
+    paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
+    description: 'Good investment project for development and settlement.',
+    features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply favourable for agriculture ', 'Near Musingini Secondary School'],
+    amenitiesGallery: [property8, property9, property10, property11, property12, property13, property14],
   },
   {
     id: 7,
-    image: property7,
+    image: banner3,
     title: 'Victory Garden Phase-7',
-    price: 'KES 270,000',
-    description: 'Serene environment with breathtaking views and modern amenities.',
-    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-    amenitiesGallery: [property1, property4, property5],
+    price: 'KES 250,000',
+    paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
+    description: 'Good investment project for development and settlement.',
+    features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply favourable for agriculture ', 'Near Musingini Secondary School'],
+    amenitiesGallery: [property8, property9, property10, property11, property12, property13, property14],
   },
 ];
 
@@ -104,6 +122,7 @@ const PropertyDetails = () => {
         <Header>
           <h2>{property.title}</h2>
           <Price>{property.price}</Price>
+          <PaymentPlan>{property.paymentPlan}</PaymentPlan>
           <Description>{property.description}</Description>
         </Header>
 
@@ -257,6 +276,13 @@ const Features = styled.div`
       }
     }
   }
+`;
+
+const PaymentPlan = styled.div`
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  text-align: center;
 `;
 
 const GallerySection = styled.div`
