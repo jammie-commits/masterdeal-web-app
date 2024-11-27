@@ -12,6 +12,10 @@ import property1 from '../assets/image10.jpeg';
 import property2 from '../assets/image5.jpeg';
 import property3 from '../assets/image14.jpeg';
 import property4 from '../assets/image12.jpeg';
+import banner1 from '../assets/banner1.svg';
+import banner2 from '../assets/banner2.svg';
+import banner3 from '../assets/banner3.svg';
+import banner4 from '../assets/banner4.svg';
 
 // Property Data
 const properties = [
@@ -19,8 +23,8 @@ const properties = [
   { id: 2, image: property2, title: 'Victory Garden Phase-2', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
   { id: 3, image: property3, title: 'Victory Garden Phase-3', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
   { id: 4, image: property4, title: 'Victory Garden Phase-4', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out' },
-  { id: 5, image: property1, title: 'Victory Garden Phase-6', price: 'KES 300,000', description: 'New phase with better amenities and breathtaking views.', availability: 'Available' },
-  { id: 6, image: property2, title: 'Victory Garden Phase-7', price: 'KES 310,000', description: 'Prime location, new development with great potential.', availability: 'Available' },
+  { id: 5, image: property1, title: 'Victory Garden Phase-6', price: 'KES 250,000', description: 'New phase with better amenities and breathtaking views.', availability: 'Available' },
+  { id: 6, image: property2, title: 'Victory Garden Phase-7', price: 'KES 250,000', description: 'Prime location, new development with great potential.', availability: 'Available' },
 ];
 
 const HomePage = () => {
@@ -66,16 +70,14 @@ const HomePage = () => {
           effect="fade"
           modules={[Autoplay, EffectFade]}
         >
-          {availableProperties.map((property) => (
-            <SwiperSlide key={property.id}>
-              <SlideImage src={property.image} alt={property.title} />
+          {[banner1, banner2, banner3, banner4].map((banner, index) => (
+            <SwiperSlide key={index}>
+              <BannerContainer>
+                <SlideImage src={banner} alt={`Banner ${index + 1}`} />
+              </BannerContainer>
             </SwiperSlide>
           ))}
         </Swiper>
-        <SliderContent>
-          <h1>Victory Garden</h1>
-          <p>Explore the best property deals in serene and secure environments.</p>
-        </SliderContent>
       </MainSlider>
 
       {/* Featured Properties */}
@@ -136,17 +138,31 @@ const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
 `;
+
 
 const Logo = styled.h1`
   font-size: 2rem;
-  margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const ContactInfo = styled.div`
   display: flex;
   gap: 1.5rem;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ContactItem = styled.div`
@@ -156,6 +172,10 @@ const ContactItem = styled.div`
 
   span {
     margin-left: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
   }
 `;
 
@@ -176,37 +196,36 @@ const SocialLink = styled.a`
 
 const MainSlider = styled.div`
   position: relative;
+  width: 100%;
   height: 65vh;
-  overflow: hidden;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+
+  @media (max-width: 768px) {
+    height: 50vh;
+  }
+`;
+
+const BannerContainer = styled.div`
+  width: 100%; /* Adjust the size to control image scaling */
+  height: 90%; 
+  border: 5px solid transparent; /* Border for styling */
+  border-radius: 10px; /* Optional rounded corners */
+  background: linear-gradient(45deg, #ffffff, #e0e0e0); /* Gradient border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures the image stays within bounds */
+  box-sizing: border-box; /* Include border size in dimensions */
 `;
 
 const SlideImage = styled.img`
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const SliderContent = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
-  border-radius: 10px;
-
-  h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  p {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-  }
+  height: auto;
+  object-fit: contain;
 `;
 
 const FeaturedSection = styled.section`
@@ -218,6 +237,10 @@ const FeaturedSection = styled.section`
     color: #222;
     text-align: center;
     margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -226,11 +249,11 @@ const PropertyGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `;
@@ -275,20 +298,36 @@ const StatusBadge = styled.div`
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const CardBody = styled.div`
   padding: 1.5rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const Price = styled.h3`
   font-size: 1.3rem;
   color: #4caf50;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Description = styled.p`
   font-size: 1rem;
   color: #666;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Footer = styled.footer`
@@ -301,10 +340,20 @@ const Footer = styled.footer`
 const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const FooterLinks = styled.div`
   margin-top: 1rem;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 `;
 
 const FooterLink = styled.a`
