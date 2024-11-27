@@ -200,9 +200,9 @@ const Container = styled.div`
 const Header = styled.header`
   background: linear-gradient(to right, #4caf50, #ff5722);
   padding: 1.5rem 2rem;
-  text-align: center;
   color: white;
   position: relative;
+  z-index: 1000;
 
   @media (max-width: 768px) {
     padding: 1rem;
@@ -219,12 +219,13 @@ const HeaderContent = styled.div`
 `;
 
 const Logo = styled.h1`
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   font-style: italic;
   margin: 0;
 
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -236,22 +237,24 @@ const MenuToggle = styled.div`
   }
 `;
 
-const NavMenu = styled.div`
+const NavMenu = styled.nav`
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
+  transition: all 0.3s ease-in-out;
+
   @media (max-width: 768px) {
     flex-direction: column;
     background-color: #4caf50;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
     padding: 1rem;
-    position: absolute;
-    top: 80px;
-    left: 0;
     transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
-    transition: transform 0.3s ease-in-out;
-    z-index: 10; /* Ensure it appears on top */
-    display: ${({ open }) => (open ? 'block' : 'none')}; /* Show menu when open */
+    opacity: ${({ open }) => (open ? 1 : 0)};
+    visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
+    z-index: 10;
   }
 `;
 
@@ -259,12 +262,14 @@ const NavItem = styled.div`
   display: flex;
   align-items: center;
   font-size: 1rem;
+
   span {
     margin-left: 0.5rem;
   }
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
+    margin: 0.5rem 0;
   }
 `;
 
