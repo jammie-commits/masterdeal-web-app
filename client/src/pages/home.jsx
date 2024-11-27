@@ -258,7 +258,7 @@ const SlideImage = styled.img`
 `;
 
 const FeaturedSection = styled.section`
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   text-align: center;
 
   h2 {
