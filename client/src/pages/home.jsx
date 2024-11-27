@@ -125,10 +125,14 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
-  background: linear-gradient(to right, #4caf50, #ff5722); /* Green to Orange gradient */
+  background: linear-gradient(to right, #4caf50, #ff5722);
   padding: 1.5rem 2rem;
   text-align: center;
   color: white;
+
+  @media (max-width: 768px) {
+    padding-bottom: 0; /* Prevents any additional spacing below */
+  }
 `;
 
 const HeaderContent = styled.div`
@@ -197,15 +201,20 @@ const SocialLink = styled.a`
 const MainSlider = styled.div`
   position: relative;
   width: 100%;
-  height: auto;
+  height: 65vh; /* Default height */
   margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: #000;
 
   @media (max-width: 768px) {
-    height: 50vh;
+    height: 50vh; /* Adjust height for smaller screens */
+    margin-top: 0; /* Remove the margin on top to position it directly below the header */
+  }
+
+  @media (max-width: 480px) {
+    height: 40vh; /* Further reduce height for very small screens */
   }
 `;
 
@@ -222,10 +231,11 @@ const BannerContainer = styled.div`
   box-sizing: border-box; /* Include border size in dimensions */
 `;
 
+
 const SlideImage = styled.img`
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover; /* Ensures images cover the container without stretching */
 `;
 
 const FeaturedSection = styled.section`
