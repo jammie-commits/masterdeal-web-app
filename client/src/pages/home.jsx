@@ -241,7 +241,7 @@ const SocialLink = styled.a`
 const MainSlider = styled.div`
   position: relative;
   width: 100%;
-  height: 65vh;
+  height: 20vh;
   background: #fff;
 `;
 
