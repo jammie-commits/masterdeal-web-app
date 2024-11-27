@@ -38,7 +38,7 @@ const HomePage = () => {
       {/* Header */}
       <Header>
         <HeaderContent>
-          <Logo>Invest in in your preferred location...</Logo>
+          <Logo>Invest Today...</Logo>
           <MenuToggle onClick={() => setMenuOpen(!menuOpen)}>
             <FaBars size={30} />
           </MenuToggle>
