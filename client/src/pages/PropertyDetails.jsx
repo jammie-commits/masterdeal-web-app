@@ -86,7 +86,15 @@ const properties = [
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Good investment project for development and settlement.',
     features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply favourable for agriculture ', 'Near Musingini Secondary School'],
-    amenitiesGallery: [property8, property9, property10, property11, property12, property13, property14],
+    amenitiesGallery: [
+      { image: property8, description: 'Fully serviced Plots' },
+      { image: property9, description: 'Close proximity to Electric connectivity' },
+      { image: property10, description: 'Good Water supply is available' },
+      { image: property11, description: 'Surrounding neighbours' },
+      { image: property12, description: 'Close proximity to health care facility ' },
+      { image: property13, description: 'Located near Musingini Secondary School' },
+      { image: property14, description: 'Available Social amenity: Msingini Sports Resort' },
+    ],
   },
   {
     id: 7,
@@ -96,7 +104,15 @@ const properties = [
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Good investment project for development and settlement.',
     features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply favourable for agriculture ', 'Near Musingini Secondary School'],
-    amenitiesGallery: [property8, property9, property10, property11, property12, property13, property14],
+    amenitiesGallery: [
+      { image: property8, description: 'Fully serviced Plots' },
+      { image: property9, description: 'Close proximity to Electric connectivity' },
+      { image: property10, description: 'Good Water supply is available' },
+      { image: property11, description: 'Surrounding neighbours' },
+      { image: property12, description: 'Close proximity to health care facility ' },
+      { image: property13, description: 'Located near Musingini Secondary School' },
+      { image: property14, description: 'Available Social amenity: Msingini Sports Resort' },
+    ],
   },
 ];
 
@@ -140,21 +156,17 @@ const PropertyDetails = () => {
         </Features>
 
         <GallerySection>
-          <h3>Amenities Gallery:</h3>
-          <Swiper
-            spaceBetween={10}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            navigation
-            modules={[Pagination, Navigation]}
-          >
-            {property.amenitiesGallery.map((image, index) => (
-              <SwiperSlide key={index}>
-                <GalleryImage src={image} alt={`Amenity ${index + 1}`} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </GallerySection>
+  <h3>Amenities Gallery:</h3>
+  <GalleryGrid>
+    {property.amenitiesGallery.map((amenity, index) => (
+      <AmenityCard key={index}>
+        <GalleryImage src={amenity.image} alt={`Amenity ${index + 1}`} />
+        <AmenityDescription>{amenity.description}</AmenityDescription>
+      </AmenityCard>
+    ))}
+  </GalleryGrid>
+</GallerySection>
+
 
         <BookingSection>
           <h3>Book a Site Visit</h3>
@@ -285,6 +297,27 @@ const PaymentPlan = styled.div`
   text-align: center;
 `;
 
+const GalleryGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+`;
+
+const AmenityCard = styled.div`
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
+  text-align: center;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
 const GallerySection = styled.div`
   margin-top: 3rem;
 
@@ -293,15 +326,28 @@ const GallerySection = styled.div`
     color: #333;
     font-weight: 600;
     margin-bottom: 1rem;
+    text-align: center;
   }
 `;
 
 const GalleryImage = styled.img`
   width: 100%;
-  max-width: 900px;
   height: auto;
-  border-radius: 8px;
-  margin: 0 auto;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+const AmenityDescription = styled.p`
+  margin: 0;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #555;
+  background-color: #f9f9f9;
 `;
 
 const BookingSection = styled.div`
