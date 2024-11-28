@@ -25,6 +25,7 @@ import property14 from '../assets/image1.jpeg';
 import property15 from '../assets/3-1.jpeg';
 import property16 from '../assets/3-2.jpeg';
 import property17 from '../assets/3-3.jpeg';
+import property18 from '../assets/image6.jpeg';
 import banner1 from '../assets/banner1.svg';
 import banner2 from '../assets/banner2.svg';
 import banner3 from '../assets/banner3.svg';
@@ -56,9 +57,9 @@ const properties = [
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [
-      { image: property1, description: 'surrounding neighbours  ' },
-      { image: property2, description: 'good soils for agriculture' },
-      { image: property3, description: 'serene environment ripe for growth' },
+      { image: property5, description: 'surrounding neighbours  ' },
+      { image: property18, description: 'good soils for agriculture' },
+      { image: property7, description: 'serene environment ripe for growth' },
       { image: property4, description: 'fully serviced plots' },
       
     ],
