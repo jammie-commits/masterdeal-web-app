@@ -22,6 +22,9 @@ import property11 from '../assets/6-6.jpeg';
 import property12 from '../assets/image7.jpeg';
 import property13 from '../assets/image4.jpeg';
 import property14 from '../assets/image1.jpeg';
+import property15 from '../assets/3-1.jpeg';
+import property16 from '../assets/3-2.jpeg';
+import property17 from '../assets/3-3.jpeg';
 import banner1 from '../assets/banner1.svg';
 import banner2 from '../assets/banner2.svg';
 import banner3 from '../assets/banner3.svg';
@@ -36,7 +39,13 @@ const properties = [
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-    amenitiesGallery: [property2, property3, property4], // Add images for gallery
+    amenitiesGallery: [
+      { image: property1, description: 'surrounding neighbours  ' },
+      { image: property2, description: 'good soils for agriculture' },
+      { image: property3, description: 'serene environment ripe for growth' },
+      { image: property4, description: 'fully serviced plots' },
+      
+    ],
   },
   {
     id: 2,
@@ -46,7 +55,13 @@ const properties = [
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-    amenitiesGallery: [property1, property4, property5],
+    amenitiesGallery: [
+      { image: property1, description: 'surrounding neighbours  ' },
+      { image: property2, description: 'good soils for agriculture' },
+      { image: property3, description: 'serene environment ripe for growth' },
+      { image: property4, description: 'fully serviced plots' },
+      
+    ],
   },
   {
     id: 3,
@@ -56,7 +71,12 @@ const properties = [
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Opposite Msingini Sports Resort near Msingini primary/secondary school',
     features: ['600 mtrs from Tarmac road', '7km from Matuu town', 'Water supply', 'Schools'],
-    amenitiesGallery: [property6, property7, property5],
+    amenitiesGallery: [
+      { image: property15, description: 'Good settlement area' },
+      { image: property16, description: 'Productive land for agriculture' },
+      { image: property17, description: 'Fast developing area' },
+      
+    ],
   },
   {
     id: 4,
@@ -66,7 +86,13 @@ const properties = [
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-    amenitiesGallery: [property1, property4, property5],
+    amenitiesGallery: [
+      { image: property1, description: 'surrounding neighbours  ' },
+      { image: property2, description: 'good soils for agriculture' },
+      { image: property3, description: 'serene environment ripe for growth' },
+      { image: property4, description: 'fully serviced plots' },
+      
+    ],
   },
   {
     id: 5,
@@ -76,7 +102,13 @@ const properties = [
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
-    amenitiesGallery: [property1, property4, property5],
+    amenitiesGallery: [
+      { image: property1, description: 'surrounding neighbours  ' },
+      { image: property2, description: 'good soils for agriculture' },
+      { image: property3, description: 'serene environment ripe for growth' },
+      { image: property4, description: 'fully serviced plots' },
+      
+    ],
   },
   {
     id: 6,
