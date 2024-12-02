@@ -8,6 +8,8 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/autoplay';
 import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars, FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt } from 'react-icons/fa';
 
+
+
 import property1 from '../assets/p1.jpeg';
 import property2 from '../assets/p-1.jpeg';
 import property3 from '../assets/3-1.jpeg';
@@ -235,13 +237,13 @@ const Logo = styled.h1`
   }
 `;
 
-const MenuToggle = styled.div`
-  display: none;
-  @media (max-width: 768px) {
-    display: block;
-    cursor: pointer;
-  }
-`;
+// const MenuToggle = styled.div`
+//   display: none;
+//   @media (max-width: 768px) {
+//     display: block;
+//     cursor: pointer;
+//   }
+// `;
 
 const NavMenu = styled.nav`
   display: flex;
