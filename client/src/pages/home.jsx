@@ -8,10 +8,13 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/autoplay';
 import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars, FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt } from 'react-icons/fa';
 
-import property1 from '../assets/image10.jpeg';
-import property2 from '../assets/phase 6.jpeg';
-import property3 from '../assets/image14.jpeg';
-import property4 from '../assets/image12.jpeg';
+import property1 from '../assets/p1.jpeg';
+import property2 from '../assets/p-1.jpeg';
+import property3 from '../assets/3-1.jpeg';
+import property4 from '../assets/p3.jpeg';
+import property5 from '../assets/5-1.jpeg';
+import property6 from '../assets/phase 6.jpeg';
+import property7 from '../assets/image1.jpeg';
 import banner1 from '../assets/banner1.svg';
 import banner2 from '../assets/banner2.svg';
 import banner3 from '../assets/banner3.svg';
@@ -23,9 +26,9 @@ const properties = [
   { id: 2, image: property2, title: 'Victory Garden Phase-2', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
   { id: 3, image: property3, title: 'Victory Garden Phase-3', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
   { id: 4, image: property4, title: 'Victory Garden Phase-4', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
-  { id: 5, image: property1, title: 'Victory Garden Phase-5', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
-  { id: 6, image: property2, title: 'Victory Garden Phase-6', price: 'KES 250,000', description: 'New phase with better amenities and breathtaking views.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
-  { id: 7, image: property3, title: 'Victory Garden Phase-7', price: 'KES 250,000', description: 'Prime location, new development with great potential.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 5, image: property5, title: 'Victory Garden Phase-5', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 6, image: property6, title: 'Victory Garden Phase-6', price: 'KES 250,000', description: 'New phase with better amenities and breathtaking views.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
+  { id: 7, image: property7, title: 'Victory Garden Phase-7', price: 'KES 250,000', description: 'Prime location, new development with great potential.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6-12 months' },
 ];
 
 const HomePage = () => {

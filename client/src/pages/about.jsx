@@ -87,19 +87,16 @@ const Services = () => (
       industry.
     </p>
     <ServiceGrid>
-      {servicesData.map(({ icon, title, subTitle }, index) => (
-        <ServiceCard key={index} icon={icon} title={title} subTitle={subTitle} />
+      {servicesData.map(({ title, subTitle }, index) => (
+        <ServiceCard key={index} title={title} subTitle={subTitle} />
       ))}
     </ServiceGrid>
   </ServiceWrapper>
 );
 
 // Service Card Component
-const ServiceCard = ({ icon, title, subTitle }) => (
+const ServiceCard = ({ title, subTitle }) => (
   <ServiceItem>
-    <Icon>
-      <img src={icon} alt={title} />
-    </Icon>
     <h3>{title}</h3>
     <p>{subTitle}</p>
   </ServiceItem>
@@ -324,19 +321,7 @@ const ServiceItem = styled.article`
   }
 `;
 
-const Icon = styled.div`
-  img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    margin-bottom: 1.5rem;
 
-    @media screen and (max-width: 720px) {
-      width: 80px;
-      height: 80px;
-    }
-  }
-`;
 
 const FooterWrapper = styled.footer`
   background: linear-gradient(to right, #4caf50, #ff5722);
