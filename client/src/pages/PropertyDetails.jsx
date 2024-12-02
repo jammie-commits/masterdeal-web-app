@@ -8,13 +8,13 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 
 // Import images
-import property1 from '../assets/image10.jpeg';
-import property2 from '../assets/image5.jpeg';
-import property3 from '../assets/image14.jpeg';
+import property1 from '../assets/p1.jpeg';
+import property2 from '../assets/p2.jpeg';
+import property3 from '../assets/p3.jpeg';
 import property4 from '../assets/image12.jpeg';
-import property5 from '../assets/5-1.jpeg';
-import property6 from '../assets/6-1.jpeg';
-import property7 from '../assets/6-2.jpeg';
+import property5 from '../assets/2-1.jpeg';
+import property6 from '../assets/ph2.jpeg';
+import property7 from '../assets/2-2.jpeg';
 import property8 from '../assets/6-3.jpeg';
 import property9 from '../assets/6-4.jpeg';
 import property10 from '../assets/6-5.jpeg';
@@ -25,7 +25,14 @@ import property14 from '../assets/image1.jpeg';
 import property15 from '../assets/3-1.jpeg';
 import property16 from '../assets/3-2.jpeg';
 import property17 from '../assets/3-3.jpeg';
-import property18 from '../assets/image6.jpeg';
+import property18 from '../assets/2-3.jpeg';
+import property19 from '../assets/p-1.jpeg';
+import property20 from '../assets/p-2.jpeg';
+import property21 from '../assets/p-3.jpeg';
+import property22 from '../assets/p-4.jpeg';
+import property23 from '../assets/5-1.jpeg';
+import property24 from '../assets/5-2.jpeg';
+import property25 from '../assets/5-3.jpeg';
 import banner1 from '../assets/banner1.svg';
 import banner2 from '../assets/banner2.svg';
 import banner3 from '../assets/banner3.svg';
@@ -41,74 +48,74 @@ const properties = [
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [
-      { image: property1, description: 'surrounding neighbours  ' },
-      { image: property2, description: 'good soils for agriculture' },
-      { image: property3, description: 'serene environment ripe for growth' },
-      { image: property4, description: 'fully serviced plots' },
-      
+      { image: property1, description: 'Well tarmacked roads' },
+      { image: property2, description: 'surrounding neighbours and developments' },
+      { image: property3, description: 'serene environment ripe for growth and settlement' },
+
+
     ],
   },
   {
     id: 2,
-    image: property2,
+    image: property5,
     title: 'Victory Garden Phase-2',
     price: 'KES 270,000',
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [
-      { image: property5, description: 'surrounding neighbours  ' },
-      { image: property18, description: 'good soils for agriculture' },
-      { image: property7, description: 'serene environment ripe for growth' },
-      { image: property4, description: 'fully serviced plots' },
-      
+      { image: property5, description: 'Development catchment area ' },
+      { image: property18, description: 'well serviced plots' },
+      { image: property7, description: 'good soils for farming & agriculture' },
+
+
     ],
   },
   {
     id: 3,
-    image: property3,
+    image: property15,
     title: 'Victory Garden Phase-3',
     price: 'KES 220,000 (cash) or KES 270,000 (installment)',
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Opposite Msingini Sports Resort near Msingini primary/secondary school',
     features: ['600 mtrs from Tarmac road', '7km from Matuu town', 'Water supply', 'Schools'],
     amenitiesGallery: [
-      { image: property15, description: 'Good settlement area' },
-      { image: property16, description: 'Productive land for agriculture' },
-      { image: property17, description: 'Fast developing area' },
-      
+      { image: property15, description: 'fertile & productive land suitable for farming and agriculture' },
+      { image: property16, description: 'fast growing development area' },
+      { image: property17, description: 'Well tarmacked roads making the area easily accessible' },
+
     ],
   },
   {
     id: 4,
-    image: property4,
+    image: property19,
     title: 'Victory Garden Phase-4',
     price: 'KES 270,000',
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [
-      { image: property1, description: 'surrounding neighbours  ' },
-      { image: property2, description: 'good soils for agriculture' },
-      { image: property3, description: 'serene environment ripe for growth' },
-      { image: property4, description: 'fully serviced plots' },
-      
+      { image: property19, description: 'Rich fertile soils capable for agricultural produce ' },
+      { image: property20, description: 'surrounding neighborhoods and development sites' },
+      { image: property21, description: 'located in matuu afew metres from matuu town' },
+      { image: property22, description: 'available governemnt offices and social amenities' },
+
     ],
   },
   {
     id: 5,
-    image: property5,
+    image: property23,
     title: 'Victory Garden Phase-5',
     price: 'KES 270,000',
     paymentPlan: 'Deposit KES 50,000 and pay the balance in 6 months.',
     description: 'Serene environment with breathtaking views and modern amenities.',
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [
-      { image: property1, description: 'surrounding neighbours  ' },
-      { image: property2, description: 'good soils for agriculture' },
-      { image: property3, description: 'serene environment ripe for growth' },
-      { image: property4, description: 'fully serviced plots' },
+      { image: property23, description: 'serene environment ripe for growth and settlement  ' },
+      { image: property24, description: 'good soils ready for farming and agriculture' },
+      { image: property25, description: 'well serviced plots' },
       
+
     ],
   },
   {
@@ -126,7 +133,7 @@ const properties = [
       { image: property11, description: 'Surrounding neighbours' },
       { image: property12, description: 'Close proximity to health care facility ' },
       { image: property13, description: 'Located near Musingini Secondary School' },
-      { image: property14, description: 'Available Social amenity: Msingini Sports Resort' },
+      { image: property14, description: 'Located next to Msingini Sports Resort' },
     ],
   },
   {
@@ -144,7 +151,7 @@ const properties = [
       { image: property11, description: 'Surrounding neighbours' },
       { image: property12, description: 'Close proximity to health care facility ' },
       { image: property13, description: 'Located near Musingini Secondary School' },
-      { image: property14, description: 'Available Social amenity: Msingini Sports Resort' },
+      { image: property14, description: 'Located next toMsingini Sports Resort' },
     ],
   },
 ];
@@ -189,16 +196,16 @@ const PropertyDetails = () => {
         </Features>
 
         <GallerySection>
-  <h3>Amenities Gallery:</h3>
-  <GalleryGrid>
-    {property.amenitiesGallery.map((amenity, index) => (
-      <AmenityCard key={index}>
-        <GalleryImage src={amenity.image} alt={`Amenity ${index + 1}`} />
-        <AmenityDescription>{amenity.description}</AmenityDescription>
-      </AmenityCard>
-    ))}
-  </GalleryGrid>
-</GallerySection>
+          <h3>Amenities Gallery:</h3>
+          <GalleryGrid>
+            {property.amenitiesGallery.map((amenity, index) => (
+              <AmenityCard key={index}>
+                <GalleryImage src={amenity.image} alt={`Amenity ${index + 1}`} />
+                <AmenityDescription>{amenity.description}</AmenityDescription>
+              </AmenityCard>
+            ))}
+          </GalleryGrid>
+        </GallerySection>
 
 
         <BookingSection>

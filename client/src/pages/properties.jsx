@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import property1 from '../assets/image10.jpeg';
-import property2 from '../assets/image5.jpeg';
-import property3 from '../assets/image14.jpeg';
-import property4 from '../assets/image9.jpeg';
+import property1 from '../assets/p1.jpeg';
+import property2 from '../assets/p2.jpeg';
+import property3 from '../assets/3-1.jpeg';
+import property4 from '../assets/p-1.jpeg';
 import property5 from '../assets/5-1.jpeg';
 import property6 from '../assets/banner2.svg';
 import property7 from '../assets/banner1.svg';

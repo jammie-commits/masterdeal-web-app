@@ -8,22 +8,22 @@ import service4 from '../assets/image9.jpeg';
 
 const servicesData = [
   {
-    icon: service1,
+    // icon: service1,
     title: 'Get Best Prices',
     subTitle: 'Pay a deposit of 50k and complete the rest on 6-12 months.',
   },
   {
-    icon: service2,
+    // icon: service2,
     title: 'Policy Control',
     subTitle: 'Regulated under the Lands Act of Kenya, making us very reliable and trustworthy.',
   },
   {
-    icon: service3,
+    // icon: service3,
     title: 'Flexible Payment',
     subTitle: 'Enjoy flexible payment options to suit your needs.',
   },
   {
-    icon: service4,
+    // icon: service4,
     title: 'Find The Best Properties',
     subTitle: 'Find the best serviced properties in a developing community.',
   },

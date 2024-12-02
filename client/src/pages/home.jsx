@@ -9,7 +9,7 @@ import 'swiper/css/autoplay';
 import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars, FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt } from 'react-icons/fa';
 
 import property1 from '../assets/image10.jpeg';
-import property2 from '../assets/image5.jpeg';
+import property2 from '../assets/phase 6.jpeg';
 import property3 from '../assets/image14.jpeg';
 import property4 from '../assets/image12.jpeg';
 import banner1 from '../assets/banner1.svg';
