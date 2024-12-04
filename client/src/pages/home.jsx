@@ -44,25 +44,7 @@ const HomePage = () => {
 
   return (
     <Container>
-      {/* Header */}
-      <Header>
-        <HeaderContent>
-          <Logo>Invest now...</Logo>
-          <MenuToggle onClick={toggleMenu}>
-            <FaBars size={24} />
-          </MenuToggle>
-          <NavMenu isOpen={menuOpen}>
-            <NavItem onClick={handleNavClick}>
-              <FaPhoneAlt size={16} />
-              <span>+254 743 979 766</span>
-            </NavItem>
-            <NavItem onClick={handleNavClick}>
-              <FaEnvelope size={16} />
-              <span>info@masterdeal.co.ke</span>
-            </NavItem>
-          </NavMenu>
-        </HeaderContent>
-      </Header>
+      
 
       {/* Main Image Slider */}
       <MainSlider>
