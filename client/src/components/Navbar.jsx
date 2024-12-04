@@ -6,7 +6,7 @@ import { VscChromeClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  const [navbarState, setNavbarState] = useState(false); // state to toggle mobile navbar visibility
+  const [navbarState, setNavbarState] = useState(false);
 
   return (
     <>
@@ -33,6 +33,9 @@ export default function Navbar() {
 
       {/* Mobile Navbar */}
       <MobileNavLinks state={navbarState}>
+        <CloseButton onClick={() => setNavbarState(false)}>
+          <VscChromeClose />
+        </CloseButton>
         <li><Link to="/" onClick={() => setNavbarState(false)}>Home</Link></li>
         <li><Link to="/About" onClick={() => setNavbarState(false)}>About</Link></li>
         <li><Link to="/properties" onClick={() => setNavbarState(false)}>Properties</Link></li>
@@ -56,10 +59,6 @@ const StyledNav = styled.nav`
   top: 0;
   z-index: 1000;
   transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #388e3c; /* Darker green on hover */
-  }
 `;
 
 const Brand = styled.div`
@@ -79,19 +78,10 @@ const LogoContainer = styled.div`
   color: #ffffff;
   transition: all 0.3s ease;
 
-  &:hover {
-    color: #ddd;
-  }
-
   img {
     max-height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: rotate(360deg);
-    }
   }
 `;
 
@@ -137,15 +127,16 @@ const ToggleIcon = styled.div`
 
 const MobileNavLinks = styled.ul`
   display: ${({ state }) => (state ? "block" : "none")};
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #4CAF50;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
   padding-top: 4rem;
   z-index: 999;
   transition: transform 0.3s ease-in-out;
+  transform: ${({ state }) => (state ? "translateX(0)" : "translateX(-100%)")}; /* Sliding effect */
 
   li {
     padding: 1.5rem 0;
@@ -168,6 +159,20 @@ const MobileNavLinks = styled.ul`
 
   @media screen and (min-width: 1081px) {
     display: none;
+  }
+`;
+
+const CloseButton = styled.div`
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(90deg);
   }
 `;
 
