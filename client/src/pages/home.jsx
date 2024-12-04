@@ -43,7 +43,7 @@ const HomePage = () => {
       {/* Header */}
       <Header>
   <HeaderContent>
-    <Logo>Invest Today...</Logo>
+    <Logo>Invest now...</Logo>
     <NavMenu>
       <NavItem>
         <FaPhoneAlt size={16} />
@@ -51,7 +51,7 @@ const HomePage = () => {
       </NavItem>
       <NavItem>
         <FaEnvelope size={16} />
-        <span>info@masterdeal.com</span>
+        <span>info@masterdeal.co.ke</span>
       </NavItem>
     </NavMenu>
   </HeaderContent>
