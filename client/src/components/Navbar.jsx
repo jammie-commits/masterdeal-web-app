@@ -30,7 +30,7 @@ export default function Navbar() {
           <li><Link to="/diaspora">Diaspora</Link></li>
         </NavLinks>
       </StyledNav>
-      
+
       {/* Mobile Navbar */}
       <MobileNavLinks state={navbarState}>
         <li><Link to="/" onClick={() => setNavbarState(false)}>Home</Link></li>
@@ -47,11 +47,19 @@ export default function Navbar() {
 
 const StyledNav = styled.nav`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: #4CAF50;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
 `;
 
 const Brand = styled.div`
@@ -64,22 +72,32 @@ const LogoContainer = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 1.2rem;
+  gap: 0.5rem;
+  font-size: 1.4rem;
   font-weight: 900;
   text-transform: uppercase;
   color: #ffffff;
-  
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #ddd;
+  }
+
   img {
     max-height: 3rem;
     width: 3rem;
     border-radius: 50%;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: rotate(360deg);
+    }
   }
 `;
 
 const NavLinks = styled.ul`
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   list-style-type: none;
   margin-left: auto;
 
@@ -88,15 +106,17 @@ const NavLinks = styled.ul`
       text-decoration: none;
       color: #ffffff;
       font-size: 1.2rem;
-      transition: 0.1s ease-in-out;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.2s ease;
 
       &:hover {
-        color: #dddddd;
+        color: #ddd;
+        transform: translateY(-3px);
       }
     }
 
     &:first-of-type a {
-      font-weight: 900;
+      font-weight: 700;
     }
   }
 
@@ -107,26 +127,28 @@ const NavLinks = styled.ul`
 
 const ToggleIcon = styled.div`
   display: none;
+  cursor: pointer;
+  font-size: 2rem;
 
   @media screen and (max-width: 1080px) {
     display: block;
-    cursor: pointer;
   }
 `;
 
 const MobileNavLinks = styled.ul`
-  display: ${({ state }) => (state ? "block" : "none")}; /* Show if navbarState is true */
+  display: ${({ state }) => (state ? "block" : "none")};
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   background-color: #4CAF50;
-  padding-top: 3rem;
+  padding-top: 4rem;
   z-index: 999;
+  transition: transform 0.3s ease-in-out;
 
   li {
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     text-align: center;
 
     a {
@@ -134,16 +156,18 @@ const MobileNavLinks = styled.ul`
       color: #ffffff;
       font-size: 1.5rem;
       display: block;
-      transition: color 0.3s ease-in-out;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.2s ease;
 
       &:hover {
-        color: #dddddd;
+        color: #ddd;
+        transform: translateY(-3px);
       }
     }
   }
 
   @media screen and (min-width: 1081px) {
-    display: none; /* Hide mobile navbar on larger screens */
+    display: none;
   }
 `;
 
