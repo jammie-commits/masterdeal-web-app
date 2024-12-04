@@ -38,24 +38,31 @@ const HomePage = () => {
   const soldOutProperties = properties.filter((property) => property.availability === 'Sold Out');
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const handleNavClick = () => setMenuOpen(false);
+
   return (
     <Container>
       {/* Header */}
       <Header>
-  <HeaderContent>
-    <Logo>Invest now...</Logo>
-    <NavMenu>
-      <NavItem>
-        <FaPhoneAlt size={16} />
-        <span>+254 743 979 766</span>
-      </NavItem>
-      <NavItem>
-        <FaEnvelope size={16} />
-        <span>info@masterdeal.co.ke</span>
-      </NavItem>
-    </NavMenu>
-  </HeaderContent>
-</Header>
+        <HeaderContent>
+          <Logo>Invest now...</Logo>
+          <MenuToggle onClick={toggleMenu}>
+            <FaBars size={24} />
+          </MenuToggle>
+          <NavMenu isOpen={menuOpen}>
+            <NavItem onClick={handleNavClick}>
+              <FaPhoneAlt size={16} />
+              <span>+254 743 979 766</span>
+            </NavItem>
+            <NavItem onClick={handleNavClick}>
+              <FaEnvelope size={16} />
+              <span>info@masterdeal.co.ke</span>
+            </NavItem>
+          </NavMenu>
+        </HeaderContent>
+      </Header>
 
       {/* Main Image Slider */}
       <MainSlider>
@@ -192,6 +199,14 @@ const HomePage = () => {
 export default HomePage;
 
 // Styled Components
+const MenuToggle = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    cursor: pointer;
+  }
+`;
 
 const Container = styled.div`
   font-family: 'Arial', sans-serif;
@@ -237,52 +252,47 @@ const Logo = styled.h1`
   }
 `;
 
-// const MenuToggle = styled.div`
-//   display: none;
-//   @media (max-width: 768px) {
-//     display: block;
-//     cursor: pointer;
-//   }
-// `;
+
 
 const NavMenu = styled.nav`
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-  justify-content: center; /* Center-align items horizontally */
-  text-align: center;
 
   @media (max-width: 768px) {
-    flex-direction: row; /* Ensure horizontal layout */
-    background-color: transparent;
-    position: static; /* Remove dropdown menu behavior on mobile */
-    width: 100%; /* Use full width */
-    padding: 0; /* Remove extra padding */
-    box-shadow: none; /* Remove shadow */
+    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #4caf50;
+    padding: 1rem 0;
+    z-index: 999;
   }
 `;
 
 const NavItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Spacing between icon and text */
+  gap: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
-  color: white; /* Default text color */
+  color: white;
   transition: color 0.3s ease;
 
   &:hover {
-    color: #ff5722; /* Highlight color on hover */
-  }
-
-  span {
-    font-size: 0.9rem; /* Slightly smaller text for better fit */
+    color: #ff5722;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.8rem; /* Adjust text size for small screens */
-    gap: 0.25rem; /* Reduce spacing */
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  span {
+    font-size: 0.9rem;
   }
 `;
 
