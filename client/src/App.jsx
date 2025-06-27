@@ -10,6 +10,12 @@ import PropertyDetails from "./pages/PropertyDetails";
 import Contact from "./pages/contact";
 import Diaspora from "./pages/diaspora";
 import Blog from "./pages/Blog";
+import Team from "./pages/team";
+import Awards from "./pages/awards";
+import CSR from "./pages/csr";
+import Newsletter from "./pages/newsletter";
+import NewYear from "./pages/newyear";
+import Gallery from "./pages/gallery";
 
 export default function App() {
   return (
@@ -24,6 +30,12 @@ export default function App() {
         <Route path="/diaspora" element={<Diaspora />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/awards" element={<Awards />} />
+        <Route path="/csr" element={<CSR />} />
+        <Route path="/newsletter" element={<Newsletter />} />
+        <Route path="/newyear" element={<NewYear />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </Router>
   );
