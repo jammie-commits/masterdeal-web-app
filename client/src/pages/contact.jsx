@@ -34,19 +34,7 @@ const Contact = () => {
     'Victory Garden Phase-5',
     'Victory Garden Phase-6',
     'Victory Garden Phase-7',
-    'Green Valley Phase-1',
-    'Green Valley Phase-2',
-    'Sunset Gardens Phase-1',
-    'Sunset Gardens Phase-2',
-    'Mountain View Estate',
-    'Lake View Gardens',
-    'Coastal Paradise Phase-1',
-    'Coastal Paradise Phase-2',
-    'Highland Gardens',
-    'Plains View Estate',
-    'Kilimambogo Heights',
-    'Ruiru Gardens Phase-1',
-    'Ruiru Gardens Phase-2'
+    'Juja Prime Plots'
   ];
 
   const days = [

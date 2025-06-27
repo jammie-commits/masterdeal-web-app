@@ -24,9 +24,11 @@ import property17 from '../assets/image11.jpeg';
 import property18 from '../assets/image12.jpeg';
 import property19 from '../assets/image13.jpeg';
 import property20 from '../assets/image14.jpeg';
+import jujaMasterview from '../assets/juja-masterview.jpg';
 
 // Restored original properties and added more based on MasterDeal portfolio
 const properties = [
+  // Matuu projects
   {
     id: 1,
     image: property1,
@@ -120,176 +122,20 @@ const properties = [
   },
   {
     id: 8,
-    image: property8,
-    title: 'Green Valley Phase-1',
-    price: 'KES 180,000',
-    description: 'Prime location with excellent amenities and infrastructure.',
+    image: jujaMasterview,
+    title: 'MasterView Estate Phase 1 – Juja Farm Athi',
+    price: 'KES 599,000',
+    description: '40×80 plots in a prime, fully serviced estate. Water, electricity, security. Cash price 599K, deposit 300K, 3 months installment plan 650K.',
     availability: 'Available',
-    size: '50X100',
-    location: 'Thika',
-    deposit: 'Kshs 40K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 9,
-    image: property9,
-    title: 'Green Valley Phase-2',
-    price: 'KES 200,000',
-    description: 'Modern development with all essential amenities.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Thika',
-    deposit: 'Kshs 50K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 10,
-    image: property10,
-    title: 'Sunset Gardens Phase-1',
-    price: 'KES 150,000',
-    description: 'Beautiful location with great potential for investment.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Nakuru',
-    deposit: 'Kshs 30K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 11,
-    image: property11,
-    title: 'Sunset Gardens Phase-2',
-    price: 'KES 170,000',
-    description: 'Premium development with excellent amenities.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Nakuru',
-    deposit: 'Kshs 40K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 12,
-    image: property12,
-    title: 'Mountain View Estate',
-    price: 'KES 350,000',
-    description: 'Premium location with stunning mountain views.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Nanyuki',
-    deposit: 'Kshs 70K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 13,
-    image: property13,
-    title: 'Lake View Gardens',
-    price: 'KES 280,000',
-    description: 'Serene environment with lake views and modern amenities.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Naivasha',
-    deposit: 'Kshs 60K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 14,
-    image: property14,
-    title: 'Coastal Paradise Phase-1',
-    price: 'KES 120,000',
-    description: 'Beautiful coastal location with great investment potential.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Malindi',
-    deposit: 'Kshs 25K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 15,
-    image: property15,
-    title: 'Coastal Paradise Phase-2',
-    price: 'KES 140,000',
-    description: 'Premium coastal development with excellent amenities.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Malindi',
-    deposit: 'Kshs 30K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 16,
-    image: property16,
-    title: 'Highland Gardens',
-    price: 'KES 220,000',
-    description: 'Highland location with cool climate and beautiful scenery.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Narumoru',
-    deposit: 'Kshs 45K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 17,
-    image: property17,
-    title: 'Plains View Estate',
-    price: 'KES 190,000',
-    description: 'Spacious plains location with great development potential.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Makutano',
-    deposit: 'Kshs 40K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 18,
-    image: property18,
-    title: 'Kilimambogo Heights',
-    price: 'KES 160,000',
-    description: 'Elevated location with panoramic views and modern amenities.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Kilimambogo',
-    deposit: 'Kshs 35K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 19,
-    image: property19,
-    title: 'Ruiru Gardens Phase-1',
-    price: 'KES 320,000',
-    description: 'Prime location near Nairobi with excellent connectivity.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Ruiru',
-    deposit: 'Kshs 65K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
-  },
-  {
-    id: 20,
-    image: property20,
-    title: 'Ruiru Gardens Phase-2',
-    price: 'KES 340,000',
-    description: 'Premium development with excellent amenities and connectivity.',
-    availability: 'Available',
-    size: '50X100',
-    location: 'Ruiru',
-    deposit: 'Kshs 70K',
-    balancePeriod: '6 months',
-    features: ['Graded access roads', 'Electric fence', 'Entrance/exit gates', 'Water borehole']
+    size: '40X80',
+    location: 'Juja',
+    deposit: 'KES 300K',
+    balancePeriod: '3 months',
+    features: ['Water supply', 'Electricity', 'Security', 'Ready for immediate construction', 'Flexible payment options']
   }
 ];
 
-const locations = ['All', 'Matuu', 'Thika', 'Nakuru', 'Nanyuki', 'Naivasha', 'Malindi', 'Narumoru', 'Makutano', 'Kilimambogo', 'Ruiru'];
+const locations = ['All', 'Matuu', 'Juja'];
 
 const Properties = () => {
   const [selectedLocation, setSelectedLocation] = useState('All');
@@ -313,15 +159,7 @@ const Properties = () => {
         <FilterButtons>
           <FilterButton active={selectedLocation === 'All'} onClick={() => setSelectedLocation('All')}>All</FilterButton>
           <FilterButton active={selectedLocation === 'Matuu'} onClick={() => setSelectedLocation('Matuu')}>Matuu</FilterButton>
-          <FilterButton active={selectedLocation === 'Thika'} onClick={() => setSelectedLocation('Thika')}>Thika</FilterButton>
-          <FilterButton active={selectedLocation === 'Nakuru'} onClick={() => setSelectedLocation('Nakuru')}>Nakuru</FilterButton>
-          <FilterButton active={selectedLocation === 'Nanyuki'} onClick={() => setSelectedLocation('Nanyuki')}>Nanyuki</FilterButton>
-          <FilterButton active={selectedLocation === 'Naivasha'} onClick={() => setSelectedLocation('Naivasha')}>Naivasha</FilterButton>
-          <FilterButton active={selectedLocation === 'Malindi'} onClick={() => setSelectedLocation('Malindi')}>Malindi</FilterButton>
-          <FilterButton active={selectedLocation === 'Narumoru'} onClick={() => setSelectedLocation('Narumoru')}>Narumoru</FilterButton>
-          <FilterButton active={selectedLocation === 'Makutano'} onClick={() => setSelectedLocation('Makutano')}>Makutano</FilterButton>
-          <FilterButton active={selectedLocation === 'Kilimambogo'} onClick={() => setSelectedLocation('Kilimambogo')}>Kilimambogo</FilterButton>
-          <FilterButton active={selectedLocation === 'Ruiru'} onClick={() => setSelectedLocation('Ruiru')}>Ruiru</FilterButton>
+          <FilterButton active={selectedLocation === 'Juja'} onClick={() => setSelectedLocation('Juja')}>Juja</FilterButton>
         </FilterButtons>
       </FilterSection>
 
@@ -450,149 +288,107 @@ const FilterButtons = styled.div`
 
 const FilterButton = styled.button`
   padding: 0.75rem 1.5rem;
-  border: 2px solid ${({ active }) => active ? 'var(--primary-orange)' : 'var(--gray-medium)'};
-  background: ${({ active }) => active ? 'var(--primary-orange)' : 'var(--white)'};
-  color: ${({ active }) => active ? 'var(--white)' : 'var(--text-dark)'};
+  border: 2px solid var(--primary-orange);
+  background: var(--white);
+  color: var(--primary-orange);
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
-  
-  &:hover {
+  &:hover, &[active] {
     background: var(--primary-orange);
     color: var(--white);
-    border-color: var(--primary-orange);
-    transform: translateY(-2px);
   }
 `;
 
 const PropertiesGrid = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
+  padding: 2rem;
 `;
 
 const PropertyCard = styled(Link)`
+  display: block;
   background: var(--white);
-  border-radius: 15px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: inherit;
-  border: 2px solid transparent;
-  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border-color: var(--primary-orange);
+    transform: translateY(-5px);
   }
 `;
 
 const CardImageContainer = styled.div`
   position: relative;
-  height: 250px;
-  overflow: hidden;
 `;
 
 const PropertyImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
-  transition: transform 0.3s ease;
-  
-  ${PropertyCard}:hover & {
-    transform: scale(1.1);
-  }
 `;
 
-const StatusBadge = styled.div`
+const StatusBadge = styled.span`
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  background: ${({ isAvailable }) => isAvailable ? 'var(--primary-green)' : 'var(--primary-orange)'};
+  top: 10px;
+  right: 10px;
+  padding: 0.25rem 0.5rem;
+  background: ${props => props.isAvailable ? 'var(--primary-green)' : 'var(--primary-red)'};
   color: var(--white);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 `;
 
 const CardBody = styled.div`
-  padding: 2rem;
-  
-  h3 {
-    font-size: 1.5rem;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
+  padding: 1rem;
 `;
 
-const Price = styled.div`
-  font-size: 1.8rem;
+const Price = styled.h3`
+  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-orange);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 const Description = styled.p`
-  color: var(--text-light);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `;
 
 const PropertyDetails = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 `;
 
 const PropertyItem = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-dark);
-  font-size: 0.9rem;
-  
-  svg {
-    color: var(--primary-green);
-  }
 `;
 
-const LocationTag = styled.div`
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: var(--light-green);
-  color: var(--primary-green);
-  border-radius: 15px;
+const LocationTag = styled.span`
   font-size: 0.8rem;
-  font-weight: 600;
-  margin-top: 1rem;
+  color: var(--text-light);
 `;
 
 const NoProperties = styled.div`
   text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text-light);
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 600px;
   
   h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
   }
   
   p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    opacity: 0.9;
   }
 `;

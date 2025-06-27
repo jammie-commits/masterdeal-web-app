@@ -53,6 +53,8 @@ const Navbar = () => {
           </LogoText>
         </Logo>
 
+        <Spacer />
+
         <MenuButton onClick={toggleMenu}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </MenuButton>
@@ -181,51 +183,74 @@ const NavContainer = styled.nav`
 const NavContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 70px;
+  justify-content: space-between;
+  @media (max-width: 900px) {
+    padding: 0 0.5rem;
+  }
 `;
 
 const Logo = styled(Link)`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.4rem;
   text-decoration: none;
   color: ${({ scrolled }) => scrolled ? "var(--text-dark)" : "var(--white)"};
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  min-width: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-left: 10px;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    gap: 0.18rem;
+    padding-left: 4px;
+  }
 `;
 
 const LogoImage = styled.img`
-  height: 40px;
+  height: 38px;
   width: auto;
+  @media (max-width: 600px) {
+    height: 28px;
+  }
 `;
 
 const LogoText = styled.div`
   display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-  
-  span:first-child {
-    color: var(--primary-orange);
+  flex-direction: row;
+  align-items: center;
+  gap: 0.3rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  span {
+    color: #fff !important;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    @media (max-width: 600px) {
+      font-size: 1em;
+    }
   }
-  
-  span:last-child {
-    color: var(--primary-green);
-  }
+`;
+
+const Spacer = styled.div`
+  flex: 1 1 auto;
 `;
 
 const MenuButton = styled.button`
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: var(--white);
   cursor: pointer;
-  
-  @media (max-width: 768px) {
+  z-index: 1200;
+  @media (max-width: 900px) {
     display: block;
   }
 `;
@@ -233,21 +258,32 @@ const MenuButton = styled.button`
 const NavMenu = styled.ul`
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1.1rem;
   align-items: center;
-  
-  @media (max-width: 768px) {
+  margin-left: 1rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 0.97rem;
+  @media (max-width: 1200px) {
+    gap: 0.7rem;
+    margin-left: 0.2rem;
+    font-size: 0.93rem;
+  }
+  @media (max-width: 1100px) {
     position: fixed;
     top: 70px;
     left: 0;
     right: 0;
     background: var(--white);
     flex-direction: column;
-    padding: 2rem;
+    padding: 2rem 1rem;
     gap: 1rem;
     transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(-100%)")};
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(.77,0,.18,1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-left: 0;
+    z-index: 1100;
+    font-size: 1.08rem;
   }
 `;
 
@@ -256,6 +292,8 @@ const NavItem = styled.li`
 `;
 
 const NavLink = styled(Link)`
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: ${({ active, scrolled }) => 
     active 
@@ -264,10 +302,14 @@ const NavLink = styled(Link)`
         ? "var(--text-dark)" 
         : "var(--white)"};
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  font-size: 1em;
+  min-height: 44px;
+  padding: 0 0.7rem;
   border-radius: 8px;
   transition: all 0.3s ease;
   position: relative;
+  background: none;
+  box-sizing: border-box;
   
   &:hover {
     color: var(--primary-orange);
@@ -297,6 +339,8 @@ const DropdownContainer = styled.div`
 `;
 
 const DropdownButton = styled.button`
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   color: ${({ active, scrolled }) => 
@@ -306,17 +350,23 @@ const DropdownButton = styled.button`
         ? "var(--text-dark)" 
         : "var(--white)"};
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  font-size: 1em;
+  min-height: 44px;
+  padding: 0 0.7rem;
   border-radius: 8px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  box-sizing: border-box;
   
   &:hover {
     color: var(--primary-orange);
     background: rgba(255, 255, 255, 0.1);
+  }
+  
+  svg {
+    margin-left: 0.35em;
+    font-size: 1.1em;
   }
 `;
 
@@ -362,4 +412,3 @@ const DropdownLink = styled(Link)`
 `;
 
 export default Navbar;
-
