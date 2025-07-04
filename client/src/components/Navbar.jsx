@@ -286,8 +286,32 @@ const NavMenu = styled.ul`
     font-size: 1.08rem;
   }
   @media (max-width: 900px) {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100vw;
     background: rgba(34,34,34,0.98);
-    a, button { color: #fff; }
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 2rem 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 2000;
+    transition: all 0.3s cubic-bezier(.4,0,.2,1);
+    a, button {
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 0.7rem 0;
+      width: 100%;
+      text-align: center;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    a:hover, button:hover {
+      background: rgba(255,255,255,0.08);
+    }
   }
 `;
 
