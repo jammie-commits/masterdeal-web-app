@@ -39,6 +39,9 @@ import banner3 from '../assets/banner3.svg';
 import banner4 from '../assets/banner4.svg';
 import jujaMasterview from '../assets/juja-masterview.jpg';
 
+// Add react-icons for features and highlights
+import { FaRoad, FaBolt, FaTint, FaSchool, FaShieldAlt, FaHome, FaMoneyCheckAlt, FaCheckCircle, FaTools, FaMapMarkerAlt, FaChartLine, FaRegFileAlt, FaClock, FaAward, FaCamera } from 'react-icons/fa';
+
 const properties = [
   {
     id: 1,
@@ -54,6 +57,16 @@ const properties = [
       { image: property3, description: 'serene environment ripe for growth and settlement' },
     ],
     location: 'Matuu',
+    category: 'Residential',
+    status: 'Completed',
+    highlights: ['ROI: 15% p.a. (est.)', 'Flexible payment plans', 'Title deed in 30 days', 'Prime location'],
+    floorPlan: null,
+    breakdown: [
+      { label: 'Plot Size', value: '50x100' },
+      { label: 'Deposit', value: 'KES 50,000' },
+      { label: 'Balance Period', value: '6 months' },
+      { label: 'Status', value: 'Completed' },
+    ],
   },
   {
     id: 2,
@@ -69,6 +82,16 @@ const properties = [
       { image: property7, description: 'good soils for farming & agriculture' },
     ],
     location: 'Matuu',
+    category: 'Residential',
+    status: 'Ongoing',
+    highlights: ['ROI: 18% p.a. (est.)', 'Flexible payment plans', 'Title deed in 30 days', 'Prime location', 'Immediate construction allowed'],
+    floorPlan: null, // Placeholder for future image
+    breakdown: [
+      { label: 'Plot Size', value: '40x80' },
+      { label: 'Deposit', value: 'KES 300,000' },
+      { label: 'Balance Period', value: '3 months' },
+      { label: 'Status', value: 'Ongoing' },
+    ],
   },
   {
     id: 3,
@@ -84,6 +107,16 @@ const properties = [
       { image: property17, description: 'Well tarmacked roads making the area easily accessible' },
     ],
     location: 'Matuu',
+    category: 'Commercial',
+    status: 'Upcoming',
+    highlights: ['Prime location', 'High ROI potential', 'Secure investment'],
+    floorPlan: null,
+    breakdown: [
+      { label: 'Plot Size', value: '100x200' },
+      { label: 'Deposit', value: 'KES 1,000,000' },
+      { label: 'Balance Period', value: '12 months' },
+      { label: 'Status', value: 'Upcoming' },
+    ],
   },
   {
     id: 4,
@@ -95,6 +128,16 @@ const properties = [
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [],
     location: 'Matuu',
+    category: 'Residential',
+    status: 'Completed',
+    highlights: ['Prime location', 'Good connectivity', 'Secure investment'],
+    floorPlan: null,
+    breakdown: [
+      { label: 'Plot Size', value: '60x120' },
+      { label: 'Deposit', value: 'KES 150,000' },
+      { label: 'Balance Period', value: '6 months' },
+      { label: 'Status', value: 'Completed' },
+    ],
   },
   {
     id: 5,
@@ -106,6 +149,16 @@ const properties = [
     features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     amenitiesGallery: [],
     location: 'Matuu',
+    category: 'Commercial',
+    status: 'Ongoing',
+    highlights: ['Prime location', 'High ROI potential', 'Immediate construction'],
+    floorPlan: null,
+    breakdown: [
+      { label: 'Plot Size', value: '80x160' },
+      { label: 'Deposit', value: 'KES 800,000' },
+      { label: 'Balance Period', value: '12 months' },
+      { label: 'Status', value: 'Ongoing' },
+    ],
   },
   {
     id: 6,
@@ -125,6 +178,16 @@ const properties = [
       { image: property14, description: 'Located next to Msingini Sports Resort' },
     ],
     location: 'Matuu',
+    category: 'Residential',
+    status: 'Completed',
+    highlights: ['Prime location', 'Good connectivity', 'Secure investment'],
+    floorPlan: null,
+    breakdown: [
+      { label: 'Plot Size', value: '50x100' },
+      { label: 'Deposit', value: 'KES 125,000' },
+      { label: 'Balance Period', value: '6 months' },
+      { label: 'Status', value: 'Completed' },
+    ],
   },
   {
     id: 7,
@@ -144,6 +207,16 @@ const properties = [
       { image: property14, description: 'Located next toMsingini Sports Resort' },
     ],
     location: 'Matuu',
+    category: 'Residential',
+    status: 'Completed',
+    highlights: ['Prime location', 'Good connectivity', 'Secure investment'],
+    floorPlan: null,
+    breakdown: [
+      { label: 'Plot Size', value: '50x100' },
+      { label: 'Deposit', value: 'KES 125,000' },
+      { label: 'Balance Period', value: '6 months' },
+      { label: 'Status', value: 'Completed' },
+    ],
   },
   {
     id: 8,
@@ -167,13 +240,33 @@ const properties = [
       { image: jujaMasterview, description: 'Secure and ready for immediate construction' }
     ],
     location: 'Juja',
+    category: 'Residential',
+    status: 'Ongoing',
+    highlights: ['ROI: 18% p.a. (est.)', 'Flexible payment plans', 'Title deed in 30 days', 'Prime location', 'Immediate construction allowed'],
+    floorPlan: null, // Placeholder for future image
+    breakdown: [
+      { label: 'Plot Size', value: '40x80' },
+      { label: 'Deposit', value: 'KES 300,000' },
+      { label: 'Balance Period', value: '3 months' },
+      { label: 'Status', value: 'Ongoing' },
+    ],
   }
+];
+
+const tabSections = [
+  { key: 'description', label: 'Description' },
+  { key: 'pricing', label: 'Pricing' },
+  { key: 'breakdown', label: 'Project Breakdown' },
+  { key: 'features', label: 'Amenities & Features' },
+  { key: 'floorplan', label: 'Floor Plan' },
+  { key: 'gallery', label: 'Gallery' },
 ];
 
 const PropertyDetails = () => {
   const { id } = useParams();
   const property = properties.find((p) => p.id === parseInt(id));
   const [visitDate, setVisitDate] = useState('');
+  const [activeTab, setActiveTab] = useState('description');
 
   if (!property) {
     return <div>Property not found</div>;
@@ -208,72 +301,208 @@ const PropertyDetails = () => {
       </ImageSlider>
 
       <ContentContainer>
-        <MainContent>
-          <InfoCard>
+        <InfoHeader>
             <Title>{property.title}</Title>
+            <StatusBadge status={property.status}>{property.status}</StatusBadge>
             <Price>{property.price}</Price>
-            <PaymentPlan>{property.paymentPlan}</PaymentPlan>
-            <Description>{property.description}</Description>
-          </InfoCard>
-
-          <FeaturesGrid>
-            {property.features.map((feature, idx) => (
-              <FeatureItem key={idx}>{feature}</FeatureItem>
-            ))}
-          </FeaturesGrid>
-
-          <BookingSection>
-            <h3>Book a Site Visit</h3>
-            <BookingForm>
-              <DateInput
-                type="date"
-                value={visitDate}
-                onChange={(e) => setVisitDate(e.target.value)}
-              />
-              <Button
-                onClick={() => {
-                  if (visitDate) {
-                    window.open(generateWhatsAppLink(), '_blank');
-                  } else {
-                    alert('Please select a date.');
-                  }
-                }}
+          </InfoHeader>
+          <InfoBar>
+            <span><FaMapMarkerAlt /> {property.location}</span>
+            {property.highlights && property.highlights.map((highlight, idx) => {
+              const key = Object.keys(highlightIcons).find(k => highlight.includes(k));
+              return (
+                <span key={idx} style={{display:'flex',alignItems:'center',gap:'0.4rem'}}>
+                  {highlightIcons[key] || <FaAward />} {highlight}
+                </span>
+              );
+            })}
+          </InfoBar>
+          <TabsBar>
+            {tabSections.map(tab => (
+              <TabButton
+                key={tab.key}
+                active={activeTab === tab.key}
+                onClick={() => setActiveTab(tab.key)}
               >
-                Schedule Visit via WhatsApp
-              </Button>
-            </BookingForm>
-          </BookingSection>
-
-          {property.amenitiesGallery && property.amenitiesGallery.length > 0 && (
-            <GallerySection>
-              <h3>Gallery</h3>
-              <GalleryGrid>
-                {property.amenitiesGallery.map((amenity, idx) => (
-                  <GalleryCard key={idx}>
-                    <GalleryImage src={amenity.image} alt={amenity.description} />
-                    <GalleryDesc>{amenity.description}</GalleryDesc>
-                  </GalleryCard>
-                ))}
-              </GalleryGrid>
-            </GallerySection>
-          )}
-
-          <ContactSection>
-            <h3>Contact & Enquiries</h3>
-            <ContactInfo>
-              <ContactButton href="https://wa.me/+254743979766" target="_blank" rel="noopener noreferrer">
-                <WhatsAppIcon /> WhatsApp Us
-              </ContactButton>
-              <ContactButton as="a" href="tel:+254743979766">Call: +254 743 979 766</ContactButton>
-            </ContactInfo>
-          </ContactSection>
-        </MainContent>
-      </ContentContainer>
-    </Container>
-  );
+                {tab.label}
+              </TabButton>
+            ))}
+          </TabsBar>
+          <MainContent>
+            {activeTab === 'description' && (
+              <Section>
+                <SectionTitle>About this Project</SectionTitle>
+                <SectionText>{property.description}</SectionText>
+              </Section>
+            )}
+            {activeTab === 'pricing' && (
+              <Section>
+                <SectionTitle>Pricing</SectionTitle>
+                <PaymentPlan>{property.paymentPlan}</PaymentPlan>
+              </Section>
+            )}
+            {activeTab === 'breakdown' && (
+              <Section>
+                <SectionTitle>Project Breakdown</SectionTitle>
+                <BreakdownTable>
+                  <tbody>
+                    {property.breakdown && property.breakdown.map((row, idx) => (
+                      <tr key={idx}>
+                        <td>{row.label}</td>
+                        <td>{row.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </BreakdownTable>
+              </Section>
+            )}
+            {activeTab === 'features' && (
+              <Section>
+                <SectionTitle>Amenities & Features</SectionTitle>
+                <FeaturesGrid>
+                  {property.features.map((feature, idx) => (
+                    <FeatureItem key={idx}>
+                      {featureIcons[feature] || <FaTools title={feature} />}<span>{feature}</span>
+                    </FeatureItem>
+                  ))}
+                </FeaturesGrid>
+              </Section>
+            )}
+            {activeTab === 'floorplan' && (
+              <Section>
+                <SectionTitle>Floor Plan</SectionTitle>
+                <FloorPlanPlaceholder>
+                  <FaRegFileAlt size={40} />
+                  <span>Floor plan coming soon</span>
+                </FloorPlanPlaceholder>
+              </Section>
+            )}
+            {activeTab === 'gallery' && property.amenitiesGallery && property.amenitiesGallery.length > 0 && (
+              <GallerySection>
+                <h3>Gallery</h3>
+                <GalleryGrid>
+                  {property.amenitiesGallery.map((amenity, idx) => (
+                    <GalleryCard key={idx}>
+                      <GalleryImage src={amenity.image} alt={amenity.description} />
+                      <GalleryDesc>{amenity.description}</GalleryDesc>
+                    </GalleryCard>
+                  ))}
+                </GalleryGrid>
+              </GallerySection>
+            )}
+            {/* Contact/Booking always visible at the bottom */}
+            <ContactSection>
+              <h3>Contact & Enquiries</h3>
+              <ContactInfo>
+                <ContactButton href="https://wa.me/+254743979766" target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon /> WhatsApp Us
+                </ContactButton>
+                <ContactButton as="a" href="tel:+254743979766">Call: +254 743 979 766</ContactButton>
+              </ContactInfo>
+            </ContactSection>
+            <BookingSection>
+              <h3>Book a Site Visit</h3>
+              <BookingForm>
+                <DateInput
+                  type="date"
+                  value={visitDate}
+                  onChange={(e) => setVisitDate(e.target.value)}
+                />
+                <Button
+                  onClick={() => {
+                    if (visitDate) {
+                      window.open(generateWhatsAppLink(), '_blank');
+                    } else {
+                      alert('Please select a date.');
+                    }
+                  }}
+                >
+                  Schedule Visit via WhatsApp
+                </Button>
+              </BookingForm>
+            </BookingSection>
+          </MainContent>
+        </ContentContainer>
+      </Container>
+    );
 };
 
 export default PropertyDetails;
+
+// Add styled components for new sections
+const StatusBadge = styled.span`
+  display: inline-block;
+  background: ${({ status }) =>
+    status === 'Ongoing' ? 'var(--primary-orange)' :
+    status === 'Completed' ? 'var(--primary-green)' :
+    status === 'Upcoming' ? 'var(--primary-blue)' : 'var(--gray-medium)'};
+  color: var(--white);
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1rem;
+`;
+const Section = styled.section`
+  margin-bottom: 2.5rem;
+`;
+const SectionTitle = styled.h3`
+  font-size: 1.4rem;
+  color: var(--primary-orange);
+  margin-bottom: 1rem;
+`;
+const SectionText = styled.p`
+  font-size: 1.1rem;
+  color: #555;
+`;
+const HighlightsGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+`;
+const HighlightItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--light-green);
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-weight: 600;
+  color: var(--primary-green);
+`;
+const FloorPlanPlaceholder = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--gray-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  color: var(--primary-orange);
+  font-weight: 600;
+`;
+const BreakdownTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  td {
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid #eee;
+    font-size: 1.05rem;
+  }
+  td:first-child {
+    font-weight: 600;
+    color: var(--primary-green);
+  }
+`;
+const VirtualTourPlaceholder = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--gray-light);
+  border-radius: 8px;
+  padding: 1.5rem;
+  color: var(--primary-orange);
+  font-weight: 600;
+`;
 
 // Styled Components
 const Container = styled.div`
@@ -283,33 +512,33 @@ const Container = styled.div`
 `;
 
 const ImageSlider = styled.div`
+  max-width: 900px;
   height: 60vh;
+  margin: 0 auto 3rem auto;
   position: relative;
-  margin-bottom: 3rem;
-  
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+  background: #fff;
+  overflow: hidden;
   .swiper {
     height: 100%;
   }
-  
   .swiper-slide {
     height: 100%;
   }
-  
   .swiper-pagination-bullet {
     background: var(--primary-orange);
   }
-  
   .swiper-pagination-bullet-active {
     background: var(--primary-green);
   }
-  
   .swiper-button-next,
   .swiper-button-prev {
     color: var(--primary-orange);
   }
-  
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     height: 40vh;
+    max-width: 100vw;
   }
 `;
 
@@ -323,59 +552,87 @@ const ContentContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  @media (max-width: 900px) {
+    padding: 0 0.5rem;
   }
 `;
 
 const MainContent = styled.div`
-  background: var(--white);
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+`;
+
+const InfoHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin: 0 auto 2rem auto;
+  padding: 2rem 1rem 1.2rem 1rem;
+  max-width: 900px;
+  text-align: center;
+`;
+
+const InfoBar = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  padding: 1.2rem 1rem;
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+  font-size: 1.1rem;
 `;
 
 const InfoCard = styled.div`
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 2rem 1rem;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-orange) 100%);
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 `;
 
 const Title = styled.h2`
-  font-size: 2.2rem;
-  color: #333;
+  font-size: 2.3rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 `;
 
 const Price = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #4CAF50;
+  color: #fff;
   margin-bottom: 0.5rem;
 `;
 
 const PaymentPlan = styled.div`
   font-size: 1.1rem;
-  color: #555;
+  color: #f8f8f8;
   margin-bottom: 1rem;
-`;
-
-const Description = styled.p`
-  font-size: 1.1rem;
-  color: #666;
 `;
 
 const FeaturesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 1rem;
 `;
 
 const FeatureItem = styled.div`
@@ -383,15 +640,14 @@ const FeatureItem = styled.div`
   align-items: center;
   gap: 0.75rem;
   padding: 1rem;
-  background: var(--light-green);
+  background: #e8f5e9;
   border-radius: 10px;
   border-left: 4px solid var(--primary-green);
-  
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
   svg {
     color: var(--primary-green);
     font-size: 1.2rem;
   }
-  
   span {
     font-weight: 600;
     color: var(--text-dark);
@@ -404,6 +660,7 @@ const BookingSection = styled.div`
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 `;
 
 const BookingForm = styled.div`
@@ -411,6 +668,7 @@ const BookingForm = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 1rem;
+  flex-wrap: wrap;
 `;
 
 const DateInput = styled.input`
@@ -456,8 +714,9 @@ const GalleryCard = styled.div`
 
 const GalleryImage = styled.img`
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 8px 8px 0 0;
 `;
 
 const GalleryDesc = styled.div`
@@ -504,3 +763,39 @@ const WhatsAppIcon = styled.div`
   background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1024px-WhatsApp.svg.png') no-repeat center center;
   background-size: contain;
 `;
+
+const TabsBar = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto 1.5rem auto;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  padding: 0.5rem 0.5rem;
+  flex-wrap: wrap;
+`;
+const TabButton = styled.button`
+  background: ${({ active }) => active ? 'var(--primary-orange)' : 'transparent'};
+  color: ${({ active }) => active ? '#fff' : 'var(--primary-orange)'};
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: ${({ active }) => active ? '0 2px 8px rgba(255,107,53,0.08)' : 'none'};
+  &:hover {
+    background: var(--primary-orange);
+    color: #fff;
+  }
+`;
+
+const featureIcons = {
+  'Tarmac roads': <FaRoad title="Tarmac roads" />, 'Electricity': <FaBolt title="Electricity" />, 'Water supply': <FaTint title="Water supply" />, 'Schools': <FaSchool title="Schools" />, 'Security': <FaShieldAlt title="Security" />, 'Ready for immediate construction': <FaHome title="Ready for construction" />, 'Flexible payment options': <FaMoneyCheckAlt title="Flexible payment" />, 'Good Electricity connection': <FaBolt title="Electricity" />, 'Good Water supply': <FaTint title="Water supply" />, 'Near Musingini Secondary School': <FaSchool title="Schools" />, 'Afew metres from Tarmac road': <FaRoad title="Tarmac road" />, 'Individual titles ready': <FaCheckCircle title="Titles ready" />, 'Prime location in Juja Farm, Athi River': <FaMapMarkerAlt title="Prime location" />, '600 mtrs from Tarmac road': <FaRoad title="Tarmac road" />, '7km from Matuu town': <FaMapMarkerAlt title="Near Matuu" />
+};
+const highlightIcons = {
+  'ROI': <FaChartLine title="ROI" />, 'Flexible payment plans': <FaMoneyCheckAlt title="Flexible payment" />, 'Title deed in 30 days': <FaRegFileAlt title="Title deed" />, 'Prime location': <FaMapMarkerAlt title="Prime location" />, 'Immediate construction allowed': <FaHome title="Immediate construction" />
+};

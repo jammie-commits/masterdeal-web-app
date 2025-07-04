@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/autoplay';
-import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars, FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt, FaClock, FaShieldAlt, FaHome, FaHandshake } from 'react-icons/fa';
+import 'swiper/css/pagination';
+import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin, FaBars, FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt, FaClock, FaShieldAlt, FaHome, FaHandshake, FaAward, FaRegFileAlt } from 'react-icons/fa';
 
 import property1 from '../assets/p1.jpeg';
 import property2 from '../assets/p-1.jpeg';
@@ -81,6 +82,13 @@ const testimonials = [
   }
 ];
 
+// Trust badges/awards data
+const trustBadges = [
+  { icon: <FaAward size={40} />, label: 'Top Real Estate Company 2023' },
+  { icon: <FaShieldAlt size={40} />, label: 'Trusted by 1,000+ Clients' },
+  { icon: <FaRegFileAlt size={40} />, label: 'Title Deeds Guaranteed' },
+];
+
 const HomePage = () => {
   const availableProperties = properties.filter((property) => property.availability === 'Available');
   const soldOutProperties = properties.filter((property) => property.availability === 'Sold Out');
@@ -94,7 +102,7 @@ const HomePage = () => {
     <Container>
       {/* Main Image Slider */}
       <MainSlider>
-        <Swiper
+        <SwiperComponent
           spaceBetween={30}
           slidesPerView={1}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -109,8 +117,29 @@ const HomePage = () => {
               </BannerContainer>
             </SwiperSlide>
           ))}
-        </Swiper>
+        </SwiperComponent>
       </MainSlider>
+
+      {/* Hero CTA Section */}
+      <HeroCTASection>
+        <HeroCTATitle>Invest in Your Future with MasterDeal Properties</HeroCTATitle>
+        <HeroCTAButtons>
+          <CTAButton to="/contact">Get a Free Consultation</CTAButton>
+          <CTAButton to="/newsletter">Download Brochure</CTAButton>
+        </HeroCTAButtons>
+      </HeroCTASection>
+
+      {/* Trust Badges Section */}
+      <TrustBadgesSection>
+        <TrustBadgesGrid>
+          {trustBadges.map((badge, idx) => (
+            <TrustBadge key={idx}>
+              {badge.icon}
+              <span>{badge.label}</span>
+            </TrustBadge>
+          ))}
+        </TrustBadgesGrid>
+      </TrustBadgesSection>
 
       {/* Featured Properties */}
       <FeaturedSection>
@@ -204,23 +233,33 @@ const HomePage = () => {
       {/* Testimonials Section */}
       <TestimonialsSection>
         <SectionTitle>What our client says?</SectionTitle>
-        <TestimonialsGrid>
+        <SwiperComponent
+          spaceBetween={30}
+          slidesPerView={1}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop={true}
+          pagination={{ clickable: true }}
+          modules={[Autoplay, Pagination]}
+          style={{ maxWidth: '700px', margin: '0 auto' }}
+        >
           {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id}>
-              <TestimonialImage>
-                <img src={testimonial.image} alt={testimonial.name} />
-              </TestimonialImage>
-              <TestimonialContent>
-                <QuoteIcon>"</QuoteIcon>
-                <p>{testimonial.content}</p>
-              </TestimonialContent>
-              <TestimonialAuthor>
-                <AuthorName>{testimonial.name}</AuthorName>
-                <AuthorRole>{testimonial.role}</AuthorRole>
-              </TestimonialAuthor>
-            </TestimonialCard>
+            <SwiperSlide key={testimonial.id}>
+              <TestimonialCard>
+                <TestimonialImage>
+                  <img src={testimonial.image} alt={testimonial.name} />
+                </TestimonialImage>
+                <TestimonialContent>
+                  <QuoteIcon>"</QuoteIcon>
+                  <p>{testimonial.content}</p>
+                </TestimonialContent>
+                <TestimonialAuthor>
+                  <AuthorName>{testimonial.name}</AuthorName>
+                  <AuthorRole>{testimonial.role}</AuthorRole>
+                </TestimonialAuthor>
+              </TestimonialCard>
+            </SwiperSlide>
           ))}
-        </TestimonialsGrid>
+        </SwiperComponent>
       </TestimonialsSection>
 
       {/* Contact Info Section */}
@@ -531,14 +570,6 @@ const TestimonialsSection = styled.section`
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 `;
 
-const TestimonialsGrid = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-`;
-
 const TestimonialCard = styled.div`
   background: white;
   padding: 2rem;
@@ -657,8 +688,17 @@ const ContactItem = styled.div`
 
 const SocialLinks = styled.div`
   display: flex;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
   justify-content: center;
-  gap: 1rem;
+  svg {
+    font-size: 2rem;
+    color: #4CAF50;
+    transition: color 0.2s;
+    &:hover {
+      color: #FF6B35;
+    }
+  }
 `;
 
 const SocialLink = styled.a`
@@ -672,8 +712,64 @@ const SocialLink = styled.a`
   color: white;
   text-decoration: none;
   transition: transform 0.3s ease;
-  
   &:hover {
     transform: scale(1.1);
   }
+`;
+
+const HeroCTASection = styled.section`
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  background: linear-gradient(90deg, #FF6B35 0%, #4CAF50 100%);
+  color: white;
+`;
+const HeroCTATitle = styled.h1`
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+`;
+const HeroCTAButtons = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+const CTAButton = styled(Link)`
+  background: #fff;
+  color: #FF6B35;
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: #FF6B35;
+    color: #fff;
+  }
+`;
+const TrustBadgesSection = styled.section`
+  background: #f8f9fa;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  text-align: center;
+`;
+const TrustBadgesGrid = styled.div`
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+const TrustBadge = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  padding: 1.2rem 2rem;
+  min-width: 180px;
+  font-weight: 600;
+  color: #333;
 `;

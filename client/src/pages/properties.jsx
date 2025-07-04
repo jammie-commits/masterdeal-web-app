@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaBuilding, FaMoneyCheckAlt, FaCheckCircle, FaRoad, FaBolt, FaTint, FaSchool, FaShieldAlt, FaHome, FaTools } from 'react-icons/fa';
 
 // Import property images
 import property1 from '../assets/p1.jpeg';
@@ -26,125 +26,162 @@ import property19 from '../assets/image13.jpeg';
 import property20 from '../assets/image14.jpeg';
 import jujaMasterview from '../assets/juja-masterview.jpg';
 
-// Restored original properties and added more based on MasterDeal portfolio
+// Add category and status to each property, and expand features with icon mapping
 const properties = [
   // Matuu projects
   {
     id: 1,
     image: property1,
     title: 'Victory Garden Phase-1',
-    price: 'KES 270,000',
+    price: 270000,
     description: 'Serene environment with breathtaking views and modern amenities.',
     availability: 'Sold Out',
     size: '50X100',
     location: 'Matuu',
     deposit: 'Kshs 50K',
     balancePeriod: '6 months',
-    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools']
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    category: 'Residential',
+    status: 'Completed',
   },
   {
     id: 2,
     image: property2,
     title: 'Victory Garden Phase-2',
-    price: 'KES 270,000',
+    price: 270000,
     description: 'Serene environment with breathtaking views and modern amenities.',
     availability: 'Sold Out',
     size: '50X100',
     location: 'Matuu',
     deposit: 'Kshs 50K',
     balancePeriod: '6 months',
-    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools']
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    category: 'Residential',
+    status: 'Completed',
   },
   {
     id: 3,
     image: property3,
     title: 'Victory Garden Phase-3',
-    price: 'KES 270,000',
+    price: 270000,
     description: 'Opposite Msingini Sports Resort near Msingini primary/secondary school.',
     availability: 'Sold Out',
     size: '50X100',
     location: 'Matuu',
     deposit: 'Kshs 50K',
     balancePeriod: '6 months',
-    features: ['600 mtrs from Tarmac road', '7km from Matuu town', 'Water supply', 'Schools']
+    features: ['600 mtrs from Tarmac road', '7km from Matuu town', 'Water supply', 'Schools'],
+    category: 'Residential',
+    status: 'Completed',
   },
   {
     id: 4,
     image: property4,
     title: 'Victory Garden Phase-4',
-    price: 'KES 270,000',
+    price: 270000,
     description: 'Serene environment with breathtaking views and modern amenities.',
     availability: 'Sold Out',
     size: '50X100',
     location: 'Matuu',
     deposit: 'Kshs 50K',
     balancePeriod: '6 months',
-    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools']
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    category: 'Residential',
+    status: 'Completed',
   },
   {
     id: 5,
     image: property5,
     title: 'Victory Garden Phase-5',
-    price: 'KES 270,000',
+    price: 270000,
     description: 'Serene environment with breathtaking views and modern amenities.',
     availability: 'Sold Out',
     size: '50X100',
     location: 'Matuu',
     deposit: 'Kshs 50K',
     balancePeriod: '6 months',
-    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools']
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    category: 'Residential',
+    status: 'Completed',
   },
   {
     id: 6,
     image: property6,
     title: 'Victory Garden Phase-6',
-    price: 'KES 250,000',
+    price: 250000,
     description: 'Good investment project for development and settlement.',
     availability: 'Available',
     size: '50X100',
     location: 'Matuu',
     deposit: 'Kshs 50K',
     balancePeriod: '6 months',
-    features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply', 'Near Musingini Secondary School']
+    features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply', 'Near Musingini Secondary School'],
+    category: 'Residential',
+    status: 'Ongoing',
   },
   {
     id: 7,
     image: property7,
     title: 'Victory Garden Phase-7',
-    price: 'KES 250,000',
+    price: 250000,
     description: 'Good investment project for development and settlement.',
     availability: 'Available',
     size: '50X100',
     location: 'Matuu',
     deposit: 'Kshs 50K',
     balancePeriod: '6 months',
-    features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply', 'Near Musingini Secondary School']
+    features: ['Afew metres from Tarmac road', 'Good Electricity connection', 'Good Water supply', 'Near Musingini Secondary School'],
+    category: 'Residential',
+    status: 'Ongoing',
   },
   {
     id: 8,
     image: jujaMasterview,
     title: 'MasterView Estate Phase 1 – Juja Farm Athi',
-    price: 'KES 599,000',
+    price: 599000,
     description: '40×80 plots in a prime, fully serviced estate. Water, electricity, security. Cash price 599K, deposit 300K, 3 months installment plan 650K.',
     availability: 'Available',
     size: '40X80',
     location: 'Juja',
     deposit: 'KES 300K',
     balancePeriod: '3 months',
-    features: ['Water supply', 'Electricity', 'Security', 'Ready for immediate construction', 'Flexible payment options']
+    features: ['Water supply', 'Electricity', 'Security', 'Ready for immediate construction', 'Flexible payment options'],
+    category: 'Residential',
+    status: 'Ongoing',
   }
 ];
 
+const categories = ['All', 'Residential'];
+const statuses = ['All', 'Ongoing', 'Completed', 'Upcoming'];
+// Update locations array to only include 'All', 'Matuu', 'Juja'
 const locations = ['All', 'Matuu', 'Juja'];
+const priceRanges = [
+  { label: 'All', min: 0, max: Infinity },
+  { label: 'Below 300K', min: 0, max: 299999 },
+  { label: '300K - 500K', min: 300000, max: 500000 },
+  { label: 'Above 500K', min: 500001, max: Infinity },
+];
+
+// Map feature keywords to icons
+const featureIcons = {
+  'Tarmac roads': <FaRoad title="Tarmac roads" />, 'Electricity': <FaBolt title="Electricity" />, 'Water supply': <FaTint title="Water supply" />, 'Schools': <FaSchool title="Schools" />, 'Security': <FaShieldAlt title="Security" />, 'Ready for immediate construction': <FaHome title="Ready for construction" />, 'Flexible payment options': <FaMoneyCheckAlt title="Flexible payment" />, 'Good Electricity connection': <FaBolt title="Electricity" />, 'Good Water supply': <FaTint title="Water supply" />, 'Near Musingini Secondary School': <FaSchool title="Schools" />, 'Afew metres from Tarmac road': <FaRoad title="Tarmac road" />, 'Individual titles ready': <FaCheckCircle title="Titles ready" />, 'Prime location in Juja Farm, Athi River': <FaMapMarkerAlt title="Prime location" />, '600 mtrs from Tarmac road': <FaRoad title="Tarmac road" />, '7km from Matuu town': <FaMapMarkerAlt title="Near Matuu" />
+};
 
 const Properties = () => {
   const [selectedLocation, setSelectedLocation] = useState('All');
   const [selectedAvailability, setSelectedAvailability] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedStatus, setSelectedStatus] = useState('All');
+  const [selectedPrice, setSelectedPrice] = useState('All');
 
   const filteredProperties = properties.filter(property => {
     const locationMatch = selectedLocation === 'All' || property.location === selectedLocation;
     const availabilityMatch = selectedAvailability === 'All' || property.availability === selectedAvailability;
-    return locationMatch && availabilityMatch;
+    const categoryMatch = selectedCategory === 'All' || property.category === selectedCategory;
+    const statusMatch = selectedStatus === 'All' || property.status === selectedStatus;
+    const priceRange = priceRanges.find(r => r.label === selectedPrice) || priceRanges[0];
+    const priceMatch = property.price >= priceRange.min && property.price <= priceRange.max;
+    return locationMatch && availabilityMatch && categoryMatch && statusMatch && priceMatch;
   });
 
   return (
@@ -156,10 +193,28 @@ const Properties = () => {
 
       <FilterSection>
         <FilterTitle>Filter Properties</FilterTitle>
+        {/* Organize the location filter to use a visually grouped button group style */}
+        <FilterButtonGroup>
+          {locations.map(loc => (
+            <FilterButton key={loc} active={selectedLocation === loc} onClick={() => setSelectedLocation(loc)}>
+              {loc === 'All' ? 'All Properties' : loc}
+            </FilterButton>
+          ))}
+        </FilterButtonGroup>
         <FilterButtons>
-          <FilterButton active={selectedLocation === 'All'} onClick={() => setSelectedLocation('All')}>All</FilterButton>
-          <FilterButton active={selectedLocation === 'Matuu'} onClick={() => setSelectedLocation('Matuu')}>Matuu</FilterButton>
-          <FilterButton active={selectedLocation === 'Juja'} onClick={() => setSelectedLocation('Juja')}>Juja</FilterButton>
+          {categories.map(cat => (
+            <FilterButton key={cat} active={selectedCategory === cat} onClick={() => setSelectedCategory(cat)}>{cat}</FilterButton>
+          ))}
+        </FilterButtons>
+        <FilterButtons>
+          {statuses.map(stat => (
+            <FilterButton key={stat} active={selectedStatus === stat} onClick={() => setSelectedStatus(stat)}>{stat}</FilterButton>
+          ))}
+        </FilterButtons>
+        <FilterButtons>
+          {priceRanges.map(range => (
+            <FilterButton key={range.label} active={selectedPrice === range.label} onClick={() => setSelectedPrice(range.label)}>{range.label}</FilterButton>
+          ))}
         </FilterButtons>
       </FilterSection>
 
@@ -171,10 +226,11 @@ const Properties = () => {
               <StatusBadge isAvailable={property.availability === 'Available'}>
                 {property.availability}
               </StatusBadge>
+              <ProjectStatusBadge status={property.status}>{property.status}</ProjectStatusBadge>
             </CardImageContainer>
             <CardBody>
               <h3>{property.title}</h3>
-              <Price>{property.price}</Price>
+              <Price>KES {property.price.toLocaleString()}</Price>
               <Description>{property.description}</Description>
               <PropertyDetails>
                 <PropertyItem>
@@ -190,6 +246,11 @@ const Properties = () => {
                   <span>Balance in {property.balancePeriod}</span>
                 </PropertyItem>
               </PropertyDetails>
+              <FeatureIconsRow>
+                {property.features.map((feature, idx) => (
+                  <FeatureIcon key={idx}>{featureIcons[feature] || <FaTools title={feature} />}</FeatureIcon>
+                ))}
+              </FeatureIconsRow>
               <LocationTag>{property.location}</LocationTag>
             </CardBody>
           </PropertyCard>
@@ -275,15 +336,12 @@ const FilterTitle = styled.h2`
   }
 `;
 
-const FilterButtons = styled.div`
+const FilterButtonGroup = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
-  
-  @media (max-width: 768px) {
-    gap: 0.5rem;
-  }
 `;
 
 const FilterButton = styled.button`
@@ -298,6 +356,17 @@ const FilterButton = styled.button`
   &:hover, &[active] {
     background: var(--primary-orange);
     color: var(--white);
+  }
+`;
+
+const FilterButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    gap: 0.5rem;
   }
 `;
 
@@ -338,6 +407,32 @@ const StatusBadge = styled.span`
   background: ${props => props.isAvailable ? 'var(--primary-green)' : 'var(--primary-red)'};
   color: var(--white);
   border-radius: 5px;
+`;
+
+const ProjectStatusBadge = styled.span`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 0.25rem 0.5rem;
+  background: ${({ status }) =>
+    status === 'Ongoing' ? 'var(--primary-orange)' :
+    status === 'Completed' ? 'var(--primary-green)' :
+    status === 'Upcoming' ? 'var(--primary-blue)' : 'var(--gray-medium)'};
+  color: var(--white);
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+`;
+
+const FeatureIconsRow = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const FeatureIcon = styled.span`
+  font-size: 1.2rem;
+  color: var(--primary-green);
 `;
 
 const CardBody = styled.div`

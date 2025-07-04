@@ -295,12 +295,7 @@ const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: ${({ active, scrolled }) => 
-    active 
-      ? "var(--primary-orange)" 
-      : scrolled 
-        ? "var(--text-dark)" 
-        : "var(--white)"};
+  color: ${({ active, scrolled }) => scrolled ? 'var(--primary-green)' : '#fff'};
   font-weight: 600;
   font-size: 1em;
   min-height: 44px;
@@ -343,12 +338,7 @@ const DropdownButton = styled.button`
   align-items: center;
   background: none;
   border: none;
-  color: ${({ active, scrolled }) => 
-    active 
-      ? "var(--primary-orange)" 
-      : scrolled 
-        ? "var(--text-dark)" 
-        : "var(--white)"};
+  color: ${({ active, scrolled }) => scrolled ? 'var(--primary-green)' : '#fff'};
   font-weight: 600;
   font-size: 1em;
   min-height: 44px;
