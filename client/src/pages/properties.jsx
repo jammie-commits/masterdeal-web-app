@@ -25,6 +25,7 @@ import property18 from '../assets/image12.jpeg';
 import property19 from '../assets/image13.jpeg';
 import property20 from '../assets/image14.jpeg';
 import jujaMasterview from '../assets/juja-masterview.jpg';
+import Footer from '../components/Footer';
 
 // Add category and status to each property, and expand features with icon mapping
 const properties = [
@@ -263,6 +264,7 @@ const Properties = () => {
           <p>Try adjusting your filters to see more properties.</p>
         </NoProperties>
       )}
+      <Footer />
     </PropertiesContainer>
   );
 };

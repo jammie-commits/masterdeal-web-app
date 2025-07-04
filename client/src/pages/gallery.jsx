@@ -13,6 +13,7 @@ import image7 from '../assets/image7.jpeg';
 import image8 from '../assets/image8.jpeg';
 import image9 from '../assets/image9.jpeg';
 import image10 from '../assets/image10.jpeg';
+import Footer from '../components/Footer';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -84,6 +85,7 @@ const Gallery = () => {
           </ModalContent>
         </Modal>
       )}
+      <Footer />
     </GalleryContainer>
   );
 };

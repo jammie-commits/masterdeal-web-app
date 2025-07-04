@@ -38,6 +38,8 @@ import testimonial2 from '../assets/testimonial2.jpeg';
 import testimonial3 from '../assets/testimonial3.jpeg';
 import testimonial4 from '../assets/testimonial4.jpeg';
 
+import Footer from '../components/Footer';
+
 // Property Data
 const properties = [
   { id: 1, image: property1, title: 'Victory Garden Phase-1', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
@@ -98,214 +100,212 @@ const HomePage = () => {
 
   const handleNavClick = () => setMenuOpen(false);
 
+  const [bookVisitForm, setBookVisitForm] = useState({ property: '', day: '', name: '', email: '', message: '' });
+  const handleBookVisitChange = (e) => { setBookVisitForm({ ...bookVisitForm, [e.target.name]: e.target.value }); };
+  const handleBookVisitSubmit = (e) => { e.preventDefault(); const message = `Hello, I would like to book a site visit.\nProperty: ${bookVisitForm.property}\nDay: ${bookVisitForm.day}\nName: ${bookVisitForm.name}\nEmail: ${bookVisitForm.email}\nMessage: ${bookVisitForm.message}`; const encodedMessage = encodeURIComponent(message); window.open(`https://wa.me/+254743979766?text=${encodedMessage}`, '_blank'); };
+
   return (
-    <Container>
-      {/* Main Image Slider */}
-      <MainSlider>
-        <SwiperComponent
-          spaceBetween={30}
-          slidesPerView={1}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop={true}
-          effect="fade"
-          modules={[Autoplay, EffectFade]}
-        >
-          {[banner1, banner2, banner3, banner4].map((banner, index) => (
-            <SwiperSlide key={index}>
-              <BannerContainer>
-                <SlideImage src={banner} alt={`Banner ${index + 1}`} />
-              </BannerContainer>
-            </SwiperSlide>
-          ))}
-        </SwiperComponent>
-      </MainSlider>
+    <>
+      <Container>
+        {/* Main Image Slider */}
+        <MainSlider>
+          <SwiperComponent
+            spaceBetween={30}
+            slidesPerView={1}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop={true}
+            effect="fade"
+            modules={[Autoplay, EffectFade]}
+          >
+            {[banner1, banner2, banner3, banner4].map((banner, index) => (
+              <SwiperSlide key={index}>
+                <BannerContainer>
+                  <SlideImage src={banner} alt={`Banner ${index + 1}`} />
+                </BannerContainer>
+              </SwiperSlide>
+            ))}
+          </SwiperComponent>
+        </MainSlider>
 
-      {/* Hero CTA Section */}
-      <HeroCTASection>
-        <HeroCTATitle>Invest in Your Future with MasterDeal Properties</HeroCTATitle>
-        <HeroCTAButtons>
-          <CTAButton to="/contact">Get a Free Consultation</CTAButton>
-          <CTAButton to="/newsletter">Download Brochure</CTAButton>
-        </HeroCTAButtons>
-      </HeroCTASection>
+        {/* Hero CTA Section */}
+        <HeroCTASection>
+          <HeroCTATitle>Invest in Your Future with MasterDeal Properties</HeroCTATitle>
+          <HeroCTAButtons>
+            <CTAButton to="/contact">Get a Free Consultation</CTAButton>
+            <CTAButton to="/newsletter">Download Brochure</CTAButton>
+          </HeroCTAButtons>
+        </HeroCTASection>
 
-      {/* Trust Badges Section */}
-      <TrustBadgesSection>
-        <TrustBadgesGrid>
-          {trustBadges.map((badge, idx) => (
-            <TrustBadge key={idx}>
-              {badge.icon}
-              <span>{badge.label}</span>
-            </TrustBadge>
-          ))}
-        </TrustBadgesGrid>
-      </TrustBadgesSection>
+        {/* Trust Badges Section */}
+        <TrustBadgesSection>
+          <TrustBadgesGrid>
+            {trustBadges.map((badge, idx) => (
+              <TrustBadge key={idx}>
+                {badge.icon}
+                <span>{badge.label}</span>
+              </TrustBadge>
+            ))}
+          </TrustBadgesGrid>
+        </TrustBadgesSection>
 
-      {/* Featured Properties */}
-      <FeaturedSection>
-        <h2>
-          <VerticalLine />
-          FEATURED PROPERTIES
-        </h2>
-        <PropertyGrid>
-          {availableProperties.slice(0, 6).map((property) => (
-            <PropertyCard key={property.id} to={`/property/${property.id}`}>
-              <CardImageContainer>
-                <PropertyImage src={property.image} alt={property.title} />
-                <StatusBadge isAvailable={property.availability === 'Available'}>
-                  {property.availability}
-                </StatusBadge>
-              </CardImageContainer>
-              <CardBody>
-                <h3>{property.title}</h3>
-                <Price>{property.price}</Price>
-                <Description>{property.description}</Description>
-                <PropertyDetails>
-                  <PropertyItem>
-                    <FaBuilding size={20} />
-                    <span>{property.size} Plots</span>
-                  </PropertyItem>
-                  <PropertyItem>
-                    <FaMapMarkerAlt size={20} />
-                    <span>{property.location}</span>
-                  </PropertyItem>
-                  <PropertyItem>
-                    <FaMoneyCheckAlt size={20} />
-                    <span>Deposit: {property.deposit}</span>
-                  </PropertyItem>
-                  <PropertyItem>
-                    <FaMoneyCheckAlt size={20} />
-                    <span>Balance: {property.balancePeriod}</span>
-                  </PropertyItem>
-                </PropertyDetails>
-              </CardBody>
-            </PropertyCard>
-          ))}
-        </PropertyGrid>
-      </FeaturedSection>
+        {/* Featured Properties */}
+        <FeaturedSection>
+          <h2>
+            <VerticalLine />
+            FEATURED PROPERTIES
+          </h2>
+          <PropertyGrid>
+            {availableProperties.slice(0, 6).map((property) => (
+              <PropertyCard key={property.id} to={`/property/${property.id}`}>
+                <CardImageContainer>
+                  <PropertyImage src={property.image} alt={property.title} />
+                  <StatusBadge isAvailable={property.availability === 'Available'}>
+                    {property.availability}
+                  </StatusBadge>
+                </CardImageContainer>
+                <CardBody>
+                  <h3>{property.title}</h3>
+                  <Price>{property.price}</Price>
+                  <Description>{property.description}</Description>
+                  <PropertyDetails>
+                    <PropertyItem>
+                      <FaBuilding size={20} />
+                      <span>{property.size} Plots</span>
+                    </PropertyItem>
+                    <PropertyItem>
+                      <FaMapMarkerAlt size={20} />
+                      <span>{property.location}</span>
+                    </PropertyItem>
+                    <PropertyItem>
+                      <FaMoneyCheckAlt size={20} />
+                      <span>Deposit: {property.deposit}</span>
+                    </PropertyItem>
+                    <PropertyItem>
+                      <FaMoneyCheckAlt size={20} />
+                      <span>Balance: {property.balancePeriod}</span>
+                    </PropertyItem>
+                  </PropertyDetails>
+                </CardBody>
+              </PropertyCard>
+            ))}
+          </PropertyGrid>
+        </FeaturedSection>
 
-      {/* Why Choose Us Section */}
-      <WhyChooseUsSection>
-        <SectionTitle>Why choose us</SectionTitle>
-        <WhyChooseUsGrid>
-          <WhyChooseUsCard>
-            <IconContainer>
-              <FaHome size={40} />
-            </IconContainer>
-            <h3>Our plots</h3>
-            <p>All our projects are value added with graded access roads, electric fence, entrance/exit gates and water borehole. All our plots have ready title deeds.</p>
-          </WhyChooseUsCard>
-          
-          <WhyChooseUsCard>
-            <IconContainer>
-              <FaClock size={40} />
-            </IconContainer>
-            <h3>Delivery period</h3>
-            <p>Our delivery Period for the Title deed presentation is unmatched since after we are done with all the paper work and payment it only takes 30 days for you to have the Title deed in your name.</p>
-          </WhyChooseUsCard>
-          
-          <WhyChooseUsCard>
-            <IconContainer>
-              <FaShieldAlt size={40} />
-            </IconContainer>
-            <h3>Suitable properties</h3>
-            <p>We have projects in developed areas suitable for immediate development with title deeds.</p>
-          </WhyChooseUsCard>
-          
-          <WhyChooseUsCard>
-            <IconContainer>
-              <FaHandshake size={40} />
-            </IconContainer>
-            <h3>Customer experience</h3>
-            <p>We offer outstanding customer service and a flexible installment payment plan of up to 10 months</p>
-          </WhyChooseUsCard>
-          
-          <WhyChooseUsCard>
-            <IconContainer>
-              <FaHome size={40} />
-            </IconContainer>
-            <h3>Freehold</h3>
-            <p>All our plots are free hold and have a title fee that varies as per county charges. Kindly note that the title fee is not inclusive of any of our plot price. There are no further hidden charges.</p>
-          </WhyChooseUsCard>
-        </WhyChooseUsGrid>
-      </WhyChooseUsSection>
+        {/* Why Choose Us Section */}
+        <WhyChooseUsSection>
+          <SectionTitle>Why choose us</SectionTitle>
+          <WhyChooseUsGrid>
+            <WhyChooseUsCard>
+              <IconContainer>
+                <FaHome size={40} />
+              </IconContainer>
+              <h3>Our plots</h3>
+              <p>All our projects are value added with graded access roads, electric fence, entrance/exit gates and water borehole. All our plots have ready title deeds.</p>
+            </WhyChooseUsCard>
+            
+            <WhyChooseUsCard>
+              <IconContainer>
+                <FaClock size={40} />
+              </IconContainer>
+              <h3>Delivery period</h3>
+              <p>Our delivery Period for the Title deed presentation is unmatched since after we are done with all the paper work and payment it only takes 30 days for you to have the Title deed in your name.</p>
+            </WhyChooseUsCard>
+            
+            <WhyChooseUsCard>
+              <IconContainer>
+                <FaShieldAlt size={40} />
+              </IconContainer>
+              <h3>Suitable properties</h3>
+              <p>We have projects in developed areas suitable for immediate development with title deeds.</p>
+            </WhyChooseUsCard>
+            
+            <WhyChooseUsCard>
+              <IconContainer>
+                <FaHandshake size={40} />
+              </IconContainer>
+              <h3>Customer experience</h3>
+              <p>We offer outstanding customer service and a flexible installment payment plan of up to 10 months</p>
+            </WhyChooseUsCard>
+            
+            <WhyChooseUsCard>
+              <IconContainer>
+                <FaHome size={40} />
+              </IconContainer>
+              <h3>Freehold</h3>
+              <p>All our plots are free hold and have a title fee that varies as per county charges. Kindly note that the title fee is not inclusive of any of our plot price. There are no further hidden charges.</p>
+            </WhyChooseUsCard>
+          </WhyChooseUsGrid>
+        </WhyChooseUsSection>
 
-      {/* Testimonials Section */}
-      <TestimonialsSection>
-        <SectionTitle>What our client says?</SectionTitle>
-        <SwiperComponent
-          spaceBetween={30}
-          slidesPerView={1}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          loop={true}
-          pagination={{ clickable: true }}
-          modules={[Autoplay, Pagination]}
-          style={{ maxWidth: '700px', margin: '0 auto' }}
-        >
-          {testimonials.map((testimonial) => (
-            <SwiperSlide key={testimonial.id}>
-              <TestimonialCard>
-                <TestimonialImage>
-                  <img src={testimonial.image} alt={testimonial.name} />
-                </TestimonialImage>
-                <TestimonialContent>
-                  <QuoteIcon>"</QuoteIcon>
-                  <p>{testimonial.content}</p>
-                </TestimonialContent>
-                <TestimonialAuthor>
-                  <AuthorName>{testimonial.name}</AuthorName>
-                  <AuthorRole>{testimonial.role}</AuthorRole>
-                </TestimonialAuthor>
-              </TestimonialCard>
-            </SwiperSlide>
-          ))}
-        </SwiperComponent>
-      </TestimonialsSection>
-
-      {/* Contact Info Section */}
-      <ContactInfoSection>
-        <ContactInfoGrid>
-          <ContactInfoCard>
-            <h3>Address</h3>
-            <ContactItem>
-              <FaMapMarkerAlt />
-              <span>HQ - MasterDeal Towers 4th Floor, Ruiru.</span>
-            </ContactItem>
-          </ContactInfoCard>
-          
-          <ContactInfoCard>
-            <h3>Phone</h3>
-            <ContactItem>
-              <FaPhoneAlt />
-              <span>+254 743 979 766</span>
-            </ContactItem>
-          </ContactInfoCard>
-          
-          <ContactInfoCard>
-            <h3>Email</h3>
-            <ContactItem>
-              <FaEnvelope />
-              <span>info@masterdealproperties.com</span>
-            </ContactItem>
-          </ContactInfoCard>
-          
-          <ContactInfoCard>
-            <h3>Follow Us</h3>
-            <SocialLinks>
-              <SocialLink href="#" target="_blank">
-                <FaFacebook />
-              </SocialLink>
-              <SocialLink href="#" target="_blank">
-                <FaTwitter />
-              </SocialLink>
-              <SocialLink href="#" target="_blank">
-                <FaLinkedin />
-              </SocialLink>
-            </SocialLinks>
-          </ContactInfoCard>
-        </ContactInfoGrid>
-      </ContactInfoSection>
-    </Container>
+        {/* Testimonials Section */}
+        <TestimonialsSection>
+          <SectionTitle>What our client says?</SectionTitle>
+          <SwiperComponent
+            spaceBetween={30}
+            slidesPerView={1}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            loop={true}
+            pagination={{ clickable: true }}
+            modules={[Autoplay, Pagination]}
+            style={{ maxWidth: '700px', margin: '0 auto' }}
+          >
+            {testimonials.map((testimonial) => (
+              <SwiperSlide key={testimonial.id}>
+                <TestimonialCard>
+                  <TestimonialImage>
+                    <img src={testimonial.image} alt={testimonial.name} />
+                  </TestimonialImage>
+                  <TestimonialContent>
+                    <QuoteIcon>"</QuoteIcon>
+                    <p>{testimonial.content}</p>
+                  </TestimonialContent>
+                  <TestimonialAuthor>
+                    <AuthorName>{testimonial.name}</AuthorName>
+                    <AuthorRole>{testimonial.role}</AuthorRole>
+                  </TestimonialAuthor>
+                </TestimonialCard>
+              </SwiperSlide>
+            ))}
+          </SwiperComponent>
+        </TestimonialsSection>
+        <BookVisitSection>
+          <BookVisitTitle>Book a Site Visit</BookVisitTitle>
+          <BookVisitForm onSubmit={handleBookVisitSubmit}>
+            <BookVisitRow>
+              <BookVisitLabel>Select property</BookVisitLabel>
+              <BookVisitSelect name="property" value={bookVisitForm.property} onChange={handleBookVisitChange} required>
+                {properties.map((property, index) => (
+                  <option key={index} value={property.title}>{property.title}</option>
+                ))}
+              </BookVisitSelect>
+            </BookVisitRow>
+            <BookVisitRow>
+              <BookVisitLabel>Select Day</BookVisitLabel>
+              <BookVisitSelect name="day" value={bookVisitForm.day} onChange={handleBookVisitChange} required>
+                <option value="">Select Day</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Other">Other</option>
+              </BookVisitSelect>
+            </BookVisitRow>
+            <BookVisitRow>
+              <BookVisitLabel>Full Name</BookVisitLabel>
+              <BookVisitInput type="text" name="name" value={bookVisitForm.name} onChange={handleBookVisitChange} placeholder="Enter your full name" required />
+            </BookVisitRow>
+            <BookVisitRow>
+              <BookVisitLabel>Email Address</BookVisitLabel>
+              <BookVisitInput type="email" name="email" value={bookVisitForm.email} onChange={handleBookVisitChange} placeholder="Enter your email address" required />
+            </BookVisitRow>
+            <BookVisitRow>
+              <BookVisitLabel>Message</BookVisitLabel>
+              <BookVisitTextArea name="message" value={bookVisitForm.message} onChange={handleBookVisitChange} placeholder="Tell us about your requirements..." rows="4" />
+            </BookVisitRow>
+            <BookVisitButton type="submit">Submit</BookVisitButton>
+          </BookVisitForm>
+        </BookVisitSection>
+      </Container>
+      <Footer />
+    </>
   );
 };
 
@@ -641,82 +641,6 @@ const AuthorRole = styled.p`
   font-weight: 500;
 `;
 
-const ContactInfoSection = styled.section`
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #333 0%, #2c3e50 100%);
-  color: white;
-`;
-
-const ContactInfoGrid = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-`;
-
-const ContactInfoCard = styled.div`
-  text-align: center;
-  padding: 2rem;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #FF6B35;
-  }
-`;
-
-const ContactItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 1.1rem;
-  
-  svg {
-    color: #4CAF50;
-  }
-`;
-
-const SocialLinks = styled.div`
-  display: flex;
-  gap: 1.2rem;
-  margin-top: 0.5rem;
-  justify-content: center;
-  svg {
-    font-size: 2rem;
-    color: #4CAF50;
-    transition: color 0.2s;
-    &:hover {
-      color: #FF6B35;
-    }
-  }
-`;
-
-const SocialLink = styled.a`
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #4CAF50 0%, #FF6B35 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
 const HeroCTASection = styled.section`
   text-align: center;
   padding: 2.5rem 1rem 1.5rem 1rem;
@@ -772,4 +696,119 @@ const TrustBadge = styled.div`
   min-width: 180px;
   font-weight: 600;
   color: #333;
+`;
+
+const BookVisitSection = styled.section`
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  text-align: center;
+`;
+
+const BookVisitTitle = styled.h2`
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 3rem;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4CAF50, #FF6B35);
+    border-radius: 2px;
+  }
+`;
+
+const BookVisitForm = styled.form`
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+`;
+
+const BookVisitRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const BookVisitLabel = styled.label`
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+`;
+
+const BookVisitSelect = styled.select`
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: #FF6B35;
+  }
+`;
+
+const BookVisitInput = styled.input`
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: #FF6B35;
+  }
+`;
+
+const BookVisitTextArea = styled.textarea`
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: #FF6B35;
+  }
+`;
+
+const BookVisitButton = styled.button`
+  background: #FF6B35;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.2s, color 0.2s;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background: #4CAF50;
+    color: white;
+  }
 `;

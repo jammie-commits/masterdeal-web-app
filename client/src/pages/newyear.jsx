@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaPlay, FaCalendar, FaUser } from 'react-icons/fa';
+import Footer from '../components/Footer';
 
 const NewYear = () => {
   const addresses = [
@@ -78,6 +79,7 @@ const NewYear = () => {
           </p>
         </MessageContent>
       </MessageSection>
+      <Footer />
     </Container>
   );
 };

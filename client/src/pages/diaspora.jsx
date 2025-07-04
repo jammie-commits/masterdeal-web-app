@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaMapMarkerAlt, FaFileAlt, FaSearch, FaHandshake, FaMoneyBillWave, FaRulerCombined, FaFileSignature, FaCheckCircle } from "react-icons/fa";
+import Footer from '../components/Footer';
 
 export default function Diaspora() {
   const steps = [
@@ -34,10 +35,14 @@ export default function Diaspora() {
         <p>If you have any questions or need assistance, please feel free to reach out:</p>
         <ContactInfo>
           <p>Email: <a href="mailto:info@masterdealproperties.com">info@masterdealproperties.com</a></p>
-          <p>Phone: +254 743 979 766</p>
-          <p>WhatsApp: +254 743 979 766</p>
+          <p>
+            WhatsApp or Call: 
+            <a href="https://wa.me/+254743979766" target="_blank" rel="noopener noreferrer" style={{ color: '#25d366', textDecoration: 'none', fontWeight: 'bold', marginRight: '1.2rem' }}>WhatsApp</a>
+            <a href="tel:+254743979766" style={{ color: '#4CAF50', textDecoration: 'none', fontWeight: 'bold' }}>+254 743 979 766</a>
+          </p>
         </ContactInfo>
       </ContactSection>
+      <Footer />
     </DiasporaContainer>
   );
 }

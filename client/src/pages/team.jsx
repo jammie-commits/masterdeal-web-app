@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import CEO from '../assets/CEO.jpeg';
+import Footer from '../components/Footer';
 
 const Team = () => {
   const teamMembers = [
@@ -98,6 +99,7 @@ const Team = () => {
           </ValueCard>
         </ValuesGrid>
       </ValuesSection>
+      <Footer />
     </Container>
   );
 };

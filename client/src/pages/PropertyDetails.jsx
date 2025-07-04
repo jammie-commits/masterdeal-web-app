@@ -40,7 +40,8 @@ import banner4 from '../assets/banner4.svg';
 import jujaMasterview from '../assets/juja-masterview.jpg';
 
 // Add react-icons for features and highlights
-import { FaRoad, FaBolt, FaTint, FaSchool, FaShieldAlt, FaHome, FaMoneyCheckAlt, FaCheckCircle, FaTools, FaMapMarkerAlt, FaChartLine, FaRegFileAlt, FaClock, FaAward, FaCamera } from 'react-icons/fa';
+import { FaRoad, FaBolt, FaTint, FaSchool, FaShieldAlt, FaHome, FaMoneyCheckAlt, FaCheckCircle, FaTools, FaMapMarkerAlt, FaChartLine, FaRegFileAlt, FaClock, FaAward, FaCamera, FaWallet, FaCalendarAlt } from 'react-icons/fa';
+import Footer from '../components/Footer';
 
 const properties = [
   {
@@ -267,6 +268,10 @@ const PropertyDetails = () => {
   const property = properties.find((p) => p.id === parseInt(id));
   const [visitDate, setVisitDate] = useState('');
   const [activeTab, setActiveTab] = useState('description');
+  // Add state and handlers for the Book a Site Visit form
+  const [bookVisitForm, setBookVisitForm] = useState({ day: '', name: '', email: '', message: '' });
+  const handleBookVisitChange = (e) => { setBookVisitForm({ ...bookVisitForm, [e.target.name]: e.target.value }); };
+  const handleBookVisitSubmit = (e) => { e.preventDefault(); const message = `Hello, I would like to book a site visit.\nProperty: ${property.title}\nDay: ${bookVisitForm.day}\nName: ${bookVisitForm.name}\nEmail: ${bookVisitForm.email}\nMessage: ${bookVisitForm.message}`; const encodedMessage = encodeURIComponent(message); window.open(`https://wa.me/+254743979766?text=${encodedMessage}`, '_blank'); };
 
   if (!property) {
     return <div>Property not found</div>;
@@ -279,29 +284,30 @@ const PropertyDetails = () => {
   };
 
   return (
-    <Container>
-      <ImageSlider>
-        <Swiper
-          spaceBetween={10}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          modules={[Pagination, Navigation]}
-          style={{ borderRadius: '16px', overflow: 'hidden' }}
-        >
-          <SwiperSlide>
-            <SlideImage src={property.image} alt={property.title} />
-          </SwiperSlide>
-          {property.amenitiesGallery && property.amenitiesGallery.map((amenity, idx) => (
-            <SwiperSlide key={idx+1}>
-              <SlideImage src={amenity.image} alt={amenity.description} />
+    <>
+      <Container>
+        <ImageSlider>
+          <Swiper
+            spaceBetween={10}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            modules={[Pagination, Navigation]}
+            style={{ borderRadius: '16px', overflow: 'hidden' }}
+          >
+            <SwiperSlide>
+              <SlideImage src={property.image} alt={property.title} />
             </SwiperSlide>
-          ))}
-        </Swiper>
-      </ImageSlider>
+            {property.amenitiesGallery && property.amenitiesGallery.map((amenity, idx) => (
+              <SwiperSlide key={idx+1}>
+                <SlideImage src={amenity.image} alt={amenity.description} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </ImageSlider>
 
-      <ContentContainer>
-        <InfoHeader>
+        <ContentContainer>
+          <InfoHeader>
             <Title>{property.title}</Title>
             <StatusBadge status={property.status}>{property.status}</StatusBadge>
             <Price>{property.price}</Price>
@@ -338,7 +344,23 @@ const PropertyDetails = () => {
             {activeTab === 'pricing' && (
               <Section>
                 <SectionTitle>Pricing</SectionTitle>
-                <PaymentPlan>{property.paymentPlan}</PaymentPlan>
+                <PaymentPlanList>
+                  {property.paymentPlan.split('.').filter(Boolean).map((plan, idx) => {
+                    let icon = <FaMoneyCheckAlt style={{ color: 'var(--primary-green)' }} />;
+                    let label = plan;
+                    if (/cash/i.test(plan)) icon = <FaMoneyCheckAlt style={{ color: 'var(--primary-green)' }} />;
+                    else if (/deposit/i.test(plan)) icon = <FaWallet style={{ color: 'var(--primary-orange)' }} />;
+                    else if (/installment|balance|month/i.test(plan)) icon = <FaCalendarAlt style={{ color: 'var(--primary-blue)' }} />;
+                    // Highlight price in bold
+                    label = label.replace(/(KES\s?\d{1,3}(,\d{3})*|\d{1,3}(,\d{3})*\s?K)/gi, match => `<strong>${match}</strong>`);
+                    return (
+                      <PaymentPlanItem key={idx}>
+                        {icon}
+                        <span dangerouslySetInnerHTML={{ __html: label.trim() }} />
+                      </PaymentPlanItem>
+                    );
+                  })}
+                </PaymentPlanList>
               </Section>
             )}
             {activeTab === 'breakdown' && (
@@ -400,31 +422,42 @@ const PropertyDetails = () => {
                 <ContactButton as="a" href="tel:+254743979766">Call: +254 743 979 766</ContactButton>
               </ContactInfo>
             </ContactSection>
-            <BookingSection>
-              <h3>Book a Site Visit</h3>
-              <BookingForm>
-                <DateInput
-                  type="date"
-                  value={visitDate}
-                  onChange={(e) => setVisitDate(e.target.value)}
-                />
-                <Button
-                  onClick={() => {
-                    if (visitDate) {
-                      window.open(generateWhatsAppLink(), '_blank');
-                    } else {
-                      alert('Please select a date.');
-                    }
-                  }}
-                >
-                  Schedule Visit via WhatsApp
-                </Button>
-              </BookingForm>
-            </BookingSection>
+            {/* Book a Site Visit section for ongoing projects */}
+            {property.status === 'Ongoing' && (
+              <BookVisitSection>
+                <BookVisitTitle>Book a Site Visit</BookVisitTitle>
+                <BookVisitForm onSubmit={handleBookVisitSubmit}>
+                  <BookVisitRow>
+                    <BookVisitLabel>Select Day</BookVisitLabel>
+                    <BookVisitSelect name="day" value={bookVisitForm.day} onChange={handleBookVisitChange} required>
+                      <option value="">Select Day</option>
+                      <option value="Saturday">Saturday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Other">Other</option>
+                    </BookVisitSelect>
+                  </BookVisitRow>
+                  <BookVisitRow>
+                    <BookVisitLabel>Full Name</BookVisitLabel>
+                    <BookVisitInput type="text" name="name" value={bookVisitForm.name} onChange={handleBookVisitChange} placeholder="Enter your full name" required />
+                  </BookVisitRow>
+                  <BookVisitRow>
+                    <BookVisitLabel>Email Address</BookVisitLabel>
+                    <BookVisitInput type="email" name="email" value={bookVisitForm.email} onChange={handleBookVisitChange} placeholder="Enter your email address" required />
+                  </BookVisitRow>
+                  <BookVisitRow>
+                    <BookVisitLabel>Message</BookVisitLabel>
+                    <BookVisitTextArea name="message" value={bookVisitForm.message} onChange={handleBookVisitChange} placeholder="Tell us about your requirements..." rows="4" />
+                  </BookVisitRow>
+                  <BookVisitButton type="submit">Submit</BookVisitButton>
+                </BookVisitForm>
+              </BookVisitSection>
+            )}
           </MainContent>
         </ContentContainer>
       </Container>
-    );
+      <Footer />
+    </>
+  );
 };
 
 export default PropertyDetails;
@@ -624,8 +657,10 @@ const Price = styled.div`
 
 const PaymentPlan = styled.div`
   font-size: 1.1rem;
-  color: #f8f8f8;
+  color: #222;
   margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.7;
 `;
 
 const FeaturesGrid = styled.div`
@@ -799,3 +834,106 @@ const featureIcons = {
 const highlightIcons = {
   'ROI': <FaChartLine title="ROI" />, 'Flexible payment plans': <FaMoneyCheckAlt title="Flexible payment" />, 'Title deed in 30 days': <FaRegFileAlt title="Title deed" />, 'Prime location': <FaMapMarkerAlt title="Prime location" />, 'Immediate construction allowed': <FaHome title="Immediate construction" />
 };
+
+// Add styled-components for BookVisitSection, BookVisitTitle, BookVisitForm, BookVisitRow, BookVisitLabel, BookVisitSelect, BookVisitInput, BookVisitTextArea, BookVisitButton (reuse from home.jsx for consistency).
+const BookVisitSection = styled.div`
+  margin: 2rem 0;
+  background: #e8f5e9;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+`;
+
+const BookVisitTitle = styled.h3`
+  font-size: 1.4rem;
+  color: var(--primary-orange);
+  margin-bottom: 1rem;
+`;
+
+const BookVisitForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+`;
+
+const BookVisitRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const BookVisitLabel = styled.label`
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+`;
+
+const BookVisitSelect = styled.select`
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  color: var(--text-dark);
+`;
+
+const BookVisitInput = styled.input`
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  color: var(--text-dark);
+`;
+
+const BookVisitTextArea = styled.textarea`
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  color: var(--text-dark);
+  resize: vertical;
+  min-height: 100px;
+`;
+
+const BookVisitButton = styled.button`
+  padding: 1rem 2rem;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: #388e3c;
+  }
+`;
+
+// Add styled components for PaymentPlanList and PaymentPlanItem
+const PaymentPlanList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+`;
+const PaymentPlanItem = styled.li`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 0.7rem;
+  strong {
+    font-weight: bold;
+    color: var(--primary-orange);
+    margin-left: 0.2rem;
+  }
+`;

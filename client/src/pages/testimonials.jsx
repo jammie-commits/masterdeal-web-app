@@ -4,6 +4,7 @@ import testimonial1 from "../assets/testimonial1.jpeg"; // Replace with actual i
 import testimonial2 from "../assets/testimonial2.jpeg";
 import testimonial3 from "../assets/testimonial3.jpeg";
 import testimonial4 from "../assets/testimonial4.jpeg";
+import Footer from '../components/Footer';
 
 export default function Testimonials() {
   const testimonialsData = [
@@ -46,6 +47,7 @@ export default function Testimonials() {
           </TestimonialCard>
         ))}
       </TestimonialsGrid>
+      <Footer />
     </TestimonialsContainer>
   );
 }

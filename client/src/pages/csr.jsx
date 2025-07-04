@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaHandsHelping, FaGraduationCap, FaTree, FaHeart } from 'react-icons/fa';
+import Footer from '../components/Footer';
 
 const CSR = () => {
   const csrInitiatives = [
@@ -73,6 +74,7 @@ const CSR = () => {
           </p>
         </MissionContent>
       </MissionSection>
+      <Footer />
     </Container>
   );
 };

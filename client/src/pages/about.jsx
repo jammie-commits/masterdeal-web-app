@@ -5,6 +5,7 @@ import service1 from '../assets/image5.jpeg';
 import service2 from '../assets/image7.jpeg';
 import service3 from '../assets/image13.jpeg';
 import service4 from '../assets/image9.jpeg';
+import Footer from '../components/Footer';
 
 const servicesData = [
   {
@@ -103,17 +104,6 @@ const ServiceCard = ({ title, subTitle }) => (
 );
 
 // Footer Component
-const Footer = () => (
-  <FooterWrapper>
-    <FooterContent>
-      <p>&copy; {new Date().getFullYear()} Masterdeal Properties. All rights reserved.</p>
-      <FooterLinks>
-        <FooterLink href="/">Privacy Policy</FooterLink>
-        <FooterLink href="/">Terms of Service</FooterLink>
-      </FooterLinks>
-    </FooterContent>
-  </FooterWrapper>
-);
 
 // Styled Components
 const MainWrapper = styled.section`

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaBuilding } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { FaFacebook } from 'react-icons/fa';
+import Footer from '../components/Footer';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +13,7 @@ const Contact = () => {
     property: '',
     day: ''
   });
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,8 +24,10 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    // Compose WhatsApp message
+    const message = `Hello, I would like to book a site visit.\nProperty: ${formData.property}\nDay: ${formData.day}\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/+254743979766?text=${encodedMessage}`, '_blank');
   };
 
   const properties = [
@@ -57,20 +62,20 @@ const Contact = () => {
           <Form onSubmit={handleSubmit}>
             <FormGroup>
               <Label>Select property</Label>
-              <Input name="property" value={formData.property} onChange={handleChange} required>
+              <Select name="property" value={formData.property} onChange={handleChange} required>
                 {properties.map((property, index) => (
                   <option key={index} value={property}>{property}</option>
                 ))}
-              </Input>
+              </Select>
             </FormGroup>
             
             <FormGroup>
               <Label>Select Day</Label>
-              <Input name="day" value={formData.day} onChange={handleChange} required>
+              <Select name="day" value={formData.day} onChange={handleChange} required>
                 {days.map((day, index) => (
                   <option key={index} value={day}>{day}</option>
                 ))}
-              </Input>
+              </Select>
             </FormGroup>
 
             <FormGroup>
@@ -93,18 +98,6 @@ const Contact = () => {
                 value={formData.email} 
                 onChange={handleChange}
                 placeholder="Enter your email address"
-                required
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label>Phone Number</Label>
-              <Input 
-                type="tel" 
-                name="phone" 
-                value={formData.phone} 
-                onChange={handleChange}
-                placeholder="Enter your phone number"
                 required
               />
             </FormGroup>
@@ -156,25 +149,11 @@ const Contact = () => {
           <InfoCard>
             <CardTitle>
               <FaPhoneAlt />
-              Phone
+              WhatsApp or Call
             </CardTitle>
             <ContactItem>
-              <FaPhoneAlt />
-              <div>
-                <h4>+254 707 177 177</h4>
-              </div>
-            </ContactItem>
-            <ContactItem>
-              <FaPhoneAlt />
-              <div>
-                <h4>+254 718 700 900</h4>
-              </div>
-            </ContactItem>
-            <ContactItem>
-              <FaPhoneAlt />
-              <div>
-                <h4>+254 716 556 644</h4>
-              </div>
+              <a href="https://wa.me/+254743979766" target="_blank" rel="noopener noreferrer" style={{ color: '#25d366', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem', marginRight: '1.2rem' }}>WhatsApp</a>
+              <a href="tel:+254743979766" style={{ color: '#4CAF50', textDecoration: 'none', fontWeight: 'bold', fontSize: '1.1rem' }}>+254 743 979 766</a>
             </ContactItem>
           </InfoCard>
           
@@ -186,9 +165,14 @@ const Contact = () => {
             <ContactItem>
               <FaEnvelope />
               <div>
-                <h4>info@masterdeal.co.ke</h4>
+                <h4>info@masterdealproperties.com</h4>
               </div>
             </ContactItem>
+            <FacebookRow>
+              <SocialLink href="https://www.facebook.com/MasterDealPropertiesltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FaFacebook size={28} />
+              </SocialLink>
+            </FacebookRow>
           </InfoCard>
 
           <InfoCard>
@@ -222,6 +206,7 @@ const Contact = () => {
         <h2>Our Locations</h2>
         <MapContainer>
           <iframe
+            title="MasterDeal Towers Location Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.809057600447!2d36.82522607949217!3d-1.146156099162587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d3f5f75555%3A0x4b80547233d4e81!2sMasterDeal%20Towers!5e0!3m2!1sen!2ske!4v1698344444444!5m2!1sen!2ske"
             width="100%"
             height="100%"
@@ -232,6 +217,7 @@ const Contact = () => {
           ></iframe>
         </MapContainer>
       </MapSection>
+      <Footer />
     </ContactContainer>
   );
 };
@@ -348,6 +334,22 @@ const Input = styled.input`
   }
 `;
 
+const Select = styled.select`
+  padding: 1rem;
+  border: 2px solid var(--gray-medium);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+  }
+`;
+
 const TextArea = styled.textarea`
   padding: 1rem;
   border: 2px solid var(--gray-medium);
@@ -445,26 +447,31 @@ const ContactItem = styled.div`
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
 `;
-
 const SocialLink = styled.a`
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-orange) 100%);
+  color: #1877f3;
+  background: #fff;
   border-radius: 50%;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  
+  box-shadow: 0 2px 8px rgba(24,119,243,0.08);
+  font-size: 2rem;
+  transition: background 0.2s, color 0.2s;
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+    background: #1877f3;
+    color: #fff;
   }
+`;
+const SuccessMessage = styled.div`
+  color: var(--primary-green);
+  font-weight: 600;
+  margin-top: 1rem;
+  text-align: center;
 `;
 
 const MapSection = styled.div`
@@ -485,4 +492,11 @@ const MapContainer = styled.div`
     height: 100%;
     border: none;
   }
+`;
+
+const FacebookRow = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
 `;

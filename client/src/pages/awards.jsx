@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaTrophy, FaMedal, FaStar, FaAward } from 'react-icons/fa';
+import Footer from '../components/Footer';
 
 const Awards = () => {
   const awards = [
@@ -137,6 +138,7 @@ const Awards = () => {
           </RecognitionImage>
         </RecognitionContent>
       </RecognitionSection>
+      <Footer />
     </Container>
   );
 };

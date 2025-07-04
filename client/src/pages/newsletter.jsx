@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaDownload, FaCalendar, FaNewspaper } from 'react-icons/fa';
+import Footer from '../components/Footer';
 
 const Newsletter = () => {
   const newsletters = [
@@ -69,6 +70,7 @@ const Newsletter = () => {
           </SubscribeForm>
         </SubscribeContent>
       </SubscribeSection>
+      <Footer />
     </Container>
   );
 };
