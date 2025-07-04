@@ -285,6 +285,10 @@ const NavMenu = styled.ul`
     z-index: 1100;
     font-size: 1.08rem;
   }
+  @media (max-width: 900px) {
+    background: rgba(34,34,34,0.98);
+    a, button { color: #fff; }
+  }
 `;
 
 const NavItem = styled.li`
