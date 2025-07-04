@@ -88,18 +88,13 @@ const Navbar = () => {
                   </DropdownLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <DropdownLink to="/properties?location=westlands" onClick={closeMenu}>
-                    Westlands
+                  <DropdownLink to="/properties?location=matuu" onClick={closeMenu}>
+                    Matuu
                   </DropdownLink>
                 </DropdownItem>
                 <DropdownItem>
-                  <DropdownLink to="/properties?location=kilimani" onClick={closeMenu}>
-                    Kilimani
-                  </DropdownLink>
-                </DropdownItem>
-                <DropdownItem>
-                  <DropdownLink to="/properties?location=lavington" onClick={closeMenu}>
-                    Lavington
+                  <DropdownLink to="/properties?location=juja" onClick={closeMenu}>
+                    Juja
                   </DropdownLink>
                 </DropdownItem>
               </DropdownMenu>
@@ -409,6 +404,10 @@ const DropdownMenu = styled.ul`
     background: var(--gray-light);
     margin-top: 0.5rem;
     border-radius: 4px;
+  }
+  @media (max-width: 900px) {
+    background: var(--primary-orange);
+    a, button { color: #fff; }
   }
 `;
 
