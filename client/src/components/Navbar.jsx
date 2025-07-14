@@ -319,19 +319,21 @@ const NavLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: ${({ active, scrolled }) => scrolled ? 'var(--primary-green)' : '#fff'};
-  font-weight: 600;
-  font-size: 1em;
-  min-height: 44px;
-  padding: 0 0.7rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 0.93em;
+  min-height: 36px;
+  padding: 0 0.5rem;
+  border-radius: 6px;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
   position: relative;
   background: none;
   box-sizing: border-box;
   
   &:hover {
     color: var(--primary-orange);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
   }
   
   &::after {
@@ -343,12 +345,12 @@ const NavLink = styled(Link)`
     width: 0;
     height: 2px;
     background: var(--primary-orange);
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
   }
   
   &:hover::after,
   &.active::after {
-    width: 80%;
+    width: 70%;
   }
 `;
 
@@ -362,19 +364,21 @@ const DropdownButton = styled.button`
   background: none;
   border: none;
   color: ${({ active, scrolled }) => scrolled ? 'var(--primary-green)' : '#fff'};
-  font-weight: 600;
-  font-size: 1em;
-  min-height: 44px;
-  padding: 0 0.7rem;
-  border-radius: 8px;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 0.93em;
+  min-height: 36px;
+  padding: 0 0.5rem;
+  border-radius: 6px;
   cursor: pointer;
   gap: 0.5rem;
-  transition: all 0.3s ease;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
   box-sizing: border-box;
   
   &:hover {
     color: var(--primary-orange);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
   }
   
   svg {
@@ -417,10 +421,15 @@ const DropdownItem = styled.li`
 
 const DropdownLink = styled(Link)`
   display: block;
-  padding: 0.75rem 1rem;
+  padding: 0.55rem 0.9rem;
   color: var(--text-dark);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 0.95em;
+  font-weight: 500;
   text-decoration: none;
-  transition: all 0.3s ease;
+  letter-spacing: 0.01em;
+  border-radius: 5px;
+  transition: all 0.2s ease;
   
   &:hover {
     background: var(--light-green);

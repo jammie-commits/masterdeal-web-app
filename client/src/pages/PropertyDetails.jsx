@@ -33,11 +33,20 @@ import property22 from '../assets/p-4.jpeg';
 import property23 from '../assets/5-1.jpeg';
 import property24 from '../assets/5-2.jpeg';
 import property25 from '../assets/5-3.jpeg';
-import banner1 from '../assets/banner1.svg';
+import banner1 from '../assets/banner1.jpeg';
 import banner2 from '../assets/banner2.svg';
 import banner3 from '../assets/banner3.svg';
 import banner4 from '../assets/banner4.svg';
 import jujaMasterview from '../assets/juja-masterview.jpg';
+import juja1 from '../juja/SHI_4453.jpg';
+import juja2 from '../juja/SHI_4454.jpg';
+import juja3 from '../juja/SHI_4455.jpg';
+import juja4 from '../juja/SHI_4456.jpg';
+import juja5 from '../juja/SHI_4457.jpg';
+import juja6 from '../juja/SHI_4458.jpg';
+import juja7 from '../juja/SHI_4459.jpg';
+import juja8 from '../juja/SHI_4460.jpg';
+import juja9 from '../juja/SHI_4461.jpg';
 
 // Add react-icons for features and highlights
 import { FaRoad, FaBolt, FaTint, FaSchool, FaShieldAlt, FaHome, FaMoneyCheckAlt, FaCheckCircle, FaTools, FaMapMarkerAlt, FaChartLine, FaRegFileAlt, FaClock, FaAward, FaCamera, FaWallet, FaCalendarAlt } from 'react-icons/fa';
@@ -236,9 +245,15 @@ const properties = [
       'Prime location in Juja Farm, Athi River'
     ],
     amenitiesGallery: [
-      { image: jujaMasterview, description: 'Prime serviced plots in Juja Farm, Athi River' },
-      { image: jujaMasterview, description: 'Fully developed estate with water and electricity' },
-      { image: jujaMasterview, description: 'Secure and ready for immediate construction' }
+      { image: juja1, description: 'Juja project site view 1' },
+      { image: juja2, description: 'Juja project site view 2' },
+      { image: juja3, description: 'Juja project site view 3' },
+      { image: juja4, description: 'Juja project site view 4' },
+      { image: juja5, description: 'Juja project site view 5' },
+      { image: juja6, description: 'Juja project site view 6' },
+      { image: juja7, description: 'Juja project site view 7' },
+      { image: juja8, description: 'Juja project site view 8' },
+      { image: juja9, description: 'Juja project site view 9' }
     ],
     location: 'Juja',
     category: 'Residential',
@@ -837,84 +852,111 @@ const highlightIcons = {
 
 // Add styled-components for BookVisitSection, BookVisitTitle, BookVisitForm, BookVisitRow, BookVisitLabel, BookVisitSelect, BookVisitInput, BookVisitTextArea, BookVisitButton (reuse from home.jsx for consistency).
 const BookVisitSection = styled.div`
-  margin: 2rem 0;
-  background: #e8f5e9;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin: 2.5rem 0;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 `;
 
 const BookVisitTitle = styled.h3`
-  font-size: 1.4rem;
-  color: var(--primary-orange);
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  margin-bottom: 1.2rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 700;
 `;
 
 const BookVisitForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
+  gap: 1.2rem;
+  max-width: 420px;
   margin: 0 auto;
 `;
 
 const BookVisitRow = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 `;
 
 const BookVisitLabel = styled.label`
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--text-dark);
+  color: var(--primary-orange);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 `;
 
 const BookVisitSelect = styled.select`
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   font-size: 1rem;
-  border: 2px solid #4CAF50;
-  border-radius: 8px;
-  outline: none;
-  background-color: #fff;
-  color: var(--text-dark);
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  background-color: #f9f9f9;
+  color: #222;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  transition: border-color 0.2s;
+  &:focus {
+    outline: none;
+    border-color: var(--primary-green);
+  }
 `;
 
 const BookVisitInput = styled.input`
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   font-size: 1rem;
-  border: 2px solid #4CAF50;
-  border-radius: 8px;
-  outline: none;
-  background-color: #fff;
-  color: var(--text-dark);
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  background-color: #f9f9f9;
+  color: #222;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  transition: border-color 0.2s;
+  &:focus {
+    outline: none;
+    border-color: var(--primary-green);
+  }
 `;
 
 const BookVisitTextArea = styled.textarea`
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   font-size: 1rem;
-  border: 2px solid #4CAF50;
-  border-radius: 8px;
-  outline: none;
-  background-color: #fff;
-  color: var(--text-dark);
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  background-color: #f9f9f9;
+  color: #222;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   resize: vertical;
-  min-height: 100px;
+  min-height: 90px;
+  transition: border-color 0.2s;
+  &:focus {
+    outline: none;
+    border-color: var(--primary-green);
+  }
 `;
 
 const BookVisitButton = styled.button`
-  padding: 1rem 2rem;
-  background-color: #4CAF50;
+  background: linear-gradient(90deg, var(--primary-green) 0%, var(--primary-orange) 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 24px;
+  font-size: 1.08rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
   border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
   &:hover {
-    background: #388e3c;
+    background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-green) 100%);
+    color: #fff;
   }
 `;
 

@@ -15,27 +15,7 @@ const Team = () => {
       linkedin: '#',
       twitter: '#',
       email: '#'
-    },
-    {
-      id: 2,
-      name: 'MR. ERIC MKOMBERO',
-      position: 'MANAGER DIGITAL MARKETING',
-      image: CEO,
-      description: 'Mr Eric Mkombero is the and manager of digital marketing in MasterDeal Properties Limited, one of the leading real estate companies in Kenya. Eric is a member of the Board of Directors, where he ensures that the standards, operations, and services offered are in line with the company\'s core values. Eric is an experienced business leader with a vast wealth of knowledge...',
-      linkedin: '#',
-      twitter: '#',
-      email: '#'
-    },
-    // {
-    //   id: 3,
-    //   name: 'MR. DENNIS WAMATU',
-    //   position: 'GENERAL MANAGER',
-    //   image: CEO,
-    //   description: 'Njenga Mugweru is MasterDeal Properties Limited\'s General Manager. Before being named the General Manager, Njenga was MasterDeal\'s head of sales and marketing from 2019 and was responsible for all of the company\'s headquarter sales and marketing operations, including end-to-end management of MasterDeal\'s advertising, sales activities, and service and support to all clients and marketers.',
-    //   linkedin: '#',
-    //   twitter: '#',
-    //   email: 'john@masterdeal.co.ke'
-    // }
+    }
   ];
 
   return (
@@ -108,14 +88,14 @@ export default Team;
 
 const Container = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #f5f7fa;
   padding: 2rem 0;
 `;
 
 const Header = styled.div`
   text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  background: #4CAF50;
   color: white;
   margin-bottom: 3rem;
 
@@ -188,19 +168,22 @@ const TeamCard = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  height: 300px;
+  width: 220px;
+  height: 220px;
+  margin: 2rem auto 1.5rem auto;
+  border-radius: 50%;
   overflow: hidden;
+  box-shadow: 0 4px 18px rgba(44, 62, 80, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const MemberImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-
-  ${TeamCard}:hover & {
-    transform: scale(1.1);
-  }
+  display: block;
 `;
 
 const MemberInfo = styled.div`

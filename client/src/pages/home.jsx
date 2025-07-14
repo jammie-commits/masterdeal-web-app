@@ -29,7 +29,7 @@ import property17 from '../assets/image11.jpeg';
 import property18 from '../assets/image12.jpeg';
 import property19 from '../assets/image13.jpeg';
 import property20 from '../assets/image14.jpeg';
-import banner1 from '../assets/banner1.svg';
+import banner1 from '../assets/banner1.jpeg';
 import banner2 from '../assets/banner2.svg';
 import banner3 from '../assets/banner3.svg';
 import banner4 from '../assets/banner4.svg';
@@ -314,17 +314,31 @@ export default HomePage;
 // Styled Components
 const Container = styled.div`
   min-height: 100vh;
+  padding: 0 2rem;
+  @media (max-width: 900px) {
+    padding: 0 1rem;
+  }
+  @media (max-width: 600px) {
+    padding: 0 0.3rem;
+  }
 `;
 
 const MainSlider = styled.div`
   height: 60vh;
   position: relative;
   margin-bottom: 2rem;
-  
+  margin-top: 90px;
+  @media (max-width: 900px) {
+    height: 35vh;
+    margin-top: 70px;
+  }
+  @media (max-width: 600px) {
+    height: 180px;
+    margin-top: 60px;
+  }
   .swiper {
     height: 100%;
   }
-  
   .swiper-slide {
     height: 100%;
   }
@@ -341,10 +355,6 @@ const MainSlider = styled.div`
   .swiper-button-prev {
     color: #FF6B35;
   }
-  
-  @media (max-width: 768px) {
-    height: 40vh;
-  }
 `;
 
 const BannerContainer = styled.div`
@@ -353,7 +363,7 @@ const BannerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4CAF50 0%, #FF6B35 100%);
+  background: #fff;
   overflow: hidden;
 `;
 
@@ -361,12 +371,18 @@ const SlideImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.8;
+  background: #fff;
+  display: block;
+  margin: 0 auto;
+  opacity: 1;
+  @media (max-width: 600px) {
+    border-radius: 10px;
+  }
 `;
 
 const FeaturedSection = styled.section`
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: #f8f9fa;
   
   h2 {
     text-align: center;
@@ -383,7 +399,7 @@ const FeaturedSection = styled.section`
 const VerticalLine = styled.div`
   width: 4px;
   height: 50px;
-  background: linear-gradient(to bottom, #4CAF50, #FF6B35);
+  background: #4CAF50;
   border-radius: 2px;
 `;
 
@@ -644,19 +660,35 @@ const AuthorRole = styled.p`
 const HeroCTASection = styled.section`
   text-align: center;
   padding: 2.5rem 1rem 1.5rem 1rem;
-  background: linear-gradient(90deg, #FF6B35 0%, #4CAF50 100%);
+  background: #FF6B35;
   color: white;
+  @media (max-width: 900px) {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+  }
+  @media (max-width: 600px) {
+    padding: 1rem 0.2rem 0.7rem 0.2rem;
+  }
 `;
 const HeroCTATitle = styled.h1`
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 1.1rem;
+  }
 `;
 const HeroCTAButtons = styled.div`
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
 `;
 const CTAButton = styled(Link)`
   background: #fff;
@@ -671,6 +703,11 @@ const CTAButton = styled(Link)`
   &:hover {
     background: #FF6B35;
     color: #fff;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 0.8rem 0;
+    font-size: 1rem;
   }
 `;
 const TrustBadgesSection = styled.section`
@@ -699,116 +736,112 @@ const TrustBadge = styled.div`
 `;
 
 const BookVisitSection = styled.section`
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: #fff;
+  text-align: left;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+  max-width: 540px;
+  margin: 3rem auto 4rem auto;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 `;
 
 const BookVisitTitle = styled.h2`
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 3rem;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, #4CAF50, #FF6B35);
-    border-radius: 2px;
-  }
+  font-size: 1.6rem;
+  color: var(--primary-green);
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 700;
 `;
 
 const BookVisitForm = styled.form`
-  max-width: 800px;
+  max-width: 420px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  gap: 1.2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 2rem 1.2rem;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.04);
 `;
 
 const BookVisitRow = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem;
 `;
 
 const BookVisitLabel = styled.label`
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: var(--primary-orange);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 `;
 
 const BookVisitSelect = styled.select`
-  padding: 0.8rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 0.7rem 1rem;
   font-size: 1rem;
-  background-color: #f9f9f9;
-  color: #333;
-  cursor: pointer;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #222;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   transition: border-color 0.2s;
-
   &:focus {
     outline: none;
-    border-color: #FF6B35;
+    border-color: var(--primary-green);
   }
 `;
 
 const BookVisitInput = styled.input`
-  padding: 0.8rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 0.7rem 1rem;
   font-size: 1rem;
-  background-color: #f9f9f9;
-  color: #333;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #222;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   transition: border-color 0.2s;
-
   &:focus {
     outline: none;
-    border-color: #FF6B35;
+    border-color: var(--primary-green);
   }
 `;
 
 const BookVisitTextArea = styled.textarea`
-  padding: 0.8rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 0.7rem 1rem;
   font-size: 1rem;
-  background-color: #f9f9f9;
-  color: #333;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 7px;
+  background-color: #fff;
+  color: #222;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   resize: vertical;
-  min-height: 100px;
+  min-height: 90px;
   transition: border-color 0.2s;
-
   &:focus {
     outline: none;
-    border-color: #FF6B35;
+    border-color: var(--primary-green);
   }
 `;
 
 const BookVisitButton = styled.button`
-  background: #FF6B35;
-  color: white;
+  background: #4CAF50;
+  color: #fff;
   font-weight: 700;
-  padding: 1rem 2.5rem;
-  border-radius: 30px;
-  font-size: 1.1rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 24px;
+  font-size: 1.08rem;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
   border: none;
   cursor: pointer;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
   &:hover {
-    background: #4CAF50;
-    color: white;
+    background: #388e3c;
+    color: #fff;
   }
 `;
