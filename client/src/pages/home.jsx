@@ -333,7 +333,10 @@ const MainSlider = styled.div`
     margin-top: 70px;
   }
   @media (max-width: 600px) {
-    height: 180px;
+    height: 32vw;
+    min-height: 140px;
+    max-height: 180px;
+    aspect-ratio: 16/9;
     margin-top: 60px;
   }
   .swiper {
@@ -368,7 +371,7 @@ const BannerContainer = styled.div`
 `;
 
 const SlideImage = styled.img`
-  width: 100%;
+  width: 100vw;
   height: 100%;
   object-fit: cover;
   background: #fff;
@@ -377,6 +380,10 @@ const SlideImage = styled.img`
   opacity: 1;
   @media (max-width: 600px) {
     border-radius: 10px;
+    width: 100vw;
+    min-height: 140px;
+    max-height: 180px;
+    object-fit: cover;
   }
 `;
 
