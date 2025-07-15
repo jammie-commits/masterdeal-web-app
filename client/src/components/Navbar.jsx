@@ -253,25 +253,25 @@ const MenuButton = styled.button`
 const NavMenu = styled.ul`
   display: flex;
   list-style: none;
-  gap: 1.1rem;
+  gap: 0.7rem;
   align-items: center;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   flex: 1 1 auto;
   min-width: 0;
-  font-size: 0.97rem;
+  font-size: 0.93rem;
   @media (max-width: 1200px) {
-    gap: 0.7rem;
+    gap: 0.5rem;
     margin-left: 0.2rem;
-    font-size: 0.93rem;
+    font-size: 0.9rem;
   }
   @media (max-width: 900px) {
     gap: 0.3rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
   @media (max-width: 600px) {
     gap: 0.1rem;
-    font-size: 0.85rem;
-    padding: 0.2rem 0;
+    font-size: 0.8rem;
+    padding: 0.1rem 0;
   }
   @media (max-width: 1100px) {
     position: fixed;
@@ -281,14 +281,14 @@ const NavMenu = styled.ul`
     background: #fff;
     border: 2px solid #222;
     flex-direction: column;
-    padding: 1.2rem 0.5rem;
-    gap: 0.3rem;
+    padding: 0.7rem 0.3rem;
+    gap: 0.2rem;
     transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(-100%)")};
     transition: transform 0.3s cubic-bezier(.77,0,.18,1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     margin-left: 0;
     z-index: 1100;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     max-height: 80vh;
     overflow-y: auto;
     border-radius: 0 0 18px 18px;
@@ -307,25 +307,28 @@ const NavLink = styled(Link)`
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 0.93em;
-  min-height: 36px;
-  padding: 0 0.5rem;
+  min-height: 32px;
+  padding: 0 0.3rem;
   border-radius: 6px;
   letter-spacing: 0.01em;
   transition: all 0.2s ease;
   position: relative;
   background: none;
   box-sizing: border-box;
-  @media (max-width: 900px) {
-    color: #222;
+  @media (max-width: 1200px) {
     font-size: 0.9em;
-    padding: 0 0.3rem;
-    min-height: 30px;
+    padding: 0 0.2rem;
+    min-height: 28px;
+  }
+  @media (max-width: 900px) {
+    font-size: 0.85em;
+    padding: 0 0.1rem;
+    min-height: 24px;
   }
   @media (max-width: 600px) {
-    color: #222;
-    font-size: 0.85em;
-    padding: 0 0.15rem;
-    min-height: 28px;
+    font-size: 0.8em;
+    padding: 0 0.05rem;
+    min-height: 20px;
   }
   &:hover {
     color: #fff;
@@ -361,25 +364,28 @@ const DropdownButton = styled.button`
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 0.93em;
-  min-height: 36px;
-  padding: 0 0.5rem;
+  min-height: 32px;
+  padding: 0 0.3rem;
   border-radius: 6px;
   cursor: pointer;
   gap: 0.5rem;
   letter-spacing: 0.01em;
   transition: all 0.2s ease;
   box-sizing: border-box;
-  @media (max-width: 900px) {
-    color: #222;
+  @media (max-width: 1200px) {
     font-size: 0.9em;
-    padding: 0 0.3rem;
-    min-height: 30px;
+    padding: 0 0.2rem;
+    min-height: 28px;
+  }
+  @media (max-width: 900px) {
+    font-size: 0.85em;
+    padding: 0 0.1rem;
+    min-height: 24px;
   }
   @media (max-width: 600px) {
-    color: #222;
-    font-size: 0.85em;
-    padding: 0 0.15rem;
-    min-height: 28px;
+    font-size: 0.8em;
+    padding: 0 0.05rem;
+    min-height: 20px;
   }
   &:hover {
     color: #fff;

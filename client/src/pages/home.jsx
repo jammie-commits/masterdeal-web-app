@@ -336,7 +336,7 @@ const MainSlider = styled.div`
     margin-top: 70px;
   }
   @media (max-width: 600px) {
-    height: 120px;
+    height: 90px;
     margin-top: 60px;
   }
   .swiper {
@@ -384,7 +384,7 @@ const SlideImage = styled.img`
   border-radius: 0;
   @media (max-width: 600px) {
     width: 100%;
-    height: 120px;
+    height: 90px;
     object-fit: cover;
     border-radius: 10px;
   }
