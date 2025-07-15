@@ -337,14 +337,14 @@ const MainSlider = styled.div`
   }
   @media (max-width: 600px) {
     height: 180px;
-    min-height: 120px;
-    max-height: 220px;
     margin-top: 60px;
   }
   .swiper {
+    width: 100%;
     height: 100%;
   }
   .swiper-slide {
+    width: 100%;
     height: 100%;
   }
   
@@ -384,8 +384,6 @@ const SlideImage = styled.img`
   border-radius: 0;
   @media (max-width: 600px) {
     border-radius: 10px;
-    min-height: 120px;
-    max-height: 220px;
     width: 100%;
     height: 100%;
     object-fit: cover;

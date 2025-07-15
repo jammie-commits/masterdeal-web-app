@@ -155,7 +155,7 @@ const properties = [
 const categories = ['All', 'Residential'];
 const statuses = ['All', 'Ongoing', 'Completed', 'Upcoming'];
 // Update locations array to only include 'All', 'Matuu', 'Juja'
-const locations = ['All', 'Matuu', 'Juja'];
+const locations = ['Juja', 'Matuu'];
 const priceRanges = [
   { label: 'All', min: 0, max: Infinity },
   { label: 'Below 300K', min: 0, max: 299999 },
@@ -169,21 +169,9 @@ const featureIcons = {
 };
 
 const Properties = () => {
-  const [selectedLocation, setSelectedLocation] = useState('All');
-  const [selectedAvailability, setSelectedAvailability] = useState('All');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedStatus, setSelectedStatus] = useState('All');
-  const [selectedPrice, setSelectedPrice] = useState('All');
+  const [selectedLocation, setSelectedLocation] = useState('Juja');
 
-  const filteredProperties = properties.filter(property => {
-    const locationMatch = selectedLocation === 'All' || property.location === selectedLocation;
-    const availabilityMatch = selectedAvailability === 'All' || property.availability === selectedAvailability;
-    const categoryMatch = selectedCategory === 'All' || property.category === selectedCategory;
-    const statusMatch = selectedStatus === 'All' || property.status === selectedStatus;
-    const priceRange = priceRanges.find(r => r.label === selectedPrice) || priceRanges[0];
-    const priceMatch = property.price >= priceRange.min && property.price <= priceRange.max;
-    return locationMatch && availabilityMatch && categoryMatch && statusMatch && priceMatch;
-  });
+  const filteredProperties = properties.filter(property => property.location === selectedLocation);
 
   return (
     <PropertiesContainer>
@@ -193,30 +181,14 @@ const Properties = () => {
       </HeroSection>
 
       <FilterSection>
-        <FilterTitle>Filter Properties</FilterTitle>
-        {/* Organize the location filter to use a visually grouped button group style */}
+        <FilterTitle>Choose Location</FilterTitle>
         <FilterButtonGroup>
           {locations.map(loc => (
             <FilterButton key={loc} active={selectedLocation === loc} onClick={() => setSelectedLocation(loc)}>
-              {loc === 'All' ? 'All Properties' : loc}
+              {loc}
             </FilterButton>
           ))}
         </FilterButtonGroup>
-        <FilterButtons>
-          {categories.map(cat => (
-            <FilterButton key={cat} active={selectedCategory === cat} onClick={() => setSelectedCategory(cat)}>{cat}</FilterButton>
-          ))}
-        </FilterButtons>
-        <FilterButtons>
-          {statuses.map(stat => (
-            <FilterButton key={stat} active={selectedStatus === stat} onClick={() => setSelectedStatus(stat)}>{stat}</FilterButton>
-          ))}
-        </FilterButtons>
-        <FilterButtons>
-          {priceRanges.map(range => (
-            <FilterButton key={range.label} active={selectedPrice === range.label} onClick={() => setSelectedPrice(range.label)}>{range.label}</FilterButton>
-          ))}
-        </FilterButtons>
       </FilterSection>
 
       <PropertiesGrid>
@@ -261,7 +233,7 @@ const Properties = () => {
       {filteredProperties.length === 0 && (
         <NoProperties>
           <h3>No properties found</h3>
-          <p>Try adjusting your filters to see more properties.</p>
+          <p>Try selecting a different location.</p>
         </NoProperties>
       )}
       <Footer />

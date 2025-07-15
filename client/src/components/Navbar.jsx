@@ -264,6 +264,15 @@ const NavMenu = styled.ul`
     margin-left: 0.2rem;
     font-size: 0.93rem;
   }
+  @media (max-width: 900px) {
+    gap: 0.3rem;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    gap: 0.1rem;
+    font-size: 0.85rem;
+    padding: 0.2rem 0;
+  }
   @media (max-width: 1100px) {
     position: fixed;
     top: 70px;
@@ -271,51 +280,17 @@ const NavMenu = styled.ul`
     right: 0;
     background: #fff;
     flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 0.7rem;
+    padding: 1.2rem 0.5rem;
+    gap: 0.3rem;
     transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(-100%)")};
     transition: transform 0.3s cubic-bezier(.77,0,.18,1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     margin-left: 0;
     z-index: 1100;
-    font-size: 1.08rem;
+    font-size: 0.95rem;
     max-height: 80vh;
     overflow-y: auto;
     border-radius: 0 0 18px 18px;
-  }
-  @media (max-width: 900px) {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100vw;
-    background: #fff;
-    border-radius: 0 0 18px 18px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    padding: 1.2rem 0 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    z-index: 2000;
-    transition: all 0.3s cubic-bezier(.4,0,.2,1);
-    a, button {
-      color: #222;
-      font-size: 1rem;
-      padding: 0.6rem 0;
-      width: 100%;
-      text-align: center;
-      border-radius: 8px;
-      transition: background 0.2s;
-      border-bottom: 1px solid #eee;
-      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    }
-    a:last-child, button:last-child {
-      border-bottom: none;
-    }
-    a:hover, button:hover {
-      background: #f5f7fa;
-      color: #4CAF50;
-    }
   }
 `;
 
@@ -339,12 +314,20 @@ const NavLink = styled(Link)`
   position: relative;
   background: none;
   box-sizing: border-box;
-  
+  @media (max-width: 900px) {
+    font-size: 0.9em;
+    padding: 0 0.3rem;
+    min-height: 30px;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.85em;
+    padding: 0 0.15rem;
+    min-height: 28px;
+  }
   &:hover {
     color: var(--primary-orange);
     background: rgba(255, 255, 255, 0.08);
   }
-  
   &::after {
     content: '';
     position: absolute;
@@ -356,7 +339,6 @@ const NavLink = styled(Link)`
     background: var(--primary-orange);
     transition: width 0.2s ease;
   }
-  
   &:hover::after,
   &.active::after {
     width: 70%;
@@ -384,12 +366,20 @@ const DropdownButton = styled.button`
   letter-spacing: 0.01em;
   transition: all 0.2s ease;
   box-sizing: border-box;
-  
+  @media (max-width: 900px) {
+    font-size: 0.9em;
+    padding: 0 0.3rem;
+    min-height: 30px;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.85em;
+    padding: 0 0.15rem;
+    min-height: 28px;
+  }
   &:hover {
     color: var(--primary-orange);
     background: rgba(255, 255, 255, 0.08);
   }
-  
   svg {
     margin-left: 0.35em;
     font-size: 1.1em;
@@ -410,17 +400,20 @@ const DropdownMenu = styled.ul`
   visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
   transform: ${({ isOpen }) => (isOpen ? "translateY(0)" : "translateY(-10px)")};
   transition: all 0.3s ease;
-  
-  @media (max-width: 768px) {
+  z-index: 3000;
+  @media (max-width: 900px) {
     position: static;
     box-shadow: none;
-    background: var(--gray-light);
-    margin-top: 0.5rem;
+    background: #f5f7fa;
+    margin-top: 0.2rem;
     border-radius: 4px;
-  }
-  @media (max-width: 900px) {
-    background: var(--primary-orange);
-    a, button { color: #fff; }
+    min-width: 100%;
+    width: 100%;
+    padding: 0.2rem 0;
+    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+    visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+    transform: none;
+    transition: opacity 0.2s, visibility 0.2s;
   }
 `;
 
