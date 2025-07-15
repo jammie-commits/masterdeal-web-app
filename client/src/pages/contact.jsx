@@ -270,10 +270,15 @@ const ContactContent = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 2rem 1rem;
+    padding: 2rem 0.5rem;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 1.2rem 0.2rem;
   }
 `;
 
@@ -282,6 +287,12 @@ const ContactForm = styled.div`
   padding: 3rem;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  @media (max-width: 900px) {
+    padding: 2rem 1rem;
+  }
+  @media (max-width: 600px) {
+    padding: 1rem 0.5rem;
+  }
 `;
 
 const FormTitle = styled.h2`
@@ -397,7 +408,12 @@ const InfoCard = styled.div`
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   border: 2px solid transparent;
   transition: all 0.3s ease;
-  
+  @media (max-width: 900px) {
+    padding: 1.2rem 0.7rem;
+  }
+  @media (max-width: 600px) {
+    padding: 0.7rem 0.3rem;
+  }
   &:hover {
     border-color: var(--primary-orange);
     transform: translateY(-5px);
@@ -478,6 +494,12 @@ const MapSection = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem 4rem;
+  @media (max-width: 900px) {
+    padding: 0 0.5rem 2rem;
+  }
+  @media (max-width: 600px) {
+    padding: 0 0.2rem 1.2rem;
+  }
 `;
 
 const MapContainer = styled.div`
@@ -486,7 +508,12 @@ const MapContainer = styled.div`
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   height: 400px;
-  
+  @media (max-width: 900px) {
+    height: 250px;
+  }
+  @media (max-width: 600px) {
+    height: 180px;
+  }
   iframe {
     width: 100%;
     height: 100%;

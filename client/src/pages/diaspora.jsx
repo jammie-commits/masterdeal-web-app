@@ -51,6 +51,12 @@ const DiasporaContainer = styled.div`
   padding: 2rem;
   text-align: center;
   padding-top: 100px; /* Add top padding to prevent header overlap */
+  padding-bottom: 0;
+  @media (max-width: 600px) {
+    padding: 1rem 0.2rem 0 0.2rem;
+    padding-top: 100px;
+    padding-bottom: 0;
+  }
 
   h1 {
     color: #000;
@@ -140,7 +146,8 @@ const ContactSection = styled.div`
   text-align: center;
   padding: 2rem;
   @media (max-width: 600px) {
-    padding: 1rem;
+    padding: 1rem 0.2rem 0 0.2rem;
+    margin-bottom: 0;
   }
 `;
 
