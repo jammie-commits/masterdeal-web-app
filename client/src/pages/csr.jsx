@@ -2,6 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaHandsHelping, FaGraduationCap, FaTree, FaHeart } from 'react-icons/fa';
 import Footer from '../components/Footer';
+import csr1 from '../CSR/SHI_3516.jpg';
+import csr2 from '../CSR/SHI_3513.jpg';
+import csr3 from '../CSR/SHI_3514.jpg';
+import csr4 from '../CSR/SHI_3510.jpg';
+import csr5 from '../CSR/SHI_3502.jpg';
+import csr6 from '../CSR/SHI_3506.jpg';
+import csr7 from '../CSR/SHI_3500.jpg';
+import csr8 from '../CSR/SHI_3498.jpg';
+import csr9 from '../CSR/SHI_3499.jpg';
+import csr10 from '../CSR/SHI_3496.jpg';
+import csr11 from '../CSR/SHI_3493.jpg';
+import csr12 from '../CSR/SHI_3495.jpg';
+import csr13 from '../CSR/SHI_3491.jpg';
+import csr14 from '../CSR/SHI_3490.jpg';
+import csr15 from '../CSR/SHI_3489.jpg';
+import csr16 from '../CSR/SHI_3486.jpg';
+import csr17 from '../CSR/SHI_3488.jpg';
+import csr18 from '../CSR/SHI_3484.jpg';
 
 const CSR = () => {
   const csrInitiatives = [
@@ -59,6 +77,15 @@ const CSR = () => {
           ))}
         </CSRGrid>
       </CSRSection>
+
+      <GallerySection>
+        <GalleryTitle>CSR Activities Gallery</GalleryTitle>
+        <GalleryGrid>
+          {[csr1, csr2, csr3, csr4, csr5, csr6, csr7, csr8, csr9, csr10, csr11, csr12, csr13, csr14, csr15, csr16, csr17, csr18].map((img, idx) => (
+            <GalleryImg key={idx} src={img} alt={`CSR Activity ${idx+1}`} />
+          ))}
+        </GalleryGrid>
+      </GallerySection>
 
       <MissionSection>
         <h2>Our Mission</h2>
@@ -223,5 +250,43 @@ const MissionContent = styled.div`
     &:last-child {
       margin-bottom: 0;
     }
+  }
+`;
+
+const GallerySection = styled.section`
+  max-width: 1200px;
+  margin: 0 auto 4rem auto;
+  padding: 0 2rem;
+`;
+
+const GalleryTitle = styled.h3`
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: 600;
+`;
+
+const GalleryGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+`;
+
+const GalleryImg = styled.img`
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 24px rgba(44, 62, 80, 0.18);
+    z-index: 2;
   }
 `;

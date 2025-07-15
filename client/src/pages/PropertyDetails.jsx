@@ -266,6 +266,31 @@ const properties = [
       { label: 'Balance Period', value: '3 months' },
       { label: 'Status', value: 'Ongoing' },
     ],
+  },
+  {
+    id: 9,
+    image: property8, // image2.jpeg
+    title: 'Victory Garden Phase-10',
+    price: 'KES 255,000',
+    paymentPlan: 'Cash offer: KES 255,000. Deposit: KES 50,000 and pay the balance in 6 months.',
+    description: '4 plots remaining! 50x100 plot size. Cash offer of 255,000 KES. Serene environment with modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    amenitiesGallery: [
+      { image: property8, description: 'Main entrance and access road' },
+      { image: property9, description: 'Serviced plots and neighborhood' },
+      { image: property10, description: 'Modern amenities and lush environment' }
+    ],
+    location: 'Matuu',
+    category: 'Residential',
+    status: 'Ongoing',
+    highlights: ['4 plots remaining', '50x100 plot size', 'Cash offer: 255,000 KES', 'Flexible payment plans', 'Title deed in 30 days', 'Prime location'],
+    floorPlan: null,
+    breakdown: [
+      { label: 'Plot Size', value: '50x100' },
+      { label: 'Deposit', value: 'KES 50,000' },
+      { label: 'Balance Period', value: '6 months' },
+      { label: 'Status', value: 'Ongoing' },
+    ],
   }
 ];
 

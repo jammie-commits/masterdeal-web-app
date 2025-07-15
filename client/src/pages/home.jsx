@@ -63,29 +63,16 @@ const properties = [
   },
   {
     id: 9,
-    images: [juja4, juja5, juja6],
-    title: 'MasterView Estate – Juja Farm Athi (Flexible Payment)',
-    price: 'KES 599,000',
-    description: 'Flexible payment options available. Secure your plot with a deposit and pay the balance in 3 months.',
-    features: ['Flexible payment options', 'Secure location', 'Prime investment'],
+    images: [property8, property9, property10], // image2, image3, image4
+    title: 'Victory Garden Phase-10',
+    price: 'KES 255,000',
+    description: '4 plots remaining! 50x100 plot size. Cash offer of 255,000 KES. Serene environment with modern amenities.',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
     availability: 'Available',
-    size: '40x80',
-    location: 'Juja',
-    deposit: 'KES 300K',
-    balancePeriod: '3 months',
-  },
-  {
-    id: 10,
-    images: [juja1, juja4, juja6],
-    title: 'MasterView Estate – Juja Farm Athi (Investment Opportunity)',
-    price: 'KES 599,000',
-    description: 'A unique investment opportunity in a fast-growing area. Ideal for both residential and commercial development.',
-    features: ['Prime location', 'Investment opportunity', 'Growth potential'],
-    availability: 'Available',
-    size: '40x80',
-    location: 'Juja',
-    deposit: 'KES 300K',
-    balancePeriod: '3 months',
+    size: '50x100',
+    location: 'Matuu',
+    deposit: 'KES 50K',
+    balancePeriod: '6 months',
   }
 ];
 
@@ -193,7 +180,7 @@ const HomePage = () => {
           </h2>
           <PropertyGrid>
             {availableProperties.map((property) => (
-              <PropertyCard key={property.id} to="/property/8">
+              <PropertyCard key={property.id} to={`/property/${property.id}`}>
                 <CardImageContainer>
                   <GalleryGrid>
                     {property.images.map((img, idx) => (

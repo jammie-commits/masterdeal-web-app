@@ -26,6 +26,9 @@ import property19 from '../assets/image13.jpeg';
 import property20 from '../assets/image14.jpeg';
 import jujaMasterview from '../assets/juja-masterview.jpg';
 import Footer from '../components/Footer';
+import image2 from '../assets/image2.jpeg';
+import image3 from '../assets/image3.jpeg';
+import image4 from '../assets/image4.jpeg';
 
 // Add category and status to each property, and expand features with icon mapping
 const properties = [
@@ -149,6 +152,22 @@ const properties = [
     features: ['Water supply', 'Electricity', 'Security', 'Ready for immediate construction', 'Flexible payment options'],
     category: 'Residential',
     status: 'Ongoing',
+  },
+  {
+    id: 9,
+    image: image2,
+    gallery: [image2, image3, image4],
+    title: 'Victory Garden Phase-10',
+    price: 255000,
+    description: '4 plots remaining! 50x100 plot size. Cash offer of 255,000 KES. Serene environment with modern amenities.',
+    availability: 'Available',
+    size: '50X100',
+    location: 'Matuu',
+    deposit: 'Kshs 50K',
+    balancePeriod: '6 months',
+    features: ['Tarmac roads', 'Electricity', 'Water supply', 'Schools'],
+    category: 'Residential',
+    status: 'Ongoing',
   }
 ];
 
@@ -196,7 +215,7 @@ const Properties = () => {
           <PropertyCard key={property.id} to={`/property/${property.id}`}>
             <CardImageContainer>
               <PropertyImage src={property.image} alt={property.title} />
-              <StatusBadge isAvailable={property.availability === 'Available'}>
+              <StatusBadge isAvailable={property.availability === 'Available'} style={property.availability === 'Sold Out' ? { fontWeight: 'bold', color: '#e53935', background: '#fff0f0', border: '2px solid #e53935' } : {}}>
                 {property.availability}
               </StatusBadge>
               <ProjectStatusBadge status={property.status}>{property.status}</ProjectStatusBadge>
