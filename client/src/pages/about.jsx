@@ -107,43 +107,50 @@ const ServiceCard = ({ title, subTitle }) => (
 
 // Styled Components
 const MainWrapper = styled.section`
-  font-family: 'Roboto', sans-serif;
-  padding: 5rem 1rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  padding: 3rem 0.5rem;
   background-color: #f4f4f4;
   min-height: 100vh;
+  @media (max-width: 600px) {
+    padding: 1.2rem 0.1rem;
+  }
 `;
 
 const HeaderWrapper = styled.section`
   text-align: center;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, #4caf50, #388e3c);
-  padding: 3rem 2rem;
+  background: #4caf50;
+  padding: 2.2rem 1rem;
   color: white;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 2.2rem;
     margin-bottom: 1.2rem;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.05rem;
     font-weight: 600;
-
-    @media screen and (max-width: 720px) {
-      font-size: 2.5rem;
+    @media (max-width: 900px) {
+      font-size: 1.7rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
     }
   }
 
   p {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #eaeaea;
     line-height: 1.7;
     max-width: 800px;
     margin: 0 auto;
-
-    @media screen and (max-width: 720px) {
+    @media (max-width: 900px) {
       font-size: 1rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 0.95rem;
     }
   }
 `;
@@ -154,27 +161,31 @@ const CEOWrapper = styled.section`
   align-items: center;
   gap: 2rem;
   background: #fff;
-  padding: 4rem;
+  padding: 2.5rem 1rem;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 30px;
-  margin-bottom: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 18px;
+  margin-bottom: 2.5rem;
   max-width: 1100px;
-  margin: 0 auto;
-
-  @media screen and (max-width: 720px) {
+  margin: 0 auto 2.5rem auto;
+  @media (max-width: 900px) {
     flex-direction: column;
-    padding: 2rem;
-    gap: 1.5rem;
+    padding: 1.2rem 0.5rem;
+    gap: 1.2rem;
   }
 `;
 
 const CEOImageWrapper = styled.div`
-  width: 250px;
-  height: 250px;
+  width: 180px;
+  height: 180px;
   overflow: hidden;
   border-radius: 50%;
-  border: 5px solid #66cc66;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px;
+  border: 4px solid #4caf50;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 18px;
+  margin: 0 auto;
+  @media (max-width: 600px) {
+    width: 120px;
+    height: 120px;
+  }
 `;
 
 const CEOImage = styled.img`
@@ -186,127 +197,97 @@ const CEOImage = styled.img`
 const CEOInfo = styled.div`
   flex: 1;
   text-align: center;
-
   h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
     color: #333;
-
-    @media screen and (max-width: 720px) {
-      font-size: 2rem;
+    @media (max-width: 900px) {
+      font-size: 1.2rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 1.05rem;
     }
   }
-
   h4 {
-    font-size: 1.8rem;
-    color: #66cc66;
-    margin-bottom: 2rem;
-
-    @media screen and (max-width: 720px) {
-      font-size: 1.5rem;
+    font-size: 1.1rem;
+    color: #4caf50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    @media (max-width: 900px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 0.95rem;
     }
   }
 `;
 
 const VisionMission = styled.div`
-  text-align: left;
-  margin-top: 2rem;
-
+  margin-top: 1.2rem;
   h5 {
-    font-size: 1.6rem;
-    color: #333;
-    font-weight: 500;
-    margin-bottom: 1.2rem;
-
-    @media screen and (max-width: 720px) {
-      font-size: 1.3rem;
+    font-size: 1.1rem;
+    color: #388e3c;
+    margin-bottom: 0.3rem;
+    @media (max-width: 600px) {
+      font-size: 1rem;
     }
   }
-
   p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #555;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-
-    @media screen and (max-width: 720px) {
-      font-size: 1rem;
+    margin-bottom: 0.7rem;
+    @media (max-width: 600px) {
+      font-size: 0.93rem;
     }
   }
 `;
 
 const ServiceWrapper = styled.section`
-  text-align: center;
-  margin-top: 5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 14px;
+  padding: 2.2rem 1rem;
   max-width: 1100px;
-  margin: 0 auto;
-
-  h2 {
-    font-size: 3rem;
-    color: #333;
-    margin-bottom: 1rem;
-
-    @media screen and (max-width: 720px) {
-      font-size: 2rem;
-    }
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 3rem;
-
-    @media screen and (max-width: 720px) {
-      font-size: 1rem;
-    }
+  margin: 0 auto 2.5rem auto;
+  text-align: center;
+  @media (max-width: 900px) {
+    padding: 1.2rem 0.5rem;
   }
 `;
 
 const ServiceGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-
-  @media screen and (max-width: 1080px) {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-top: 2rem;
+  @media (max-width: 900px) {
+    gap: 0.7rem;
+    margin-top: 1.2rem;
   }
-
-  @media screen and (max-width: 720px) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 `;
 
-const ServiceItem = styled.article`
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 2.5rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-  cursor: pointer;
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 40px;
-  }
-
+const ServiceItem = styled.div`
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding: 1.2rem 0.7rem;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.04);
   h3 {
-    font-size: 1.6rem;
-    color: #333;
-    margin-top: 1.2rem;
-
-    @media screen and (max-width: 720px) {
-      font-size: 1.4rem;
+    font-size: 1.1rem;
+    color: #4caf50;
+    margin-bottom: 0.5rem;
+    @media (max-width: 600px) {
+      font-size: 1rem;
     }
   }
-
   p {
-    font-size: 1.1rem;
+    font-size: 0.98rem;
     color: #555;
-    margin-top: 0.8rem;
-
-    @media screen and (max-width: 720px) {
-      font-size: 1rem;
+    @media (max-width: 600px) {
+      font-size: 0.93rem;
     }
   }
 `;

@@ -324,19 +324,21 @@ const Container = styled.div`
 `;
 
 const MainSlider = styled.div`
+  width: 100%;
+  max-width: 100vw;
   height: 60vh;
   position: relative;
   margin-bottom: 2rem;
   margin-top: 90px;
+  overflow: hidden;
   @media (max-width: 900px) {
     height: 35vh;
     margin-top: 70px;
   }
   @media (max-width: 600px) {
-    height: 32vw;
-    min-height: 140px;
-    max-height: 180px;
-    aspect-ratio: 16/9;
+    height: 180px;
+    min-height: 120px;
+    max-height: 220px;
     margin-top: 60px;
   }
   .swiper {
@@ -361,6 +363,7 @@ const MainSlider = styled.div`
 `;
 
 const BannerContainer = styled.div`
+  width: 100%;
   height: 100%;
   position: relative;
   display: flex;
@@ -371,35 +374,43 @@ const BannerContainer = styled.div`
 `;
 
 const SlideImage = styled.img`
-  width: 100vw;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   background: #fff;
   display: block;
   margin: 0 auto;
   opacity: 1;
+  border-radius: 0;
   @media (max-width: 600px) {
     border-radius: 10px;
-    width: 100vw;
-    min-height: 140px;
-    max-height: 180px;
+    min-height: 120px;
+    max-height: 220px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 `;
 
 const FeaturedSection = styled.section`
-  padding: 4rem 2rem;
+  padding: 2.5rem 0.5rem;
   background: #f8f9fa;
-  
+  @media (max-width: 600px) {
+    padding: 1.2rem 0.2rem;
+  }
   h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #333;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.7rem;
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+      gap: 0.3rem;
+    }
   }
 `;
 
@@ -414,11 +425,11 @@ const PropertyGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  
-  @media (max-width: 768px) {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.2rem;
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
+    gap: 0.7rem;
   }
 `;
 
@@ -441,8 +452,11 @@ const PropertyCard = styled(Link)`
 
 const CardImageContainer = styled.div`
   position: relative;
-  height: 250px;
+  height: 180px;
   overflow: hidden;
+  @media (max-width: 600px) {
+    height: 120px;
+  }
 `;
 
 const PropertyImage = styled.img`
@@ -469,21 +483,26 @@ const StatusBadge = styled.div`
 `;
 
 const CardBody = styled.div`
-  padding: 2rem;
-  
+  padding: 1.2rem;
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: #333;
     margin-bottom: 0.5rem;
     font-weight: 600;
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
   }
 `;
 
 const Price = styled.div`
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #FF6B35;
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 const Description = styled.p`
@@ -512,8 +531,11 @@ const PropertyItem = styled.div`
 `;
 
 const WhyChooseUsSection = styled.section`
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 2.5rem 0.5rem;
+  background: #fff;
+  @media (max-width: 600px) {
+    padding: 1.2rem 0.2rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -540,22 +562,23 @@ const WhyChooseUsGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
 `;
 
 const WhyChooseUsCard = styled.div`
   text-align: center;
-  padding: 2rem;
-  border-radius: 15px;
+  padding: 1.2rem;
+  border-radius: 12px;
   background: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 2px solid transparent;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    border-color: #4CAF50;
+  @media (max-width: 600px) {
+    padding: 0.7rem;
   }
   
   h3 {
@@ -572,9 +595,9 @@ const WhyChooseUsCard = styled.div`
 `;
 
 const IconContainer = styled.div`
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #4CAF50 0%, #FF6B35 100%);
+  width: 60px;
+  height: 60px;
+  background: #4CAF50;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -589,8 +612,11 @@ const IconContainer = styled.div`
 `;
 
 const TestimonialsSection = styled.section`
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 2.5rem 0.5rem;
+  background: #f8f9fa;
+  @media (max-width: 600px) {
+    padding: 1.2rem 0.2rem;
+  }
 `;
 
 const TestimonialCard = styled.div`
