@@ -2,63 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaTrophy, FaMedal, FaStar, FaAward } from 'react-icons/fa';
 import Footer from '../components/Footer';
+import award1 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM.jpeg';
+import award2 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-2.jpeg';
+import award3 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-3.jpeg';
+import award4 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-4.jpeg';
+import award5 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-5.jpeg';
+import award6 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-6.jpeg';
+import award7 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-7.jpeg';
+import award8 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-8.jpeg';
+import award9 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-9.jpeg';
+import award10 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-10.jpeg';
+import award11 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-11.jpeg';
+import award12 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-12.jpeg';
+import award13 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-13.jpeg';
+import award14 from '../awards/WhatsApp Image 2025-07-15 at 2.19.11 PM.jpeg';
 
 const Awards = () => {
-  const awards = [
-    {
-      id: 1,
-      title: 'Best Real Estate Developer 2023',
-      organization: 'Kenya Real Estate Awards',
-      year: '2023',
-      description: 'Recognized for excellence in property development and customer satisfaction.',
-      icon: <FaTrophy />,
-      category: 'Excellence'
-    },
-    {
-      id: 2,
-      title: 'Customer Service Excellence',
-      organization: 'Kenya Chamber of Commerce',
-      year: '2023',
-      description: 'Awarded for outstanding customer service and support throughout the buying process.',
-      icon: <FaMedal />,
-      category: 'Service'
-    },
-    {
-      id: 3,
-      title: 'Most Trusted Property Developer',
-      organization: 'Consumer Choice Awards',
-      year: '2022',
-      description: 'Voted as the most trusted property developer by Kenyan consumers.',
-      icon: <FaStar />,
-      category: 'Trust'
-    },
-    {
-      id: 4,
-      title: 'Innovation in Real Estate',
-      organization: 'East Africa Property Summit',
-      year: '2022',
-      description: 'Recognized for innovative approaches to property development and marketing.',
-      icon: <FaAward />,
-      category: 'Innovation'
-    },
-    {
-      id: 5,
-      title: 'Best Affordable Housing Provider',
-      organization: 'Housing Finance Awards',
-      year: '2021',
-      description: 'Awarded for providing quality affordable housing solutions to Kenyans.',
-      icon: <FaTrophy />,
-      category: 'Affordability'
-    },
-    {
-      id: 6,
-      title: 'Excellence in Land Development',
-      organization: 'Kenya Property Awards',
-      year: '2021',
-      description: 'Recognized for excellence in land development and infrastructure provision.',
-      icon: <FaMedal />,
-      category: 'Development'
-    }
+  const awardImages = [
+    award1, award2, award3, award4, award5, award6, award7, award8, award9, award10, award11, award12, award13, award14
   ];
 
   const stats = [
@@ -87,23 +48,26 @@ const Awards = () => {
       </StatsSection>
 
       <AwardsSection>
-        <SectionTitle>Our Awards & Achievements</SectionTitle>
+        <SectionTitle>Top Realtors Award 2025</SectionTitle>
         <AwardsGrid>
-          {awards.map((award) => (
-            <AwardCard key={award.id}>
-              <AwardIcon category={award.category}>
-                {award.icon}
-              </AwardIcon>
-              <AwardContent>
-                <AwardTitle>{award.title}</AwardTitle>
-                <AwardOrganization>{award.organization}</AwardOrganization>
-                <AwardYear>{award.year}</AwardYear>
-                <AwardDescription>{award.description}</AwardDescription>
-                <AwardCategory>{award.category}</AwardCategory>
-              </AwardContent>
-            </AwardCard>
-          ))}
+          <AwardCard>
+            <AwardImage src={award1} alt="Top Realtors Award 2025" />
+            <AwardContent>
+              <AwardTitle>Top Realtors Award 2025</AwardTitle>
+              <AwardDescription>
+                We are deeply honored to be recognized with the <b>Top Realtors Award 2025</b> by Topspin Brands Ltd. This prestigious accolade is a testament to the unwavering trust and support of our valued clients. Your belief in Masterdeal Properties has empowered us to achieve new heights of excellence and authenticity in the real estate industry.<br /><br />
+                This recognition reflects the strong partnerships we have built with you—our esteemed clients. Your loyalty and confidence inspire us to continually raise the bar, deliver outstanding service, and turn dreams into reality. <br /><br />
+                Thank you for making this achievement possible. We look forward to reaching even greater milestones together.
+              </AwardDescription>
+            </AwardContent>
+          </AwardCard>
         </AwardsGrid>
+        <GalleryTitle>Award Ceremony Gallery</GalleryTitle>
+        <GalleryGrid>
+          {awardImages.map((img, idx) => (
+            <GalleryImg key={idx} src={img} alt={`Award Ceremony ${idx+1}`} />
+          ))}
+        </GalleryGrid>
       </AwardsSection>
 
       <RecognitionSection>
@@ -326,6 +290,46 @@ const AwardCategory = styled.span`
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
+`;
+
+const AwardImage = styled.img`
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(44, 62, 80, 0.12);
+  margin-bottom: 1.5rem;
+  @media (max-width: 600px) {
+    width: 120px;
+    height: 120px;
+  }
+`;
+
+const GalleryTitle = styled.h3`
+  text-align: center;
+  font-size: 1.3rem;
+  color: #333;
+  margin: 2.5rem 0 1.2rem 0;
+  font-weight: 600;
+`;
+
+const GalleryGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+`;
+
+const GalleryImg = styled.img`
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  @media (max-width: 600px) {
+    height: 90px;
+  }
 `;
 
 const RecognitionSection = styled.section`
