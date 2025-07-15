@@ -126,22 +126,7 @@ const Contact = () => {
             <ContactItem>
               <FaMapMarkerAlt />
               <div>
-                <h4>HQ - MasterDeal Towers 4th Floor, Ruiru.</h4>
-                <p>Ruiru, Nairobi</p>
-              </div>
-            </ContactItem>
-            <ContactItem>
-              <FaMapMarkerAlt />
-              <div>
-                <h4>Thika Branch - Elica Plaza, 1st Floor.</h4>
-                <p>Thika, Kiambu</p>
-              </div>
-            </ContactItem>
-            <ContactItem>
-              <FaMapMarkerAlt />
-              <div>
-                <h4>Coastal Branch - Malindi Mall, Suite 17, Malindi.</h4>
-                <p>Malindi, Mombasa</p>
+                <h4>Thika, Clairbourn Towers 4th Floor Room D3</h4>
               </div>
             </ContactItem>
           </InfoCard>
@@ -206,15 +191,15 @@ const Contact = () => {
         <h2>Our Locations</h2>
         <MapContainer>
           <iframe
-            title="MasterDeal Towers Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.809057600447!2d36.82522607949217!3d-1.146156099162587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d3f5f75555%3A0x4b80547233d4e81!2sMasterDeal%20Towers!5e0!3m2!1sen!2ske!4v1698344444444!5m2!1sen!2ske"
+            title="Office Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.01907396413!2d37.07000000000001!3d-1.033333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f476b6e2e7e7b%3A0x7e2e7e7e7e7e7e7e!2sClairbourn%20Towers%2C%20Thika!5e0!3m2!1sen!2ske!4v1718200000000!5m2!1sen!2ske"
             width="100%"
             height="100%"
             style={{ border: 0 }}
-            allowFullScreen={true}
+            allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          />
         </MapContainer>
       </MapSection>
       <Footer />

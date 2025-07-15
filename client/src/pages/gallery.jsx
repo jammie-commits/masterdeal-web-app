@@ -13,6 +13,20 @@ import image7 from '../assets/image7.jpeg';
 import image8 from '../assets/image8.jpeg';
 import image9 from '../assets/image9.jpeg';
 import image10 from '../assets/image10.jpeg';
+import award1 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM.jpeg';
+import award2 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-2.jpeg';
+import award3 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-3.jpeg';
+import award4 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-4.jpeg';
+import award5 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-5.jpeg';
+import award6 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-6.jpeg';
+import award7 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-7.jpeg';
+import award8 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-8.jpeg';
+import award9 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-9.jpeg';
+import award10 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-10.jpeg';
+import award11 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-11.jpeg';
+import award12 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-12.jpeg';
+import award13 from '../awards/WhatsApp Image 2025-07-15 at 2.19.10 PM-13.jpeg';
+import award14 from '../awards/WhatsApp Image 2025-07-15 at 2.19.11 PM.jpeg';
 import Footer from '../components/Footer';
 
 const Gallery = () => {
@@ -28,7 +42,21 @@ const Gallery = () => {
     { id: 7, src: image7, title: 'Customer Meeting', category: 'Events' },
     { id: 8, src: image8, title: 'Property Viewing', category: 'Properties' },
     { id: 9, src: image9, title: 'Team Building', category: 'Events' },
-    { id: 10, src: image10, title: 'Award Ceremony', category: 'Events' }
+    { id: 10, src: image10, title: 'Award Ceremony', category: 'Events' },
+    { id: 11, src: award1, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 12, src: award2, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 13, src: award3, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 14, src: award4, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 15, src: award5, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 16, src: award6, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 17, src: award7, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 18, src: award8, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 19, src: award9, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 20, src: award10, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 21, src: award11, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 22, src: award12, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 23, src: award13, title: 'Top Realtors Award 2025', category: 'Events' },
+    { id: 24, src: award14, title: 'Top Realtors Award 2025', category: 'Events' },
   ];
 
   const categories = ['All', 'Properties', 'Development', 'Events'];

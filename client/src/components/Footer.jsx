@@ -10,9 +10,7 @@ const Footer = () => (
         <FooterSection>
           <SectionTitle>Address</SectionTitle>
           <FooterList>
-            <FooterListItem><FaMapMarkerAlt /> HQ - MasterDeal Towers 4th Floor, Ruiru.</FooterListItem>
-            <FooterListItem><FaMapMarkerAlt /> Thika Branch - Elica Plaza, 1st Floor.</FooterListItem>
-            <FooterListItem><FaMapMarkerAlt /> Coastal Branch - Malindi Mall, Suite 17, Malindi.</FooterListItem>
+            <FooterListItem><FaMapMarkerAlt /> Thika, Clairbourn Towers 4th Floor Room D3</FooterListItem>
           </FooterList>
         </FooterSection>
         {/* Contact Section */}

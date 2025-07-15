@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
@@ -39,17 +39,54 @@ import testimonial3 from '../assets/testimonial3.jpeg';
 import testimonial4 from '../assets/testimonial4.jpeg';
 
 import Footer from '../components/Footer';
+import juja1 from '../juja/SHI_4453.jpg';
+import juja2 from '../juja/SHI_4454.jpg';
+import juja3 from '../juja/SHI_4455.jpg';
+import juja4 from '../juja/SHI_4456.jpg';
+import juja5 from '../juja/SHI_4457.jpg';
+import juja6 from '../juja/SHI_4458.jpg';
 
 // Property Data
 const properties = [
-  { id: 1, image: property1, title: 'Victory Garden Phase-1', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
-  { id: 2, image: property2, title: 'Victory Garden Phase-2', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
-  { id: 3, image: property3, title: 'Victory Garden Phase-3', price: 'KES 270,000', description: 'Opposite Msingini Sports Resort near Msingini primary/secondary school.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
-  { id: 4, image: property4, title: 'Victory Garden Phase-4', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
-  { id: 5, image: property5, title: 'Victory Garden Phase-5', price: 'KES 270,000', description: 'Serene environment with breathtaking views and modern amenities.', availability: 'Sold Out', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
-  { id: 6, image: property6, title: 'Victory Garden Phase-6', price: 'KES 250,000', description: 'Good investment project for development and settlement.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
-  { id: 7, image: property7, title: 'Victory Garden Phase-7', price: 'KES 250,000', description: 'Good investment project for development and settlement.', availability: 'Available', size: '50x100', location: 'Matuu', deposit: '50K', balancePeriod: '6 months' },
-  { id: 8, image: property8, title: 'Juja Prime Plots', price: 'KES 400,000', description: 'Prime serviced plots in Juja, ideal for residential and investment.', availability: 'Available', size: '50x100', location: 'Juja', deposit: '80K', balancePeriod: '6 months' }
+  {
+    id: 8,
+    images: [juja1, juja2, juja3],
+    title: 'MasterView Estate – Juja Farm Athi (Serviced Plots)',
+    price: 'KES 599,000',
+    description: 'Prime 40×80 serviced plots with water, electricity, and security. Ready for immediate construction.',
+    features: ['Water supply', 'Electricity', 'Security', 'Ready for immediate construction'],
+    availability: 'Available',
+    size: '40x80',
+    location: 'Juja',
+    deposit: 'KES 300K',
+    balancePeriod: '3 months',
+  },
+  {
+    id: 9,
+    images: [juja4, juja5, juja6],
+    title: 'MasterView Estate – Juja Farm Athi (Flexible Payment)',
+    price: 'KES 599,000',
+    description: 'Flexible payment options available. Secure your plot with a deposit and pay the balance in 3 months.',
+    features: ['Flexible payment options', 'Secure location', 'Prime investment'],
+    availability: 'Available',
+    size: '40x80',
+    location: 'Juja',
+    deposit: 'KES 300K',
+    balancePeriod: '3 months',
+  },
+  {
+    id: 10,
+    images: [juja1, juja4, juja6],
+    title: 'MasterView Estate – Juja Farm Athi (Investment Opportunity)',
+    price: 'KES 599,000',
+    description: 'A unique investment opportunity in a fast-growing area. Ideal for both residential and commercial development.',
+    features: ['Prime location', 'Investment opportunity', 'Growth potential'],
+    availability: 'Available',
+    size: '40x80',
+    location: 'Juja',
+    deposit: 'KES 300K',
+    balancePeriod: '3 months',
+  }
 ];
 
 // Testimonials Data
@@ -155,10 +192,14 @@ const HomePage = () => {
             FEATURED PROPERTIES
           </h2>
           <PropertyGrid>
-            {availableProperties.slice(0, 6).map((property) => (
-              <PropertyCard key={property.id} to={`/property/${property.id}`}>
+            {availableProperties.map((property) => (
+              <PropertyCard key={property.id} to="/property/8">
                 <CardImageContainer>
-                  <PropertyImage src={property.image} alt={property.title} />
+                  <GalleryGrid>
+                    {property.images.map((img, idx) => (
+                      <GalleryImage key={idx} src={img} alt={property.title + ' ' + (idx + 1)} />
+                    ))}
+                  </GalleryGrid>
                   <StatusBadge isAvailable={property.availability === 'Available'}>
                     {property.availability}
                   </StatusBadge>
@@ -167,6 +208,11 @@ const HomePage = () => {
                   <h3>{property.title}</h3>
                   <Price>{property.price}</Price>
                   <Description>{property.description}</Description>
+                  <ul style={{margin: '0 0 1rem 0', padding: 0, listStyle: 'none', color: '#4CAF50', fontWeight: 500, fontSize: '0.98rem'}}>
+                    {property.features && property.features.map((feature, i) => (
+                      <li key={i}>• {feature}</li>
+                    ))}
+                  </ul>
                   <PropertyDetails>
                     <PropertyItem>
                       <FaBuilding size={20} />
@@ -874,5 +920,37 @@ const BookVisitButton = styled.button`
   &:hover {
     background: #388e3c;
     color: #fff;
+  }
+`;
+
+const GalleryGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+`;
+
+const wave = keyframes`
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-10px) scale(1.05) rotate(-2deg); }
+  60% { transform: translateY(5px) scale(1.03) rotate(2deg); }
+  100% { transform: translateY(0) scale(1); }
+`;
+
+const GalleryImage = styled.img`
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  transition: transform 0.3s cubic-bezier(.4,2,.3,1), box-shadow 0.3s;
+  cursor: pointer;
+  &:hover {
+    animation: ${wave} 0.7s ease;
+    box-shadow: 0 8px 24px rgba(44, 62, 80, 0.18);
+    z-index: 2;
   }
 `;
