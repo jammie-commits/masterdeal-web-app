@@ -279,6 +279,7 @@ const NavMenu = styled.ul`
     left: 0;
     right: 0;
     background: #fff;
+    border: 2px solid #222;
     flex-direction: column;
     padding: 1.2rem 0.5rem;
     gap: 0.3rem;
@@ -302,7 +303,7 @@ const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: ${({ active, scrolled }) => scrolled ? 'var(--primary-green)' : '#fff'};
+  color: #222;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 0.93em;
@@ -315,11 +316,13 @@ const NavLink = styled(Link)`
   background: none;
   box-sizing: border-box;
   @media (max-width: 900px) {
+    color: #222;
     font-size: 0.9em;
     padding: 0 0.3rem;
     min-height: 30px;
   }
   @media (max-width: 600px) {
+    color: #222;
     font-size: 0.85em;
     padding: 0 0.15rem;
     min-height: 28px;
@@ -354,7 +357,7 @@ const DropdownButton = styled.button`
   align-items: center;
   background: none;
   border: none;
-  color: ${({ active, scrolled }) => scrolled ? 'var(--primary-green)' : '#fff'};
+  color: #222;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 0.93em;
@@ -367,11 +370,13 @@ const DropdownButton = styled.button`
   transition: all 0.2s ease;
   box-sizing: border-box;
   @media (max-width: 900px) {
+    color: #222;
     font-size: 0.9em;
     padding: 0 0.3rem;
     min-height: 30px;
   }
   @media (max-width: 600px) {
+    color: #222;
     font-size: 0.85em;
     padding: 0 0.15rem;
     min-height: 28px;
@@ -390,7 +395,7 @@ const DropdownMenu = styled.ul`
   position: absolute;
   top: 100%;
   left: 0;
-  background: var(--white);
+  background: #f5f7fa;
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   list-style: none;
@@ -414,6 +419,7 @@ const DropdownMenu = styled.ul`
     visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
     transform: none;
     transition: opacity 0.2s, visibility 0.2s;
+    z-index: 3000;
   }
 `;
 
@@ -424,7 +430,7 @@ const DropdownItem = styled.li`
 const DropdownLink = styled(Link)`
   display: block;
   padding: 0.55rem 0.9rem;
-  color: var(--text-dark);
+  color: #222;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   font-size: 0.95em;
   font-weight: 500;
@@ -432,7 +438,16 @@ const DropdownLink = styled(Link)`
   letter-spacing: 0.01em;
   border-radius: 5px;
   transition: all 0.2s ease;
-  
+  @media (max-width: 900px) {
+    color: #222;
+    font-size: 0.9em;
+    padding: 0.45rem 0.7rem;
+  }
+  @media (max-width: 600px) {
+    color: #222;
+    font-size: 0.85em;
+    padding: 0.35rem 0.5rem;
+  }
   &:hover {
     background: var(--light-green);
     color: var(--primary-green);
