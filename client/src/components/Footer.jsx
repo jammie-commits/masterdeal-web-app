@@ -67,16 +67,23 @@ const Footer = () => (
 export default Footer;
 
 const FooterWrapper = styled.footer`
-  background: linear-gradient(to right, #4caf50, #ff5722);
+  background: #4caf50;
   color: white;
-  padding: 3rem 0 1.5rem 0;
-  margin-top: 4rem;
+  padding: 2rem 0 1rem 0;
+  margin-top: 2rem;
+  @media (max-width: 600px) {
+    padding: 1.2rem 0 0.7rem 0;
+    margin-top: 1rem;
+  }
 `;
 
 const FooterContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
+  @media (max-width: 600px) {
+    padding: 0 0.3rem;
+  }
 `;
 
 const FooterGrid = styled.div`
@@ -86,11 +93,12 @@ const FooterGrid = styled.div`
   margin-bottom: 2rem;
   @media (max-width: 900px) {
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -101,10 +109,13 @@ const FooterSection = styled.div`
 `;
 
 const SectionTitle = styled.h4`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 const FooterList = styled.ul`
@@ -116,10 +127,14 @@ const FooterList = styled.ul`
 const FooterListItem = styled.li`
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 0.9rem;
+    gap: 0.3rem;
+  }
   a {
     color: #fff;
     text-decoration: none;
@@ -133,15 +148,18 @@ const FooterListItem = styled.li`
 const FooterLinks = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  margin-top: 0.5rem;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
   a {
     color: white;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-decoration: none;
     transition: color 0.2s;
     &:hover {
       color: #ffccbc;
+    }
+    @media (max-width: 600px) {
+      font-size: 0.9rem;
     }
   }
 `;
@@ -150,21 +168,24 @@ const FooterLink = styled.a``;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 0.7rem;
+  margin-bottom: 0.3rem;
+  @media (max-width: 600px) {
+    gap: 0.3rem;
+  }
 `;
 
 const SocialLink = styled.a`
   color: #1877f3;
   background: #fff;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 8px rgba(24,119,243,0.08);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   transition: background 0.2s, color 0.2s;
   &:hover {
     background: #1877f3;
@@ -173,9 +194,12 @@ const SocialLink = styled.a`
 `;
 
 const FollowText = styled.div`
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #fff;
   font-weight: 500;
+  @media (max-width: 600px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const FooterBottom = styled.div`
@@ -184,16 +208,20 @@ const FooterBottom = styled.div`
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgba(255,255,255,0.18);
-  padding-top: 1.2rem;
-  gap: 1rem;
+  padding-top: 0.7rem;
+  gap: 0.7rem;
   @media (max-width: 600px) {
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.4rem;
     text-align: center;
+    padding-top: 0.4rem;
   }
 `;
 
 const Copyright = styled.div`
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 0.9rem;
+  }
 `; 

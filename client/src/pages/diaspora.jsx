@@ -55,12 +55,23 @@ const DiasporaContainer = styled.div`
     color: #000;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    word-break: break-word;
+    @media (max-width: 900px) {
+      font-size: 2rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+      padding: 0 0.2rem;
+    }
   }
 
   h2 {
     color: #000;
     margin-top: 2rem;
     font-size: 1.8rem;
+    @media (max-width: 600px) {
+      font-size: 1.1rem;
+    }
   }
 
   p {
@@ -68,6 +79,9 @@ const DiasporaContainer = styled.div`
     max-width: 600px;
     margin: 0 auto 2rem;
     font-size: 1.1rem;
+    @media (max-width: 600px) {
+      font-size: 0.98rem;
+    }
   }
 `;
 
@@ -77,6 +91,9 @@ const SlideContainer = styled.div`
   gap: 2rem;
   justify-content: center;
   margin-top: 2rem;
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
 `;
 
 const Slide = styled.div`
@@ -92,7 +109,13 @@ const Slide = styled.div`
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
   cursor: pointer;
-  
+  @media (max-width: 600px) {
+    width: 90vw;
+    min-width: 180px;
+    max-width: 320px;
+    padding: 1.2rem;
+    height: auto;
+  }
   &:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
@@ -102,7 +125,7 @@ const Slide = styled.div`
 
 const IconContainer = styled.div`
   font-size: 2.5rem;
-  color: #FFA500; /* Orange color for the icons */
+  color: #FFA500;
   margin-bottom: 1rem;
 `;
 
@@ -115,19 +138,19 @@ const ContactSection = styled.div`
   margin-top: 3rem;
   text-align: center;
   padding: 2rem;
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 `;
 
 const ContactInfo = styled.div`
   margin-top: 1rem;
-
   p {
     font-size: 1rem;
     color: #333;
-    
     a {
       color: #4CAF50;
       text-decoration: none;
-      
       &:hover {
         text-decoration: underline;
       }

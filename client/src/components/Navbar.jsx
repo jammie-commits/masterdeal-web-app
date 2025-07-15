@@ -328,7 +328,7 @@ const NavLink = styled(Link)`
     min-height: 28px;
   }
   &:hover {
-    color: var(--primary-orange);
+    color: #fff;
     background: rgba(255, 255, 255, 0.08);
   }
   &::after {
@@ -382,7 +382,7 @@ const DropdownButton = styled.button`
     min-height: 28px;
   }
   &:hover {
-    color: var(--primary-orange);
+    color: #fff;
     background: rgba(255, 255, 255, 0.08);
   }
   svg {
@@ -450,7 +450,7 @@ const DropdownLink = styled(Link)`
   }
   &:hover {
     background: var(--light-green);
-    color: var(--primary-green);
+    color: #FF6B35;
   }
 `;
 
