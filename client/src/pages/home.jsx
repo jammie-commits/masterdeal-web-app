@@ -383,10 +383,10 @@ const SlideImage = styled.img`
   opacity: 1;
   border-radius: 0;
   @media (max-width: 600px) {
-    border-radius: 10px;
     width: 100%;
-    height: 100%;
+    height: 180px;
     object-fit: cover;
+    border-radius: 10px;
   }
 `;
 
