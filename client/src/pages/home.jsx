@@ -337,7 +337,7 @@ const MainSlider = styled.div`
   }
   @media (max-width: 600px) {
     height: 90px;
-    margin-top: 60px;
+    margin-top: 100px;
   }
   .swiper {
     width: 100%;

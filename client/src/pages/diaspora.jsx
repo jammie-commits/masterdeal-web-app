@@ -50,6 +50,7 @@ export default function Diaspora() {
 const DiasporaContainer = styled.div`
   padding: 2rem;
   text-align: center;
+  padding-top: 100px; /* Add top padding to prevent header overlap */
 
   h1 {
     color: #000;
